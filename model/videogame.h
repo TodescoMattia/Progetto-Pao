@@ -1,15 +1,19 @@
 #ifndef VIDEOGAME
 #define VIDEOGAME
+#include "genre.h"
 #include "item.h"
 
 class Videogame : public Item {
 private:
-  std::string vgameGenre;
+  Genre vgameGenre;
 
 public:
   // Costruttore
   Videogame(std::string id, std::string tit = "", bool state = false,
-            std::string gen = "");
+            Genre gen = (Genre)0);
+
+  // Metodi
+  void print() const;
 };
 
 #endif
