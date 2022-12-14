@@ -1,5 +1,5 @@
-#ifndef BOOK
-#define BOOK
+#ifndef BOOK_H
+#define BOOK_H
 #include "genre.h"
 #include "item.h"
 

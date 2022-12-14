@@ -1,5 +1,5 @@
-#ifndef FILM
-#define FILM
+#ifndef FILM_H
+#define FILM_H
 #include "genre.h"
 #include "item.h"
 

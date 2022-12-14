@@ -1,5 +1,5 @@
-#ifndef DATE
-#define DATE
+#ifndef DATE_H
+#define DATE_H
 #include <iostream>
 
 class Date {

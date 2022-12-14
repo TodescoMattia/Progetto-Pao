@@ -1,5 +1,5 @@
-#ifndef LOAN
-#define LOAN
+#ifndef LOAN_H
+#define LOAN_H
 #include "date.h"
 #include "item.h"
 #include "user.h"

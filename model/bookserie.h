@@ -1,5 +1,5 @@
-#ifndef BOOKSERIE
-#define BOOKSERIE
+#ifndef BOOKSERIE_H
+#define BOOKSERIE_H
 #include "book.h"
 
 class BookSerie : public Book {

@@ -1,5 +1,5 @@
-#ifndef BOARDGAME
-#define BOARDGAME
+#ifndef BOARDGAME_H
+#define BOARDGAME_H
 #include "genre.h"
 #include "item.h"
 

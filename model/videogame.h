@@ -1,5 +1,5 @@
-#ifndef VIDEOGAME
-#define VIDEOGAME
+#ifndef VIDEOGAME_H
+#define VIDEOGAME_H
 #include "genre.h"
 #include "item.h"
 
