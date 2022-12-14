@@ -1,16 +1,20 @@
 #ifndef BOARDGAME
 #define BOARDGAME
+#include "genre.h"
 #include "item.h"
 
 class BoardGame : public Item {
 private:
-  std::string bgameGenre;
+  Genre bgameGenre;
   unsigned int playerNumber;
 
 public:
   // Costruttore
   BoardGame(std::string id, std::string tit = "", bool state = false,
-            std::string gen = "", unsigned int player = 0);
+            Genre gen = (Genre)0, unsigned int player = 0);
+
+  // Metodi
+  void print() const;
 };
 
 #endif
