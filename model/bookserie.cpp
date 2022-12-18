@@ -8,7 +8,6 @@ BookSerie::BookSerie(std::string id, std::string tit, bool state,
 
 // Metodi
 void BookSerie::print() const {
-  Item::print();
   Book::print();
   std::cout << volumeNumber;
 }
