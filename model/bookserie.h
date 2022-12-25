@@ -14,6 +14,14 @@ public:
 
   // Metodi
   void print() const;
+
+  //getter
+
+  unsigned int getVolumeNumber() const;
+
+  //setter
+
+  unsigned int setVolumeNumber(unsigned int NewVolumeNumber);
 };
 
 #endif

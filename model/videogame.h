@@ -14,6 +14,14 @@ public:
 
   // Metodi
   void print() const;
+
+  //getter
+
+  Genre getVGameGenre() const;
+
+  //setter
+
+  Genre setVGameGenre(Genre NewVGameGenre);
 };
 
 #endif

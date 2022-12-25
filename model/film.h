@@ -16,6 +16,18 @@ public:
 
   // Metodi
   void print() const;
+
+  //getter
+
+  std::string getDirector() const;
+  unsigned int getDuration() const;
+  Genre getFilmGenre() const;
+
+  //setter
+
+  std::string setDirector(std::string NewDirector);
+  unsigned int setDuration(unsigned int NewDuration);
+  Genre setFilmGenre(Genre NewFilmGenre);
 };
 
 #endif
