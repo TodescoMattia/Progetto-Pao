@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#include "Visitor.h"
+
 class Item {
 private:
   std::string id;
@@ -23,6 +25,9 @@ public:
 
   // Metodi
   virtual void print() const; // metodo virtuale
+
+  // Visitor
+  virtual void accept(Visitor &visitor) = 0;
 };
 
 #endif

@@ -15,13 +15,15 @@ public:
   // Metodi
   void print() const;
 
-  //getter
+  // getter
 
   Genre getVGameGenre() const;
 
-  //setter
+  // setter
 
   Genre setVGameGenre(Genre NewVGameGenre);
+
+  virtual void accept(Visitor &visitor);
 };
 
 #endif

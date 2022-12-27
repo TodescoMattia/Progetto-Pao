@@ -5,15 +5,19 @@ BoardGame::BoardGame(std::string id, std::string tit, bool state, Genre gen,
                      unsigned int player)
     : Item(id, tit, state), bgameGenre(gen), playerNumber(player) {}
 
-//Getter
+// Getter
 
-Genre BoardGame::getBGameGenre() const {return bgameGenre;}
-unsigned int BoardGame::getPlayerNumber() const {return playerNumber;}
+Genre BoardGame::getBGameGenre() const { return bgameGenre; }
+unsigned int BoardGame::getPlayerNumber() const { return playerNumber; }
 
-//Setter
+// Setter
 
-Genre BoardGame::setBGameGenre(Genre NewGameGenre) {bgameGenre=NewGameGenre;}
-unsigned int BoardGame::setPlayerNumber(unsigned int NewPlayerNumber) {playerNumber=NewPlayerNumber;}
+Genre BoardGame::setBGameGenre(Genre NewGameGenre) {
+  bgameGenre = NewGameGenre;
+}
+unsigned int BoardGame::setPlayerNumber(unsigned int NewPlayerNumber) {
+  playerNumber = NewPlayerNumber;
+}
 
 // Metodi
 
@@ -22,6 +26,4 @@ void BoardGame::print() const {
   std::cout << bgameGenre << playerNumber;
 }
 
-
-
-
+void BoardGame::accept(Visitor &visitor) { visitor.visit(*this); }

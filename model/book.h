@@ -21,14 +21,16 @@ public:
   unsigned int getPageNumber() const;
   Genre getGenre() const;
 
-  //setter
-  
+  // setter
+
   std::string setAuthor(std::string NewAuthor);
   unsigned int setPageNumber(unsigned int NewPageNumber);
   Genre setGenre(Genre NewGenre);
 
   // Metodi
   virtual void print() const; // overriding di Item::print()
+
+  virtual void accept(Visitor &visitor);
 };
 
 #endif

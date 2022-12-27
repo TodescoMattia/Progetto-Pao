@@ -6,13 +6,15 @@ BookSerie::BookSerie(std::string id, std::string tit, bool state,
                      unsigned int vol)
     : Book(id, tit, state, aut, pag, gen), volumeNumber(vol) {}
 
-//getter
+// getter
 
-unsigned int BookSerie::getVolumeNumber() const {return volumeNumber;}
+unsigned int BookSerie::getVolumeNumber() const { return volumeNumber; }
 
-//setter
+// setter
 
-unsigned int BookSerie::setVolumeNumber(unsigned int NewVolumeNumber) {volumeNumber=NewVolumeNumber;}
+unsigned int BookSerie::setVolumeNumber(unsigned int NewVolumeNumber) {
+  volumeNumber = NewVolumeNumber;
+}
 
 // Metodi
 void BookSerie::print() const {
@@ -20,4 +22,4 @@ void BookSerie::print() const {
   std::cout << volumeNumber;
 }
 
-
+void BookSerie::accept(Visitor &visitor) { visitor.visit(*this); }

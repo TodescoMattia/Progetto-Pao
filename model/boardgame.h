@@ -13,18 +13,20 @@ public:
   BoardGame(std::string id, std::string tit = "", bool state = false,
             Genre gen = (Genre)0, unsigned int player = 0);
 
-  //getter
+  // getter
 
-Genre getBGameGenre() const;
-unsigned int getPlayerNumber() const;
+  Genre getBGameGenre() const;
+  unsigned int getPlayerNumber() const;
 
-  //setter
+  // setter
 
-Genre setBGameGenre(Genre NewGameGenre);
-unsigned int setPlayerNumber(unsigned int NewPlayerNumber);
+  Genre setBGameGenre(Genre NewGameGenre);
+  unsigned int setPlayerNumber(unsigned int NewPlayerNumber);
 
   // Metodi
   void print() const;
+
+  virtual void accept(Visitor &visitor);
 };
 
 #endif

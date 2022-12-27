@@ -15,13 +15,13 @@ public:
   // Metodi
   void print() const;
 
-  //getter
-
+  // getter
   unsigned int getVolumeNumber() const;
 
-  //setter
-
+  // setter
   unsigned int setVolumeNumber(unsigned int NewVolumeNumber);
+
+  virtual void accept(Visitor &visitor);
 };
 
 #endif

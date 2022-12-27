@@ -17,17 +17,19 @@ public:
   // Metodi
   void print() const;
 
-  //getter
+  // getter
 
   std::string getDirector() const;
   unsigned int getDuration() const;
   Genre getFilmGenre() const;
 
-  //setter
+  // setter
 
   std::string setDirector(std::string NewDirector);
   unsigned int setDuration(unsigned int NewDuration);
   Genre setFilmGenre(Genre NewFilmGenre);
+
+  virtual void accept(Visitor &visitor);
 };
 
 #endif
