@@ -4,6 +4,9 @@
 Item::Item(std::string id, std::string tit, bool state)
     : id(id), title(tit), isLent(state) {}
 
+// Distruttore
+Item::~Item() {}
+
 // Getter
 std::string Item::getId() const { return id; }
 std::string Item::getTitle() const { return title; }

@@ -12,7 +12,9 @@ private:
 public:
   // Costruttore
   Item(std::string id = "", std::string tit = "", bool state = 0);
-  //~Item();
+
+  // Distruttore
+  virtual ~Item() = 0;
 
   // Getter
   std::string getId() const;
@@ -21,9 +23,6 @@ public:
 
   // Metodi
   virtual void print() const; // metodo virtuale
-  // virtual void create();
-  // virtual void edit();
-  // virtual void delete();
 };
 
 #endif
