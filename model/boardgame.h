@@ -20,8 +20,8 @@ public:
 
   // setter
 
-  Genre setBGameGenre(Genre NewGameGenre);
-  unsigned int setPlayerNumber(unsigned int NewPlayerNumber);
+  void setBGameGenre(Genre NewGameGenre);
+  void setPlayerNumber(unsigned int NewPlayerNumber);
 
   // Metodi
   void print() const;

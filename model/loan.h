@@ -33,11 +33,11 @@ public:
 
   // Setter
 
-  std::string setCodLoan(std::string NewCodLoan);
-  Date setStartDate(Date NewStartDate);
-  Date setEndDate(Date NewEndDate);
-  const User *setUser(const User *NewUser);
-  const Item *setItem(const Item *NewItem);
+  void setCodLoan(std::string NewCodLoan);
+  void setStartDate(Date NewStartDate);
+  void setEndDate(Date NewEndDate);
+  void setUser(const User *NewUser);
+  void setItem(const Item *NewItem);
 };
 
 #endif

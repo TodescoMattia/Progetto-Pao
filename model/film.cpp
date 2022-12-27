@@ -13,13 +13,9 @@ Genre Film::getFilmGenre() const { return filmGenre; }
 
 // Setter
 
-std::string Film::setDirector(std::string NewDirector) {
-  director = NewDirector;
-}
-unsigned int Film::setDuration(unsigned int NewDuration) {
-  duration = NewDuration;
-}
-Genre Film::setFilmGenre(Genre NewFilmGenre) { filmGenre = NewFilmGenre; }
+void Film::setDirector(std::string NewDirector) { director = NewDirector; }
+void Film::setDuration(unsigned int NewDuration) { duration = NewDuration; }
+void Film::setFilmGenre(Genre NewFilmGenre) { filmGenre = NewFilmGenre; }
 
 // Metodi
 void Film::print() const {

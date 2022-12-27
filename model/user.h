@@ -12,15 +12,15 @@ public:
   // Costruttore
   User(std::string name = "", std::string surname = "");
 
-  //Getter
+  // Getter
 
   std::string getName() const;
   std::string getSurname() const;
 
-  //Setter
+  // Setter
 
-  std::string setName(std::string NewName);
-  std::string setSurname(std::string NewSurname);
+  void setName(std::string NewName);
+  void setSurname(std::string NewSurname);
 
   // Metodi
   void print() const;

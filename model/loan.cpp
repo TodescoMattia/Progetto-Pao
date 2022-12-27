@@ -17,11 +17,11 @@ const Item *Loan::getItem() const { return ptrItem; }
 
 // Setter
 
-std::string Loan::setCodLoan(std::string NewCodLoan) { codLoan = NewCodLoan; }
-Date Loan::setStartDate(Date NewStartDate) { startDate = NewStartDate; }
-Date Loan::setEndDate(Date NewEndDate) { endDate = NewEndDate; }
-const User *Loan::setUser(const User *ptrNewUser) { ptrUser = ptrNewUser; }
-const Item *Loan::setItem(const Item *ptrNewItem) { ptrItem = ptrNewItem; }
+void Loan::setCodLoan(std::string NewCodLoan) { codLoan = NewCodLoan; }
+void Loan::setStartDate(Date NewStartDate) { startDate = NewStartDate; }
+void Loan::setEndDate(Date NewEndDate) { endDate = NewEndDate; }
+void Loan::setUser(const User *ptrNewUser) { ptrUser = ptrNewUser; }
+void Loan::setItem(const Item *ptrNewItem) { ptrItem = ptrNewItem; }
 
 // Metodi
 void Loan::print() const {

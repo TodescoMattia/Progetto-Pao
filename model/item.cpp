@@ -12,10 +12,10 @@ std::string Item::getId() const { return id; }
 std::string Item::getTitle() const { return title; }
 bool Item::getState() const { return isLent; }
 
-//Setter
-std::string Item::setId(std::string NewId) {id=NewId; }
-std::string Item::setTitle(std::string NewTitle) {title=NewTitle; }
-bool Item::setState(bool NewState) {isLent=NewState;}
+// Setter
+void Item::setId(std::string NewId) { id = NewId; }
+void Item::setTitle(std::string NewTitle) { title = NewTitle; }
+void Item::setState(bool NewState) { isLent = NewState; }
 
 // Metodi
 void Item::print() const { std::cout << id << title << isLent; }

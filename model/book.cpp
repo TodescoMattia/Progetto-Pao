@@ -12,11 +12,11 @@ unsigned int Book::getPageNumber() const { return pageNumber; }
 Genre Book::getGenre() const { return bookGenre; }
 
 // Setter
-std::string Book::setAuthor(std::string NewAuthor) { author = NewAuthor; }
-unsigned int Book::setPageNumber(unsigned int NewPageNumber) {
+void Book::setAuthor(std::string NewAuthor) { author = NewAuthor; }
+void Book::setPageNumber(unsigned int NewPageNumber) {
   pageNumber = NewPageNumber;
 }
-Genre Book::setGenre(Genre NewGenre) { bookGenre = NewGenre; }
+void Book::setGenre(Genre NewGenre) { bookGenre = NewGenre; }
 
 // Metodi
 void Book::print() const { // overriding di Item::print()

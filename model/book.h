@@ -23,9 +23,9 @@ public:
 
   // setter
 
-  std::string setAuthor(std::string NewAuthor);
-  unsigned int setPageNumber(unsigned int NewPageNumber);
-  Genre setGenre(Genre NewGenre);
+  void setAuthor(std::string NewAuthor);
+  void setPageNumber(unsigned int NewPageNumber);
+  void setGenre(Genre NewGenre);
 
   // Metodi
   virtual void print() const; // overriding di Item::print()

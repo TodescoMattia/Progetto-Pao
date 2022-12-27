@@ -12,7 +12,7 @@ unsigned int BookSerie::getVolumeNumber() const { return volumeNumber; }
 
 // setter
 
-unsigned int BookSerie::setVolumeNumber(unsigned int NewVolumeNumber) {
+void BookSerie::setVolumeNumber(unsigned int NewVolumeNumber) {
   volumeNumber = NewVolumeNumber;
 }
 

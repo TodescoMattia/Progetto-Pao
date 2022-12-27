@@ -10,7 +10,7 @@ Genre Videogame::getVGameGenre() const { return vgameGenre; }
 
 // Setter
 
-Genre Videogame::setVGameGenre(Genre NewVGameGenre) {
+void Videogame::setVGameGenre(Genre NewVGameGenre) {
   vgameGenre = NewVGameGenre;
 }
 

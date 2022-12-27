@@ -23,10 +23,10 @@ public:
   std::string getTitle() const;
   bool getState() const;
 
-  //Setter
-  std::string setId(std::string NewId);
-  std::string setTitle(std::string NewTitle);
-  bool setState(bool NewState);
+  // Setter
+  void setId(std::string NewId);
+  void setTitle(std::string NewTitle);
+  void setState(bool NewState);
 
   // Metodi
   virtual void print() const; // metodo virtuale

@@ -21,7 +21,7 @@ public:
 
   // setter
 
-  Genre setVGameGenre(Genre NewVGameGenre);
+  void setVGameGenre(Genre NewVGameGenre);
 
   virtual void accept(Visitor &visitor);
 };

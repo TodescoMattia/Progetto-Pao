@@ -4,15 +4,15 @@
 User::User(std::string name, std::string surname)
     : name(name), surname(surname) {}
 
-//Getter
+// Getter
 
-  std::string User::getName() const {return name;}
-  std::string User::getSurname() const{return surname;}
+std::string User::getName() const { return name; }
+std::string User::getSurname() const { return surname; }
 
-//Setter
+// Setter
 
-  std::string User::setName(std::string NewName) {name=NewName;}
-  std::string User::setSurname(std::string NewSurname) {surname=NewSurname;}
+void User::setName(std::string NewName) { name = NewName; }
+void User::setSurname(std::string NewSurname) { surname = NewSurname; }
 
 // Metodi
 void User::print() const {
