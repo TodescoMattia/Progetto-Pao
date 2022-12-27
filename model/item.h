@@ -24,9 +24,9 @@ public:
   bool getState() const;
 
   // Setter
-  void setId(std::string NewId);
-  void setTitle(std::string NewTitle);
-  void setState(bool NewState);
+  void setId(std::string newId);
+  void setTitle(std::string newTitle);
+  void setState(bool newState);
 
   // Metodi
   virtual void print() const; // metodo virtuale

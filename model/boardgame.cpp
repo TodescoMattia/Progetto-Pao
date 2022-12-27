@@ -12,9 +12,9 @@ unsigned int BoardGame::getPlayerNumber() const { return playerNumber; }
 
 // Setter
 
-void BoardGame::setBGameGenre(Genre NewGameGenre) { bgameGenre = NewGameGenre; }
-void BoardGame::setPlayerNumber(unsigned int NewPlayerNumber) {
-  playerNumber = NewPlayerNumber;
+void BoardGame::setBGameGenre(Genre newGameGenre) { bgameGenre = newGameGenre; }
+void BoardGame::setPlayerNumber(unsigned int newPlayerNumber) {
+  playerNumber = newPlayerNumber;
 }
 
 // Metodi

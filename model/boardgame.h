@@ -10,18 +10,19 @@ private:
 
 public:
   // Costruttore
+
   BoardGame(std::string id, std::string tit = "", bool state = false,
             Genre gen = (Genre)0, unsigned int player = 0);
 
-  // getter
+  // Getter
 
   Genre getBGameGenre() const;
   unsigned int getPlayerNumber() const;
 
-  // setter
+  // Setter
 
-  void setBGameGenre(Genre NewGameGenre);
-  void setPlayerNumber(unsigned int NewPlayerNumber);
+  void setBGameGenre(Genre newGameGenre);
+  void setPlayerNumber(unsigned int newPlayerNumber);
 
   // Metodi
   void print() const;

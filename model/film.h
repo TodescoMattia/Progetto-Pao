@@ -25,9 +25,9 @@ public:
 
   // setter
 
-  void setDirector(std::string NewDirector);
-  void setDuration(unsigned int NewDuration);
-  void setFilmGenre(Genre NewFilmGenre);
+  void setDirector(std::string newDirector);
+  void setDuration(unsigned int newDuration);
+  void setFilmGenre(Genre newFilmGenre);
 
   virtual void accept(Visitor &visitor);
 };

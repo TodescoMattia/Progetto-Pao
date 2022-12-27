@@ -11,6 +11,7 @@ private:
 
 public:
   // Costruttore
+
   User(std::string name = "", std::string surname = "", int num = 0);
 
   // Getter
@@ -20,9 +21,9 @@ public:
 
   // Setter
 
-  void setName(std::string NewName);
-  void setSurname(std::string NewSurname);
-  void setNumber(int NewNumber);
+  void setName(std::string newName);
+  void setSurname(std::string newSurname);
+  void setNumber(int newNumber);
 
   // Metodi
   void print() const;

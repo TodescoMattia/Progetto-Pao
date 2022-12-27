@@ -19,7 +19,7 @@ public:
   unsigned int getVolumeNumber() const;
 
   // setter
-  void setVolumeNumber(unsigned int NewVolumeNumber);
+  void setVolumeNumber(unsigned int newVolumeNumber);
 
   virtual void accept(Visitor &visitor);
 };

@@ -13,9 +13,9 @@ std::string Item::getTitle() const { return title; }
 bool Item::getState() const { return isLent; }
 
 // Setter
-void Item::setId(std::string NewId) { id = NewId; }
-void Item::setTitle(std::string NewTitle) { title = NewTitle; }
-void Item::setState(bool NewState) { isLent = NewState; }
+void Item::setId(std::string newId) { id = newId; }
+void Item::setTitle(std::string newTitle) { title = newTitle; }
+void Item::setState(bool newState) { isLent = newState; }
 
 // Metodi
 void Item::print() const { std::cout << id << title << isLent; }
