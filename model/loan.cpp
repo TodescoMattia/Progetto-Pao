@@ -24,6 +24,11 @@ void Loan::setUser(const User *ptrnewUser) { ptrUser = ptrnewUser; }
 void Loan::setItem(const Item *ptrnewItem) { ptrItem = ptrnewItem; }
 
 // Metodi
+
+bool Loan::isExpired() const { return endDate.isBeforeToday(); }
+
+// Cancellami
+
 void Loan::print() const {
   std::cout << codLoan;
   startDate.print();
@@ -31,5 +36,3 @@ void Loan::print() const {
   ptrUser->print();
   ptrItem->print();
 }
-
-bool Loan::isExpired() const { return endDate.isBeforeToday(); }

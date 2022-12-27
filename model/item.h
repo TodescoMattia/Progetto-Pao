@@ -13,26 +13,30 @@ private:
 
 public:
   // Costruttore
+
   Item(std::string id = "", std::string tit = "", bool state = 0);
 
   // Distruttore
+
   virtual ~Item() = 0;
 
   // Getter
+
   std::string getId() const;
   std::string getTitle() const;
   bool getState() const;
 
   // Setter
+
   void setId(std::string newId);
   void setTitle(std::string newTitle);
   void setState(bool newState);
 
-  // Metodi
-  virtual void print() const; // metodo virtuale
-
-  // Visitor
   virtual void accept(Visitor &visitor) = 0;
+
+  // Cancellami
+
+  virtual void print() const; // metodo virtuale
 };
 
 #endif

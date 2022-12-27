@@ -16,7 +16,8 @@ void User::setName(std::string newName) { name = newName; }
 void User::setSurname(std::string newSurname) { surname = newSurname; }
 void User::setNumber(int newNumber) { number = newNumber; }
 
-// Metodi
+// Cancellami
+
 void User::print() const {
   std::cout << name;
   std::cout << surname;

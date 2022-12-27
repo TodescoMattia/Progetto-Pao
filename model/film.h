@@ -11,25 +11,27 @@ private:
 
 public:
   // Costruttore
+
   Film(std::string id, std::string tit = "", bool state = false,
        std::string dir = "", unsigned int dur = 0, Genre gen = (Genre)0);
 
-  // Metodi
-  void print() const;
-
-  // getter
+  // Getter
 
   std::string getDirector() const;
   unsigned int getDuration() const;
   Genre getFilmGenre() const;
 
-  // setter
+  // Setter
 
   void setDirector(std::string newDirector);
   void setDuration(unsigned int newDuration);
   void setFilmGenre(Genre newFilmGenre);
 
   virtual void accept(Visitor &visitor);
+
+  // Cancellami
+
+  void print() const;
 };
 
 #endif

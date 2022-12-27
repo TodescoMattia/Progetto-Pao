@@ -24,10 +24,11 @@ public:
   void setBGameGenre(Genre newGameGenre);
   void setPlayerNumber(unsigned int newPlayerNumber);
 
-  // Metodi
-  void print() const;
-
   virtual void accept(Visitor &visitor);
+
+  // Cancellami
+
+  void print() const;
 };
 
 #endif

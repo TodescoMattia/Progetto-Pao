@@ -17,11 +17,11 @@ void BoardGame::setPlayerNumber(unsigned int newPlayerNumber) {
   playerNumber = newPlayerNumber;
 }
 
-// Metodi
+void BoardGame::accept(Visitor &visitor) { visitor.visit(*this); }
+
+// Cancellami
 
 void BoardGame::print() const {
   Item::print();
   std::cout << bgameGenre << playerNumber;
 }
-
-void BoardGame::accept(Visitor &visitor) { visitor.visit(*this); }

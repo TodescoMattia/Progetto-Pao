@@ -25,7 +25,8 @@ public:
   void setSurname(std::string newSurname);
   void setNumber(int newNumber);
 
-  // Metodi
+  // Cancellami
+
   void print() const;
 };
 #endif

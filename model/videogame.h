@@ -9,21 +9,23 @@ private:
 
 public:
   // Costruttore
+
   Videogame(std::string id, std::string tit = "", bool state = false,
             Genre gen = (Genre)0);
 
-  // Metodi
-  void print() const;
-
-  // getter
+  // Getter
 
   Genre getVGameGenre() const;
 
-  // setter
+  // Setter
 
   void setVGameGenre(Genre newVGameGenre);
 
   virtual void accept(Visitor &visitor);
+
+  // Cancellami
+
+  void print() const;
 };
 
 #endif

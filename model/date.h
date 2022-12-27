@@ -10,10 +10,15 @@ private:
 
 public:
   // Costruttore
+
   Date(unsigned int d = 1, unsigned int m = 1, unsigned int y = 1900);
 
   // Metodi
+
   bool isBeforeToday() const;
+
+  // Cancellami
+
   void print() const;
 };
 

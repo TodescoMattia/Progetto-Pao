@@ -1,12 +1,13 @@
 #include "date.h"
 #include <time.h>
 
+// Costruttore
+
 Date::Date(unsigned int d, unsigned int m, unsigned int y)
     : day((d >= 1 && d <= 31) ? d : 1), month((m >= 1 && m <= 12) ? m : 1),
       year(y) {}
 
 // Metodi
-void Date::print() const { std::cout << day << "/" << month << "/" << year; }
 
 bool Date::isBeforeToday() const {
   time_t today;
@@ -23,3 +24,7 @@ bool Date::isBeforeToday() const {
 
   return mktime(&t) < today; // mktime convert tm structure to time_t
 }
+
+// Cancellami
+
+void Date::print() const { std::cout << day << "/" << month << "/" << year; }
