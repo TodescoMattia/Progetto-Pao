@@ -1,8 +1,8 @@
 #include "user.h"
 
 // Costruttore
-User::User(std::string name, std::string surname)
-    : name(name), surname(surname) {}
+User::User(std::string name, std::string surname, int num)
+    : name(name), surname(surname), number(num) {}
 
 // Getter
 
@@ -13,6 +13,7 @@ std::string User::getSurname() const { return surname; }
 
 void User::setName(std::string NewName) { name = NewName; }
 void User::setSurname(std::string NewSurname) { surname = NewSurname; }
+void User::setNumber(int newNumber) { number = newNumber; }
 
 // Metodi
 void User::print() const {

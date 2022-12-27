@@ -7,10 +7,11 @@ class User {
 private:
   std::string name;
   std::string surname;
+  int number;
 
 public:
   // Costruttore
-  User(std::string name = "", std::string surname = "");
+  User(std::string name = "", std::string surname = "", int num = 0);
 
   // Getter
 
@@ -21,6 +22,7 @@ public:
 
   void setName(std::string NewName);
   void setSurname(std::string NewSurname);
+  void setNumber(int NewNumber);
 
   // Metodi
   void print() const;
