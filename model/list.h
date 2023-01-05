@@ -3,10 +3,10 @@
 #include <iostream>
 
 /* DA CANCELLARE ALLA FINE
- * - costruttore    //TODO
+ * - costruttore    //ok
  *
- * - Iterator    //TODO
- *      - operator*() con ritorno T&    //TODO
+ * - Iterator    //ok
+ *      - operator*() con ritorno T&    //ok
  *
  * - const_Iterator     //TODO
  *
@@ -14,26 +14,26 @@
  *
  * - List(const T &t) {} costruttore di copia    //ok
  *
- * - T& operator=(const T&) ridefinizione assegnazione    //TODO
+ * - T& operator=(const T&) ridefinizione assegnazione    //ok
  *
- * - ~List    //TODO
+ * - ~List    //ok
  *
- * - bool empty     //TODO
+ * - bool empty     //ok
  *
  * - size_type size() ritorna la dimensione del contenitore    //TODO
  * - size_type max size() ritorna la massima dimensione del contenitore //TODO
  *
- * - operator==    //TODO
+ * - operator==    //ok
  * - operator<    //TODO
  *
  * - Iterator begin()    //ok
  * - Iterator end()    //ok
  *
- * - Iterator& operator++()    //TODO
- * - Iterator& operator++(int)    //TODO
+ * - Iterator& operator++()    //ok
+ * - Iterator& operator++(int)    //ok
  *
- * - Iterator& operator--()    //TODO
- * - Iterator& operator--(int)    //TODO
+ * - Iterator& operator--()    //ok
+ * - Iterator& operator--(int)    //ok
  *
  * - List(n,t) contenitore con n copie di t    //TODO
  * - List(n) contenitore con n elementi di default    //TODO
@@ -42,17 +42,17 @@
  * ritorna l'Iteratore all'elemento inserito    //TODO
  * - insert(it, n, t) inserisce n copie di t nelle posizioni prima di it //TODO
  *
- * - erase(it)  rimuove l'elemento puntato da it    //TODO
+ * - erase(it)  rimuove l'elemento puntato da it    //ok
  * - erase(it, it) distrugge l'intervallo tra i due it e
  * ritorna l'it successivo      //TODO
  *
- * - clear() rimuove tutti gli elementi    //TODO
+ * - clear() rimuove tutti gli elementi    //ok
  *
- * - push_back(t) inserisce in coda    //TODO
+ * - push_back(t) inserisce in coda    //ok
  * - push_front(t) inserisce in testa    //ok
  *
- * - pop_back() rimuove in coda    //TODO
- * - pop_front() rimuove in testa    //TODO
+ * - pop_back() rimuove in coda    //ok
+ * - pop_front() rimuove in testa    //ok
  *
 
 */
@@ -62,37 +62,112 @@ private:
   class Node {
   public:
     T info;
-    Node *next;
+    Node *prev, *next;
     Node() : next(0) {}
-    Node(const T &t, Node *n = 0) : info(t), next(n) {}
+    Node(const T &t, Node *p = 0, Node *n = 0) : info(t), prev(p), next(n) {}
   };
-  Node *first; // puntatore al primo Node della lista
-  // lista vuota IFF first == nullptr
+  Node *first, *last; // lista vuota IFF first == last == nullptr
 
-  static Node *copy(Node *src) {
+  // Copia profonda
+
+  static void copy(Node *src, Node *&first, Node *&last) {
     if (src) {
-      Node *fst = new Node(src->info, src->next);
-      Node *fst_sc = fst;
-      Node *src_sc = src->next;
-      while (src_sc != nullptr) {
-        fst_sc->next = new Node(src_sc->info, src_sc->next);
-        fst_sc = fst_sc->next;
-        src_sc = src_sc->next;
+      first = last = new Node(src->info);
+      Node *it = src->next;
+      while (it != nullptr) {
+        last = new Node(it->info, last);
+        last->prev->next = last;
+        it = it->next;
       }
-      return fst;
     } else { // lista vuota
-      return nullptr;
+      first = last = nullptr;
+    }
+  }
+
+  // Distruzione profonda
+
+  static void destroy(Node *n) {
+    if (n != nullptr) {
+      destroy(n->next);
+      delete n;
     }
   }
 
 public:
   // Costruttore
-  List() : first(0) {}
+
+  List() : first(0), last(0) {}
 
   // Costruttore di copia
-  List(const List &l) : first(copy(l.first)) {}
 
-  void push_front(const T &t) { first = new Node(t, first); }
+  List(const List &l) { copy(l.first, first, last); }
+
+  // Distruttore
+
+  ~List() { destroy(first); }
+
+  // Operatore di assegnazione
+
+  List &operator=(const List &l) {
+    if (this != &l) {
+      destroy(first);
+      copy(l.first, first, last);
+    }
+    return *this;
+  }
+
+  void clear() {
+    destroy(first);
+    first == last == nullptr;
+  }
+
+  void push_front(const T &t) {
+    first = new Node(t, nullptr, first);
+    if (first->next == nullptr) { // lista invocazione vuota
+      last = first;
+    } else { // lista invocazione non vuota
+      (first->next)->prev = first;
+    }
+  }
+
+  void push_back(const T &t) {
+    last = new Node(t, last, nullptr);
+    if (last->prev == nullptr) { // lista invocazione vuota
+      first = last;
+    } else { // lista invocazione non vuota
+      (last->prev)->next = last;
+    }
+  }
+
+  void pop_front() {
+    if (first) {
+      if (first == last) { // unico nodo
+        delete first;
+        first = last = nullptr;
+      } else { // più di un nodo
+        Node *ptr = first->next;
+        delete first;
+        first = ptr;
+        first->prev = nullptr;
+      }
+    }
+  }
+
+  void pop_back() {
+    if (last) {
+      if (first == last) { // unico nodo
+        delete last;
+        first = last = nullptr;
+      } else { // più di un nodo
+        Node *ptr = last->prev;
+        delete last;
+        last = ptr;
+        last->next = nullptr;
+      }
+    }
+  }
+
+  bool empty() { return first == nullptr && last == nullptr; }
 
   class Iterator {
     friend class List<T>;
@@ -104,17 +179,15 @@ public:
     Iterator(Node *p, bool pte = false) : ptr(p), pastTheEnd(pte) {}
 
   public:
+    // Costruttore
+
     Iterator() : ptr(nullptr), pastTheEnd(false) {}
-
-    T &operator*() const { return ptr->info; }
-
-    T *operator->() const { return &(ptr->info); }
 
     Iterator &operator++() {
       if (ptr != nullptr) {
         if (!pastTheEnd) {
           if (ptr->next == nullptr) {
-            ++ptr;
+            ptr++;
             pastTheEnd = true;
           } else {
             ptr = ptr->next;
@@ -124,20 +197,92 @@ public:
       return *this;
     }
 
+    Iterator &operator--() {
+      if (ptr != nullptr) {
+        if (ptr->prev == nullptr)
+          ptr = nullptr;
+        else if (!pastTheEnd)
+          ptr = ptr->prev;
+        else {
+          ptr = ptr - 1;
+          pastTheEnd = false;
+        }
+      }
+      return *this;
+    }
+
+    Iterator operator++(int) {
+      Iterator aux(*this);
+      if (ptr != nullptr) {
+        if (!pastTheEnd) {
+          if (ptr->next != nullptr)
+            ptr = ptr->next;
+          else { // ultimo elemento
+            ptr = ptr + 1;
+            pastTheEnd = true;
+          }
+        }
+      }
+      return aux;
+    }
+
+    Iterator operator--(int) {
+      Iterator aux(*this);
+      if (ptr != nullptr) {
+        if (ptr->prev == nullptr)
+          ptr = nullptr;
+        else if (!pastTheEnd)
+          ptr = ptr->prev;
+        else {
+          ptr = ptr - 1;
+          pastTheEnd = false;
+        }
+      }
+      return aux;
+    }
+
+    T &operator*() const { return ptr->info; }
+    T *operator->() const { return &(ptr->info); }
     bool operator!=(const Iterator &x) const { return ptr != x.ptr; }
+    bool operator==(const Iterator &x) const { return ptr == x.ptr; }
   };
 
   Iterator begin() const { return Iterator(first); }
 
   Iterator end() const {
-    if (first == nullptr)
-      return nullptr;
-    else {
-      Node *last = first;
-      while (last->next != nullptr) {
-        last = last->next;
+    if (last == nullptr)
+      return Iterator();
+
+    return Iterator(last + 1, true);
+  }
+
+  void erase(Iterator &it) {
+    if (it.ptr) {
+      if (!it.pastTheEnd) {
+        if (it.ptr == first && it.ptr == last) { // unico nodo
+          first = last = nullptr;
+          delete it.ptr;
+          it.ptr = nullptr;
+        } else {                 // più di un nodo
+          if (it.ptr == first) { // primo nodo
+            first = first->next;
+            first->prev = nullptr;
+            delete it.ptr;
+            it.ptr = nullptr;
+          } else if (it.ptr == last) { // ultimo nodo
+            last = last->prev;
+            last->next = nullptr;
+            delete it.ptr;
+            it.ptr = last;
+          } else { // nodo in mezzo
+            Node *tmp = it.ptr->prev;
+            it.ptr->next->prev = it.ptr->prev;
+            it.ptr->prev->next = it.ptr->next;
+            delete it.ptr;
+            it.ptr = tmp;
+          }
+        }
       }
-      return Iterator(last + 1, true);
     }
   }
 };
