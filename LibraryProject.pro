@@ -9,7 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    iteminfo.cpp \
+    view\iteminfo.cpp \
     model\genre.cpp \
     model\item.cpp \
     model\book.cpp \
@@ -24,7 +24,7 @@ SOURCES += \
 
 
 HEADERS += \
-    iteminfo.h \
+    view\iteminfo.h \
     model\visitor.h \
     model\genre.h \
     model\item.h \
