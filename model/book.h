@@ -19,13 +19,13 @@ public:
 
   std::string getAuthor() const;
   unsigned int getPageNumber() const;
-  Genre getGenre() const;
+  Genre getBookGenre() const;
 
   // Setter
 
   void setAuthor(std::string newAuthor);
   void setPageNumber(unsigned int newPageNumber);
-  void setGenre(Genre newGenre);
+  void setBookGenre(Genre newGenre);
 
   virtual void accept(Visitor &visitor);
 

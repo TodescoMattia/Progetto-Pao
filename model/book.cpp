@@ -10,7 +10,7 @@ Book::Book(std::string id, std::string tit, bool state, std::string aut,
 
 std::string Book::getAuthor() const { return author; }
 unsigned int Book::getPageNumber() const { return pageNumber; }
-Genre Book::getGenre() const { return bookGenre; }
+Genre Book::getBookGenre() const { return bookGenre; }
 
 // Setter
 
@@ -18,7 +18,7 @@ void Book::setAuthor(std::string newAuthor) { author = newAuthor; }
 void Book::setPageNumber(unsigned int newPageNumber) {
   pageNumber = newPageNumber;
 }
-void Book::setGenre(Genre newGenre) { bookGenre = newGenre; }
+void Book::setBookGenre(Genre newGenre) { bookGenre = newGenre; }
 
 void Book::accept(Visitor &visitor) { visitor.visit(*this); }
 
