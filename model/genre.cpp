@@ -16,3 +16,20 @@ std::ostream &operator<<(std::ostream &os, const Genre &g) {
     return os << "(invalid genre)";
   }
 }
+
+std::string toString(const Genre &g) {
+  switch (g) {
+  case Fantasy:
+    return "Fantasy";
+  case Horror:
+    return "Horror";
+  case Romance:
+    return "Romance";
+  case Comedy:
+    return "Comedy";
+  case Thriller:
+    return "Thriller";
+  default:
+    return "(invalid genre)";
+  }
+}
