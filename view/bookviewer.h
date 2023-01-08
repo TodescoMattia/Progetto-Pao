@@ -10,6 +10,7 @@
 #include <QFrame>
 #include <QLabel>
 #include <QPushButton>
+#include <Qstring>
 
 
 
@@ -18,7 +19,7 @@ class BookViewer: public QWidget{
 
     void Schermo(QVBoxLayout* MainLayout);
 
-    void TabDialog (QVBoxLayout* MainLayout);
+    void TabDialogViewer (QVBoxLayout* MainLayout);
 
     void BarraDeiMenu(QVBoxLayout* MainLayout);
 
