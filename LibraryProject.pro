@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    view/tabdialog.cpp \
     view\iteminfo.cpp \
     model\genre.cpp \
     model\item.cpp \
@@ -24,6 +25,7 @@ SOURCES += \
 
 
 HEADERS += \
+    view/tabdialog.h \
     view\iteminfo.h \
     model\visitor.h \
     model\genre.h \

@@ -18,7 +18,7 @@ class BookViewer: public QWidget{
 
     void Schermo(QVBoxLayout* MainLayout);
 
-    void Pulsanti(QVBoxLayout* MainLayout);
+    void TabDialog (QVBoxLayout* MainLayout);
 
     void BarraDeiMenu(QVBoxLayout* MainLayout);
 
