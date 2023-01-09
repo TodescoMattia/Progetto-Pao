@@ -17,6 +17,7 @@ SOURCES += \
     view/loantab.cpp \
     view/userinfo.cpp \
     view/usertab.cpp \
+    view/tabdialog.cpp \
     view\iteminfo.cpp \
     model\genre.cpp \
     model\user.cpp \
@@ -46,6 +47,7 @@ HEADERS += \
     view/loantab.h \
     view/userinfo.h \
     view/usertab.h \
+    view/tabdialog.h \
     view\iteminfo.h \
     model\visitor.h \
     model\genre.h \

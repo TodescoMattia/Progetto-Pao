@@ -1,4 +1,6 @@
 #include "bookviewer.h"
+#include "tabdialog.h"
+#include <QtWidgets>
 
 void BookViewer::BarraDeiMenu(QVBoxLayout* MainLayout)
 {
@@ -18,61 +20,49 @@ void BookViewer::Schermo(QVBoxLayout* MainLayout)
 {
     QVBoxLayout* ScreenLayout = new QVBoxLayout;
 
-    QFrame* listadeilibri= new QFrame;
+    QFrame* ItemList= new QFrame;
 
     QHBoxLayout* ImageLayout = new QHBoxLayout;
     ImageLayout->addWidget(new QLabel(this));
 
-    listadeilibri->setStyleSheet("background-color: rgb(50,50,50)");
-    listadeilibri->setLayout(ImageLayout);
-    listadeilibri->layout()->setSpacing(0);
-    listadeilibri->layout()->setAlignment(Qt::AlignCenter);
-    listadeilibri->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    ItemList->setStyleSheet("background-color: rgb(50,50,50)");
+    ItemList->setLayout(ImageLayout);
+    ItemList->layout()->setSpacing(0);
+    ItemList->layout()->setAlignment(Qt::AlignCenter);
+    ItemList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    ScreenLayout->addWidget(listadeilibri);
+    ScreenLayout->addWidget(ItemList);
     ScreenLayout->setSpacing(0);
     MainLayout->addLayout(ScreenLayout);
 }
 
-void BookViewer::Pulsanti(QVBoxLayout* MainLayout)
+void BookViewer::TabDialogViewer(QVBoxLayout* MainLayout)
 {
-    QHBoxLayout* controlsLayout = new QHBoxLayout;
+    QVBoxLayout* TabLayout = new QVBoxLayout;
 
-    QHBoxLayout* ButtonLayout = new QHBoxLayout;
+    TabDialog TabDialog;
 
-    QPushButton* Aggiungi = new QPushButton("Aggiungi");
-    QPushButton* Elimina = new QPushButton("Elimina");
-    QPushButton* Cerca = new QPushButton("Cerca");
-    QPushButton* Prestiti = new QPushButton("Prestiti");
+    QTabWidget* TabWidget = new QTabWidget;
+    QTabWidget->addTab(TabDialog);
 
 
-    ButtonLayout->addWidget(Aggiungi);
-    ButtonLayout->addWidget(Elimina);
-    ButtonLayout->addWidget(Cerca);
-    ButtonLayout->addWidget(Prestiti);
-    ButtonLayout->setSpacing(50);
-    ButtonLayout->setContentsMargins(25, 0, 25, 0);
+     MainLayout->addLayout(TabLayout);
 
-    controlsLayout->addLayout(ButtonLayout);
 
-    controlsLayout->setSpacing(150);
-        controlsLayout->setContentsMargins(150, 25, 150, 25);
+     }
 
-        MainLayout->addLayout(controlsLayout);
-}
+     BookViewer::BookViewer(QWidget *parent) : QWidget(parent){
+         QVBoxLayout* MainLayout= new QVBoxLayout;
 
-BookViewer::BookViewer(QWidget *parent) : QWidget(parent){
-    QVBoxLayout* MainLayout= new QVBoxLayout;
+         BarraDeiMenu(MainLayout);
 
-    BarraDeiMenu(MainLayout);
+         Schermo(MainLayout);
 
-    Schermo(MainLayout);
+         TabDialogViewer(MainLayout);
 
-    Pulsanti(MainLayout);
+         MainLayout->setSpacing(0);
 
-    MainLayout->setSpacing(0);
+         resize(QSize(1024,720));
 
-    resize(QSize(1024,720));
-
-    setLayout(MainLayout);
-}
+         setLayout(MainLayout);
+     }
