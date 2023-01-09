@@ -17,9 +17,23 @@ public:
 
   bool isBeforeToday() const;
 
+  // Getter
+
+  unsigned int getDay() const;
+  unsigned int getMonth() const;
+  unsigned int getYear() const;
+
+  // Setter
+
+  void setDay(unsigned int newDay);
+  void setMonth(unsigned int newMonth);
+  void setYear(unsigned int newYear);
+
   // Cancellami
 
   void print() const;
 };
+
+std::string toString(const Date &date);
 
 #endif
