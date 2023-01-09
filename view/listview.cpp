@@ -6,6 +6,7 @@
 ListView::ListView(Info *infoAb): info(infoAb)
 {
     widget = new QWidget();
+    widget->setObjectName("list-item");
 
     QHBoxLayout* layout = new QHBoxLayout(widget);
 
