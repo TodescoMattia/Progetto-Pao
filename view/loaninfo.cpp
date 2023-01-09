@@ -20,7 +20,7 @@ LoanInfo::LoanInfo(Loan &loan) : loan(loan) {
   loanInfo->addWidget(endDateLabel);
 
   userLabel = new QLabel("Numero utente: " +
-                         QString::number(loan.getUser()->getNumber()));
+                         QString::fromStdString(loan.getUser()->getNumber()));
   loanInfo->addWidget(userLabel);
 
   itemLabel = new QLabel("Codice oggetto: " +

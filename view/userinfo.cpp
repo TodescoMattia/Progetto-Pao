@@ -16,7 +16,8 @@ UserInfo::UserInfo(User &user) : user(user) {
       new QLabel("Cognome: " + QString::fromStdString(user.getSurname()));
   userInfo->addWidget(surnameLabel);
 
-  numberLabel = new QLabel("Numero: " + QString::number(user.getNumber()));
+  numberLabel =
+      new QLabel("Numero: " + QString::fromStdString(user.getNumber()));
   userInfo->addWidget(numberLabel);
 }
 
