@@ -24,3 +24,9 @@ void Item::setState(bool newState) { isLent = newState; }
 // Cancellami
 
 void Item::print() const { std::cout << id << title << isLent; }
+
+std::string toString(const bool &state) {
+  if (state)
+    return "In prestito";
+  return "Libero";
+}

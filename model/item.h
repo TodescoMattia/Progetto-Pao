@@ -39,4 +39,5 @@ public:
   virtual void print() const; // metodo virtuale
 };
 
+std::string toString(const bool &state);
 #endif
