@@ -6,7 +6,7 @@
 
 class ItemInfoVisitor: public Visitor{
 private:
-     QWidget* widget;
+    QWidget* widget;
 public:
     QWidget* getWidget();
     virtual void visit(Book& book);
