@@ -18,6 +18,7 @@ public:
 
   std::string getName() const;
   std::string getSurname() const;
+  int getNumber() const;
 
   // Setter
 

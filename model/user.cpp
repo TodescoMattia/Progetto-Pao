@@ -9,6 +9,7 @@ User::User(std::string name, std::string surname, int num)
 
 std::string User::getName() const { return name; }
 std::string User::getSurname() const { return surname; }
+int User::getNumber() const { return number; }
 
 // Setter
 
