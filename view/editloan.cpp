@@ -7,7 +7,7 @@ EditLoan::EditLoan(QWidget *parent)
 
 
     QLineEdit* ID = new QLineEdit;
-    QLineEdit* EndDate = new QLineEdit;
+    QDateEdit* EndDate = new QDateEdit;
 
 
 

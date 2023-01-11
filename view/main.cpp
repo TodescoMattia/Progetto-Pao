@@ -1,6 +1,10 @@
 #include "homeviewer.h"
 #include "mainwindow.h"
 
+#include "edititem.h"
+#include "edituser.h"
+#include "editloan.h"
+
 #include "itemtab.h"
 #include "usertab.h"
 #include "loantab.h"
@@ -30,8 +34,14 @@ int main(int argc, char *argv[])
     stylesheet.open(QFile::ReadOnly);
     app.setStyleSheet(QLatin1String(stylesheet.readAll()));
 
-    MainWindow w;
+    MainWindow w; EditItem x; EditUser y; EditLoan z;
     w.show();
+    x.show();
+
+    y.show();
+
+    z.show();
+
 
     return app.exec();
 }
