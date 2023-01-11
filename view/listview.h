@@ -6,7 +6,8 @@
 #include <QPushButton>
 #include <QWidget>
 
-class ListView {
+class ListView: public QWidget {
+    Q_OBJECT
 private:
   Info *info;
   QWidget *widget;
@@ -16,6 +17,10 @@ private:
 public:
   ListView(Info *infoab);
   QWidget *getWidget();
+
+signals:
+  void editL();
+  void deleteL();
 };
 
 #endif // LISTVIEW_H

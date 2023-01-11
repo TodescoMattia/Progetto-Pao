@@ -1,6 +1,7 @@
 #include "usertab.h"
 #include "listwidget.h"
 
+
 #include<QLabel>
 #include<QScrollArea>
 #include <QVBoxLayout>
@@ -26,7 +27,11 @@ UserTab::UserTab()
 
     vbox->addWidget(scrollArea);
 
-    QPushButton* addUser= new QPushButton("Aggiungi utente");
-    vbox->addWidget(addUser);
+    QPushButton* addUserButton= new QPushButton("Aggiungi utente");
+    vbox->addWidget(addUserButton);
+
+    connect(addUserButton, &QPushButton::clicked, userList, &ListWidget::addUser);
 
 }
+
+

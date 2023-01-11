@@ -47,7 +47,7 @@ void MainWindow::TabDialogViewer(QVBoxLayout* MainLayout)
     LoanTab* loanTab = new LoanTab();
     UserTab* userTab = new UserTab();
 
-    QTabWidget* tabWidget= new QTabWidget();
+    QTabWidget* tabWidget = new QTabWidget();
     tabWidget->addTab(itemTab, "&Oggetti");
     tabWidget->addTab(loanTab, "&Prestiti");
     tabWidget->addTab(userTab, "&Utenti");

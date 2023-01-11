@@ -28,4 +28,6 @@ ItemTab::ItemTab() {
 
   QPushButton *addItem = new QPushButton("Aggiungi oggetto");
   vbox->addWidget(addItem);
+
+
 }

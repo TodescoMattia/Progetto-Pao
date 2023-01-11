@@ -14,17 +14,15 @@
 #include <QPixmap>
 
 
-class Homeviewer: public QWidget{
+class HomeViewer: public QWidget{
     Q_OBJECT
-
+private:
     void Schermata_principale(QVBoxLayout* MainLayout);
-
     void Bottoni(QVBoxLayout* MainLayout);
-
     QLayout* createDescriptionLayout(const QString& description);
 
 public:
-    explicit Homeviewer(QWidget* parent=nullptr);
+    explicit HomeViewer(QWidget* parent=nullptr);
 
 signals:
 };

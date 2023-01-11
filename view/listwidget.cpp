@@ -2,6 +2,7 @@
 #include "iteminfo.h"
 #include "loaninfo.h"
 #include "userinfo.h"
+#include "adduser.h"
 #include "..\model\book.h"
 #include "..\model\bookSerie.h"
 #include "..\model\film.h"
@@ -13,7 +14,7 @@
 ListWidget::ListWidget()
 {
 
-    //lista esempio, cancellami
+   //lista esempio, cancellami
 
     list.push_front(new ListView(new ItemInfo(*(new Book("123AB6", "Fight Club", false, "NomeAutore", 582, Thriller)))));
     list.push_front(new ListView(new ItemInfo(*(new BookSerie ("111AB6", "Harry Potter", true, "NomeAutore2", 352, Fantasy, 2)))));
@@ -38,4 +39,33 @@ ListWidget::ListWidget()
         layout->addWidget((*inizio)->getWidget());
     }
 
+}
+
+
+void ListWidget::addUser(){
+    QWidget* addUserWindow = new QWidget;
+
+    QVBoxLayout* addUserLayout = new QVBoxLayout(addUserWindow);
+
+    AddUser* addUserWidget= new AddUser();
+
+    addUserLayout->addWidget(addUserWidget->getWidget());
+
+    addUserWindow->show();
+}
+
+void ListWidget::addItem(){
+    QWidget* addUserWindow = new QWidget;
+
+
+
+    addUserWindow->show();
+}
+
+void ListWidget::addLoan(){
+    QWidget* addUserWindow = new QWidget;
+
+
+
+    addUserWindow->show();
 }

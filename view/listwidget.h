@@ -17,5 +17,10 @@ public:
     virtual ListItemWidget& remove(const Item* item);
     virtual ListItemWidget& clear();
 */
+
+public slots:
+    void addUser();
+    void addItem();
+    void addLoan();
 };
 #endif // LISTWIDGET_H

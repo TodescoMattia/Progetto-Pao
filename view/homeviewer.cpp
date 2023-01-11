@@ -1,12 +1,11 @@
 #include "homeviewer.h"
 
-void Homeviewer::Schermata_principale(QVBoxLayout* MainLayout){
+void HomeViewer::Schermata_principale(QVBoxLayout* MainLayout){
 
    QVBoxLayout* ScreenLayout = new QVBoxLayout;
 
    ScreenLayout->setSpacing(0);
    //ScreenLayout->setMargin(0);
-
 
    ScreenLayout->addLayout(createDescriptionLayout(tr(
                                "  DESCRIZIONE DA METTERE")));
@@ -14,7 +13,7 @@ void Homeviewer::Schermata_principale(QVBoxLayout* MainLayout){
 
 }
 
-void Homeviewer::Bottoni(QVBoxLayout* MainLayout){
+void HomeViewer::Bottoni(QVBoxLayout* MainLayout){
    QHBoxLayout* controlsLayout = new QHBoxLayout;
 
    QHBoxLayout* ButtonLayout = new QHBoxLayout;
@@ -27,7 +26,6 @@ void Homeviewer::Bottoni(QVBoxLayout* MainLayout){
    ButtonLayout->setSpacing(5);
    ButtonLayout->setContentsMargins(25, 0, 25, 0);
 
-
    controlsLayout->addLayout(ButtonLayout);
 
    controlsLayout->setSpacing(0);
@@ -38,7 +36,7 @@ void Homeviewer::Bottoni(QVBoxLayout* MainLayout){
 
 
 
-QLayout* Homeviewer::createDescriptionLayout(const QString& description){
+QLayout* HomeViewer::createDescriptionLayout(const QString& description){
 
    QVBoxLayout* descrLayout = new QVBoxLayout;
 
@@ -64,8 +62,8 @@ QLayout* Homeviewer::createDescriptionLayout(const QString& description){
 
 }
 
+HomeViewer::HomeViewer(QWidget *parent) : QWidget(parent){
 
-Homeviewer::Homeviewer(QWidget *parent) : QWidget(parent){
    QVBoxLayout* MainLayout= new QVBoxLayout;
 
    Schermata_principale(MainLayout);

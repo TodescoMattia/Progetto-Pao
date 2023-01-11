@@ -1,4 +1,5 @@
 #include "listview.h"
+#include "deleteview.h"
 
 #include <QHBoxLayout>
 #include <QPushButton>
@@ -16,11 +17,19 @@ ListView::ListView(Info *infoAb): info(infoAb)
 
     layout->addStretch();
 
-    editButton= new QPushButton("Modifica");
+    editButton = new QPushButton("Modifica");
     layout->addWidget(editButton);
+
+
+    //provs edit collegamento
+    connect(editButton, &QPushButton::pressed, this, &ListView::editL);
 
     deleteButton= new QPushButton("Elimina");
     layout->addWidget(deleteButton);
+
+    //prova delete collegamento
+
+    //connect(deleteButton, &QPushButton::pressed, std::bind(&DeleteView), &ListView::deleteL);
 
 }
 

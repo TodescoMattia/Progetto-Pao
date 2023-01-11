@@ -6,6 +6,7 @@ class ItemTab:public QWidget{
     Q_OBJECT
 public:
     ItemTab();
+
 };
 
 #endif // ITEMTAB_H
