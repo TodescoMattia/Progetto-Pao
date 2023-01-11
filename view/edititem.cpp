@@ -8,7 +8,7 @@ EditItem::EditItem(QWidget *parent)
 
     QLineEdit* ID = new QLineEdit;
     QLineEdit* Title = new QLineEdit;
-    QLineEdit* IsLent = new QLineEdit;
+    QCheckBox* IsLent = new QCheckBox;
 
 
 
