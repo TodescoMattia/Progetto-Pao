@@ -9,7 +9,9 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    view/EditUserSelector.cpp \
     view/edititem.cpp \
+    view/edititemselector.cpp \
     view/editloan.cpp \
     view/edituser.cpp \
     view\mainwindow.cpp \
@@ -39,6 +41,7 @@ SOURCES += \
 
 HEADERS += \
     view/edititem.h \
+    view/edititemselector.h \
     view/editloan.h \
     view/edituser.h \
     view/info.h \
@@ -50,6 +53,7 @@ HEADERS += \
     view/listview.h \
     view/loaninfo.h \
     view/loantab.h \
+    view/s.h \
     view/userinfo.h \
     view/usertab.h \
     view\iteminfo.h \
