@@ -7,17 +7,34 @@ EditLoan::EditLoan(QWidget *parent)
 
 
     QLineEdit* ID = new QLineEdit;
-    QDateEdit* EndDate = new QDateEdit;
+    QSpinBox* EndDay  = new QSpinBox;
+    QSpinBox* EndMonth = new QSpinBox;
+    QSpinBox* EndYear = new QSpinBox;
 
+    EndDay->setMinimum(1);
+    EndDay->setMaximum(31);
+    EndDay->setSingleStep(1);
+    EndDay->setValue(1);
 
+    EndMonth->setMinimum(1);
+    EndMonth->setMaximum(12);
+    EndMonth->setSingleStep(1);
+    EndMonth->setValue(1);
 
+    EndYear->setMinimum(2023);
+    EndYear->setMaximum(3000);
+    EndYear->setSingleStep(1);
+    EndYear->setValue(2023);
 
     QVBoxLayout* mainlayout = new QVBoxLayout;
 
         QFormLayout* FormLayout = new QFormLayout;
 
         FormLayout->addRow(tr("&ID:"), ID);
-        FormLayout->addRow(tr("&EndDate:"), EndDate);
+        FormLayout->addRow(tr("&EndDay:"), EndDay);
+        FormLayout->addRow(tr("&EndMonth:"), EndMonth);
+        FormLayout->addRow(tr("&EndYear:"), EndYear);
+
 
 
 
