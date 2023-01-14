@@ -8,44 +8,29 @@ class QDialogButtonBox;
 class QTabWidget;
 QT_END_NAMESPACE
 
-class UserTab : public QWidget
-{
-    Q_OBJECT
+class UserTab : public QWidget {
+  Q_OBJECT
 
 public:
-    explicit UserTab(QWidget *parent = nullptr);
+  explicit UserTab(QWidget *parent = nullptr);
 };
 
-
-class ArchiveTab: public QWidget
-{
-    Q_OBJECT
+class ArchiveTab : public QWidget {
+  Q_OBJECT
 
 public:
-    explicit ArchiveTab(QWidget *parent = nullptr);
+  explicit ArchiveTab(QWidget *parent = nullptr);
 };
 
-
-class LoanTab : public QWidget
-{
-    Q_OBJECT
+class TabDialog : public QDialog {
+  Q_OBJECT
 
 public:
-    explicit LoanTab(QWidget *parent = nullptr);
-};
-
-
-class TabDialog : public QDialog
-{
-    Q_OBJECT
-
-public:
-    explicit TabDialog(QWidget *parent = nullptr);
+  explicit TabDialog(QWidget *parent = nullptr);
 
 private:
-    QTabWidget *tabWidget;
-    QDialogButtonBox *buttonBox;
+  QTabWidget *tabWidget;
+  QDialogButtonBox *buttonBox;
 };
-
 
 #endif

@@ -55,13 +55,13 @@ void UserTab::confirm(){
     AddUser* dialog=dynamic_cast<AddUser*>(sender());
     if(dialog==nullptr) return;
 
-    /*QWidget* provo= new QWidget();
+    QWidget* provo= new QWidget();
 
     QVBoxLayout* provo3 = new QVBoxLayout(provo);
     QLabel* provo2= new QLabel("yohohohhoho");
     provo3->addWidget(provo2);
 
-    provo->show();*/
+    provo->show();
 
     std::string name = dialog->getName().toStdString();
     std::string surname = dialog->getName().toStdString();
