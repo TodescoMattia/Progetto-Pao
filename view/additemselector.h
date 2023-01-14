@@ -1,5 +1,5 @@
-#ifndef EDITITEMSELECTOR_H
-#define EDITITEMSELECTOR_H
+#ifndef ADDITEMSELECTOR_H
+#define ADDITEMSELECTOR_H
 
 #include "qwidget.h"
 
@@ -21,5 +21,5 @@ public:
 
 };
 
-#endif // EDITITEMSELECTOR_H
+#endif // ADDITEMSELECTOR_H
 

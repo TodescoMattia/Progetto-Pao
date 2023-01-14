@@ -1,4 +1,4 @@
-#include "edititemselector.h"
+#include "additemselector.h"
 #include <QtWidgets>
 
 EditItemSelector::EditItemSelector(QWidget *parent)
