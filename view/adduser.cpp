@@ -7,50 +7,49 @@
 
 AddUser::AddUser()
 {
-    widget=new QWidget();
-
-    QFormLayout* form = new QFormLayout(widget);
+    QFormLayout* form = new QFormLayout(this);
 
     nameLine= new QLineEdit();
-    nameLine->setText("Prova");
+    nameLine->setText("");
     form->addRow(nameLine);
 
     surnameLine= new QLineEdit();
-    surnameLine->setText("Prova");
+    surnameLine->setText("");
     form->addRow(surnameLine);
 
     numberLine= new QLineEdit();
-    numberLine->setText("Prova");
+    numberLine->setText("");
     form->addRow(numberLine);
 
-    QHBoxLayout* button = new QHBoxLayout(widget);
+    buttonBox = new QDialogButtonBox();
 
-    QPushButton* confirmButton = new QPushButton("Conferma");
-    button->addWidget(confirmButton);
+    confirmButton = new QPushButton("Conferma");
+    cancelButton = new QPushButton("Annulla");
 
-    connect(confirmButton, &QPushButton::clicked, this, &AddUser::confirm);
+    buttonBox->addButton(confirmButton, QDialogButtonBox::AcceptRole);
+    buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
 
-    QPushButton* cancelButton = new QPushButton("Annulla");
-    button->addWidget(cancelButton);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
-    form->addRow(button);
+    form->addRow(buttonBox);
 
+
+    //connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+    //connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
-QWidget* AddUser::getWidget(){
-    return widget;
-}
-
-
-void AddUser::confirm(){
+QString AddUser::getName() const{
     QString name = nameLine->text();
+    return name;
+}
+QString AddUser::getSurname() const{
     QString surname = surnameLine->text();
+    return surname;
+}
+QString AddUser::getNumber() const{
     QString number = numberLine->text();
-
-    ListView* prova= new ListView(new UserInfo(*(new User(name.toStdString(), surname.toStdString(), number.toStdString()))));
-
+    return number;
 }
 
-void AddUser::cancel(){
-}
 
