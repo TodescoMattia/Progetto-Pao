@@ -20,16 +20,9 @@ ListView::ListView(Info *infoAb): info(infoAb)
     editButton = new QPushButton("Modifica");
     layout->addWidget(editButton);
 
-
-    //provs edit collegamento
-    connect(editButton, &QPushButton::pressed, this, &ListView::editL);
-
     deleteButton= new QPushButton("Elimina");
     layout->addWidget(deleteButton);
 
-    //prova delete collegamento
-
-    //connect(deleteButton, &QPushButton::pressed, std::bind(&DeleteView), &ListView::deleteL);
 
 }
 
