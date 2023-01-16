@@ -37,6 +37,18 @@ void ItemInfoVisitor::visit(BookSerie &bookSerie) {
   QHBoxLayout *infoBookSerie = new QHBoxLayout(widget);
   infoBookSerie->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
+  QLabel *authorLabel =
+      new QLabel("Autore: " + QString::fromStdString(bookSerie.getAuthor()));
+  infoBookSerie->addWidget(authorLabel);
+
+  QLabel *pageLabel =
+      new QLabel("Pagine: " + QString::number(bookSerie.getPageNumber()));
+  infoBookSerie->addWidget(pageLabel);
+
+  QLabel *genreLabel = new QLabel(
+      "Genere: " + QString::fromStdString(toString(bookSerie.getBookGenre())));
+  infoBookSerie->addWidget(genreLabel);
+
   QLabel *volumeLabel = new QLabel(
       "Numero volume: " + QString::number(bookSerie.getVolumeNumber()));
   infoBookSerie->addWidget(volumeLabel);
