@@ -1,8 +1,25 @@
 #include "mainwindow.h"
 #include "itemtab.h"
 #include "usertab.h"
-#include <QTabWidget>
+
 #include <QtWidgets>
+
+MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
+  QVBoxLayout *MainLayout = new QVBoxLayout;
+
+  BarraDeiMenu(MainLayout);
+
+  // Schermo(MainLayout);
+  // A cosa serviva questa?
+
+  TabDialogViewer(MainLayout);
+
+  MainLayout->setSpacing(0);
+
+  resize(QSize(1024, 720));
+
+  setLayout(MainLayout);
+}
 
 void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
   QMenuBar *Menu = new QMenuBar(this);
@@ -39,31 +56,43 @@ void MainWindow::Schermo(QVBoxLayout *MainLayout) {
 void MainWindow::TabDialogViewer(QVBoxLayout *MainLayout) {
   QVBoxLayout *tabLayout = new QVBoxLayout;
 
-  ItemTab *itemTab = new ItemTab();
+  listItem = *(new List<Item*>());
+
+  ItemTab *itemTab = new ItemTab(listItem);
   UserTab *userTab = new UserTab();
 
-  QTabWidget *tabWidget = new QTabWidget();
-  tabWidget->addTab(itemTab, "&Oggetti");
-  tabWidget->addTab(userTab, "&Utenti");
+  tabWidget = new QTabWidget();
+  tabWidget->insertTab(0, itemTab, "&Oggetti");
+  tabWidget->insertTab(1, userTab, "&Utenti");
 
   tabLayout->addWidget(tabWidget);
 
   MainLayout->addLayout(tabLayout);
+
+  connect(itemTab, SIGNAL(reload()), this, SLOT(refreshData()));
 }
 
-MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
-  QVBoxLayout *MainLayout = new QVBoxLayout;
+MainWindow& MainWindow::refreshData(){
+    tabWidget->clear();
 
-  BarraDeiMenu(MainLayout);
+    //momentaneo
 
-  // Schermo(MainLayout);
-  // A cosa serviva questa?
+    List<Item*> listItem2=*(new List<Item*>(listItem));
+    listItem.clear();
+    listItem=listItem2;
 
-  TabDialogViewer(MainLayout);
+    QVBoxLayout *tabLayout = new QVBoxLayout();
 
-  MainLayout->setSpacing(0);
+    ItemTab * itemTab = new ItemTab(listItem);
+    UserTab *userTab = new UserTab();
 
-  resize(QSize(1024, 720));
+   // tabWidget = new QTabWidget();
+    tabWidget->insertTab(0, itemTab, "&Oggetti");
+    tabWidget->insertTab(1, userTab, "&Utenti");
 
-  setLayout(MainLayout);
+    tabLayout->addWidget(tabWidget);
+
+   return *this;
 }
+
+
