@@ -33,3 +33,18 @@ std::string toString(const Genre &g) {
     return "(invalid genre)";
   }
 }
+
+Genre toGenre(int num) {
+  switch (num) {
+  case 0:
+    return Fantasy;
+  case 1:
+    return Horror;
+  case 2:
+    return Romance;
+  case 3:
+    return Comedy;
+  case 4:
+    return Thriller;
+  }
+}
