@@ -1,13 +1,13 @@
 #ifndef LISTVIEW_H
 #define LISTVIEW_H
 
-#include "Info.h"
+#include "info.h"
 #include <QLabel>
 #include <QPushButton>
 #include <QWidget>
 
-class ListView: public QWidget{
-    Q_OBJECT
+class ListView : public QWidget {
+  Q_OBJECT
 private:
   Info *info;
   QWidget *widget;

@@ -1,9 +1,9 @@
 #include "iteminfovisitor.h"
-#include "../model/BoardGame.h"
-#include "../model/Book.h"
-#include "../model/BookSerie.h"
-#include "../model/Film.h"
-#include "../model/Videogame.h"
+#include "../model/boardgame.h"
+#include "../model/book.h"
+#include "../model/bookserie.h"
+#include "../model/film.h"
+#include "../model/videogame.h"
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QString>

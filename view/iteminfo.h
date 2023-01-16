@@ -1,8 +1,8 @@
 #ifndef ITEMINFO_H
 #define ITEMINFO_H
 
-#include "../model/Item.h"
-#include "Info.h"
+#include "../model/item.h"
+#include "info.h"
 #include <QLabel>
 #include <QWidget>
 

@@ -1,6 +1,6 @@
 #include "listwidget.h"
 #include "../model/book.h"
-#include "../model/bookSerie.h"
+#include "../model/bookserie.h"
 #include "../model/film.h"
 #include "../model/list.h"
 #include "../model/user.h"
@@ -10,34 +10,36 @@
 
 #include <QVBoxLayout>
 
-ListWidget::ListWidget(List<Info*>& lista): listInfo(lista) {
+ListWidget::ListWidget(List<Info *> &lista) : listInfo(lista) {
   // lista esempio, cancellami
 
-    /*listView.push_front(*(new ListView(new ItemInfo(*(
-        new Book("123AB6", "Fight Club", false, "NomeAutore", 582, Thriller))))));
-    listView.push_front(*(new ListView(new ItemInfo(*(new BookSerie(
-        "111AB6", "Harry Potter", true, "NomeAutore2", 352, Fantasy, 2))))));
-    listView.push_front(*(new ListView(new ItemInfo(*(new Film(
-        "563AB6", "Interstellar", false, "NomeDirettore", 160, Thriller))))));
-    listView.push_front(
-        *(new ListView(new UserInfo(*(new User("Mario", "Bianchi", "3458746715"))))));*/
+  /*listView.push_front(*(new ListView(new ItemInfo(*(
+      new Book("123AB6", "Fight Club", false, "NomeAutore", 582, Thriller))))));
+  listView.push_front(*(new ListView(new ItemInfo(*(new BookSerie(
+      "111AB6", "Harry Potter", true, "NomeAutore2", 352, Fantasy, 2))))));
+  listView.push_front(*(new ListView(new ItemInfo(*(new Film(
+      "563AB6", "Interstellar", false, "NomeDirettore", 160, Thriller))))));
+  listView.push_front(
+      *(new ListView(new UserInfo(*(new User("Mario", "Bianchi",
+  "3458746715"))))));*/
 
-    List<ListView>::Iterator inizio = listView.begin();
-    List<ListView>::Iterator fine = listView.end();
+  List<ListView>::Iterator inizio = listView.begin();
+  List<ListView>::Iterator fine = listView.end();
 
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+  QVBoxLayout *layout = new QVBoxLayout(this);
+  layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-    ListView* diocane = new ListView(new ItemInfo(*(
-          new Book("123AB6", "Fight Club", false, "NomeAutore", 582, Thriller))));
-    layout->addWidget(diocane->getWidget());
+  ListView *diocane = new ListView(new ItemInfo(
+      *(new Book("123AB6", "Fight Club", false, "NomeAutore", 582, Thriller))));
+  layout->addWidget(diocane->getWidget());
 
-    for (inizio = listView.begin(), fine = listView.end(); inizio != fine; inizio++) {
+  for (inizio = listView.begin(), fine = listView.end(); inizio != fine;
+       inizio++) {
 
-      ListView* diocane = new ListView(new ItemInfo(*(
-            new Book("123AB6", "Fight Club", false, "NomeAutore", 582, Thriller))));
-      layout->addWidget(diocane);
-    }
+    ListView *diocane = new ListView(new ItemInfo(*(
+        new Book("123AB6", "Fight Club", false, "NomeAutore", 582, Thriller))));
+    layout->addWidget(diocane);
+  }
 }
 
 /*
@@ -58,7 +60,8 @@ ListWidget::ListWidget(List<Info*>& lista): listInfo(lista) {
   QVBoxLayout *layout = new QVBoxLayout(this);
   layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-  for (inizio = listInfo.begin(), fine = listInfo.end(); inizio != fine; inizio++) {
+  for (inizio = listInfo.begin(), fine = listInfo.end(); inizio != fine;
+  inizio++) {
 
     QHBoxLayout *hbox = new QHBoxLayout();
 
@@ -84,5 +87,3 @@ ListWidget::ListWidget(List<Info*>& lista): listInfo(lista) {
     hbox->addWidget(deleteButton);
 
     layout->addLayout(hbox);*/
-
-

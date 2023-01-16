@@ -1,36 +1,34 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QWidget>
-#include <QMenuBar>
-#include <QMenu>
-#include <QAction>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QFrame>
-#include <QLabel>
-#include <QPushButton>
-#include <Qstring>
-#include <QTabWidget>
-#include "../model/list.h"
 #include "../model/item.h"
+#include "../model/list.h"
+#include <QAction>
+#include <QFrame>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QMenu>
+#include <QMenuBar>
+#include <QPushButton>
+#include <QString>
+#include <QTabWidget>
+#include <QVBoxLayout>
+#include <QWidget>
 
-
-
-class MainWindow: public QWidget{
-    Q_OBJECT
+class MainWindow : public QWidget {
+  Q_OBJECT
 private:
-    List<Item*> listItem;
-    QTabWidget *tabWidget;
-    void Schermo(QVBoxLayout* MainLayout);
-    void TabDialogViewer (QVBoxLayout* MainLayout);
-    void BarraDeiMenu(QVBoxLayout* MainLayout);
+  List<Item *> listItem;
+  QTabWidget *tabWidget;
+  void Schermo(QVBoxLayout *MainLayout);
+  void TabDialogViewer(QVBoxLayout *MainLayout);
+  void BarraDeiMenu(QVBoxLayout *MainLayout);
 
 public:
-    explicit MainWindow(QWidget *parent =nullptr);
+  explicit MainWindow(QWidget *parent = nullptr);
 
 public slots:
-    MainWindow& refreshData();
+  MainWindow &refreshData();
 signals:
 };
 

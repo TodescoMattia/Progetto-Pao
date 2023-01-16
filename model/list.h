@@ -118,8 +118,8 @@ public:
 
   void clear() {
     destroy(first);
-    first == nullptr;
-    last == nullptr;
+    first = nullptr;
+    last = nullptr;
   }
 
   void push_front(const T &t) {
