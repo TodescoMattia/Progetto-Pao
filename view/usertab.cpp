@@ -23,13 +23,13 @@ UserTab::UserTab()
     listUser.push_front(new User("Mario", "Bianchi", "3458746715"));
     listUser.push_front(new User("Luigi", "Bianchi", "3458746715"));
 
-    ListWidget* userListWidget=new ListWidget();
+    //ListWidget* userListWidget=new ListWidget();
 
     QScrollArea* scrollArea = new QScrollArea();
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scrollArea->setWidgetResizable(true);
-    scrollArea->setWidget(userListWidget);
+    //scrollArea->setWidget(userListWidget);
 
     vbox->addWidget(scrollArea);
 
@@ -54,14 +54,6 @@ void UserTab::createUser(){
 void UserTab::confirm(){
     AddUser* dialog=dynamic_cast<AddUser*>(sender());
     if(dialog==nullptr) return;
-
-    QWidget* provo= new QWidget();
-
-    QVBoxLayout* provo3 = new QVBoxLayout(provo);
-    QLabel* provo2= new QLabel("yohohohhoho");
-    provo3->addWidget(provo2);
-
-    provo->show();
 
     std::string name = dialog->getName().toStdString();
     std::string surname = dialog->getName().toStdString();

@@ -3,16 +3,18 @@
 #include <QWidget>
 
 #include "..\model\list.h"
+#include "..\model\item.h"
 #include "listview.h"
 // #include "info.h"
 
 class ListWidget : public QWidget {
   Q_OBJECT
 private:
-  List<ListView> list;
+  List<ListView> listView;
+  List<Info*> listInfo;
 
 public:
-  ListWidget();
+  ListWidget(List<Info*>& lista);
   /*virtual ~ListItemWidget();
   virtual ListItemWidget& add(const Item* item);
   virtual ListItemWidget& remove(const Item* item);
