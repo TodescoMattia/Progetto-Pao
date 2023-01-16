@@ -12,8 +12,8 @@
 #include <QPushButton>
 #include <Qstring>
 #include <QTabWidget>
-#include "..\model\list.h"
-#include "..\model\item.h"
+#include "../model/list.h"
+#include "../model/item.h"
 
 
 

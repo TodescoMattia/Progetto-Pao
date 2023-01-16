@@ -29,4 +29,12 @@ QWidget* ItemInfo::getWidget() const{
     return widget;
 }
 
+void ItemInfo::edit(){
+    QWidget* prova= new QWidget();
+    prova->show();
+
+}
+void ItemInfo::remove(){
+
+}
 

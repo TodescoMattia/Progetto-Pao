@@ -22,3 +22,10 @@ UserInfo::UserInfo(User &user) : user(user) {
 }
 
 QWidget *UserInfo::getWidget() const { return widget; }
+
+void UserInfo::edit(){
+
+}
+void UserInfo::remove(){
+
+}

@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
-#include "..\model\User.h"
+#include "../model/User.h"
 #include "Info.h"
 
 class UserInfo: public Info{
@@ -16,6 +16,8 @@ private:
 public:
     UserInfo(User& user);
     QWidget* getWidget() const;
+    void edit();
+    void remove();
 };
 
 #endif // USERINFO_H

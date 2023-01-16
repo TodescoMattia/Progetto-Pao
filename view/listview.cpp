@@ -23,9 +23,18 @@ ListView::ListView(Info *infoAb): info(infoAb)
     deleteButton= new QPushButton("Elimina");
     layout->addWidget(deleteButton);
 
-
+    connect(editButton, &QPushButton::clicked, this,  clickEdit);
+    connect(deleteButton, &QPushButton::clicked, this, clickDelete);
 }
 
 QWidget* ListView::getWidget(){
     return widget;
+}
+
+void ListView::clickEdit(){
+    info->edit();
+}
+
+void ListView::clickDelete(){
+    info->remove();
 }

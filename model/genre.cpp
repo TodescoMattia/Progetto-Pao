@@ -17,6 +17,21 @@ std::ostream &operator<<(std::ostream &os, const Genre &g) {
   }
 }
 
+int toInt(const Genre &g) {
+  switch (g) {
+  case Fantasy:
+    return 0;
+  case Horror:
+    return 1;
+  case Romance:
+    return 2;
+  case Comedy:
+    return 3;
+  case Thriller:
+    return 4;
+  }
+}
+
 std::string toString(const Genre &g) {
   switch (g) {
   case Fantasy:

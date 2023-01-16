@@ -2,7 +2,7 @@
 #define ITEMINFOVISITOR_H
 
 #include <QWidget>
-#include "..\model\visitor.h"
+#include "../model/visitor.h"
 
 class ItemInfoVisitor: public Visitor{
 private:

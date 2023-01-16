@@ -2,8 +2,8 @@
 #define USERTAB_H
 #include <QWidget>
 #include "listwidget.h"
-#include "..\model\list.h"
-#include "..\model\user.h"
+#include "../model/list.h"
+#include "../model/user.h"
 
 class UserTab: public QWidget{
     Q_OBJECT

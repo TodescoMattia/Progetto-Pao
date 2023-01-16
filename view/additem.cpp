@@ -1,5 +1,5 @@
 #include "additem.h"
-#include "..\model\item.h"
+#include "../model/item.h"
 #include "iteminfo.h"
 
 #include <QFormLayout>

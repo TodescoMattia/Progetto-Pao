@@ -1,5 +1,5 @@
 #include "adduser.h"
-#include "..\model\user.h"
+#include "../model/user.h"
 #include "userinfo.h"
 #include <QFormLayout>
 #include <QHBoxLayout>

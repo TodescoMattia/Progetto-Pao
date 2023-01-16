@@ -1,9 +1,10 @@
 #ifndef LISTWIDGET_H
 #define LISTWIDGET_H
 #include <QWidget>
+#include <QDialogButtonBox>
 
-#include "..\model\list.h"
-#include "..\model\item.h"
+#include "../model/list.h"
+#include "../model/item.h"
 #include "listview.h"
 // #include "info.h"
 
@@ -12,6 +13,8 @@ class ListWidget : public QWidget {
 private:
   List<ListView> listView;
   List<Info*> listInfo;
+  QPushButton* editButton;
+  QPushButton* deleteButton;
 
 public:
   ListWidget(List<Info*>& lista);
@@ -21,8 +24,5 @@ public:
   virtual ListItemWidget& clear();
 */
 
-  /*public slots:
-      void addUser();
-      void addItem();*/
 };
 #endif // LISTWIDGET_H

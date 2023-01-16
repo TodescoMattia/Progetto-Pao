@@ -1,11 +1,11 @@
 #include "itemtab.h"
 #include "listwidget.h"
 #include "iteminfo.h"
-#include "..\model\book.h"
-#include "..\model\bookserie.h"
-#include "..\model\film.h"
-#include "..\model\boardgame.h"
-#include "..\model\videogame.h"
+#include "../model/book.h"
+#include "../model/bookserie.h"
+#include "../model/film.h"
+#include "../model/boardgame.h"
+#include "../model/videogame.h"
 #include "additem.h"
 
 #include <QLabel>

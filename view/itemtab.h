@@ -1,8 +1,8 @@
 #ifndef ITEMTAB_H
 #define ITEMTAB_H
 #include <QWidget>
-#include "..\model\list.h"
-#include "..\model\item.h"
+#include "../model/list.h"
+#include "../model/item.h"
 #include "additemselector.h"
 
 class ItemTab:public QWidget{

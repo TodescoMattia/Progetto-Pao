@@ -1,7 +1,7 @@
 #ifndef ITEMINFO_H
 #define ITEMINFO_H
 
-#include "..\model\Item.h"
+#include "../model/Item.h"
 #include "Info.h"
 #include <QLabel>
 #include <QWidget>
@@ -17,6 +17,8 @@ private:
 public:
   ItemInfo(Item &item);
   QWidget *getWidget() const;
+  void edit();
+  void remove();
 };
 
 #endif // ITEMINFO_H

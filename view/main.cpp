@@ -4,11 +4,11 @@
 #include "itemtab.h"
 #include "usertab.h"
 
-#include "..\model\Book.h"
-#include "..\model\BookSerie.h"
-#include "..\model\Film.h"
-#include "..\model\List.h"
-#include "..\model\User.h"
+#include "../model/Book.h"
+#include "../model/BookSerie.h"
+#include "../model/Film.h"
+#include "../model/List.h"
+#include "../model/User.h"
 #include "listview.h"
 #include "userinfo.h"
 
