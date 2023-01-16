@@ -2,6 +2,10 @@
 #define ADDITEMSELECTOR_H
 
 #include "qwidget.h"
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QButtonGroup>
 
 QT_BEGIN_NAMESPACE
 class QPushButton;
@@ -10,14 +14,19 @@ class QLineEdit;
 class QTextEdit;
 QT_END_NAMESPACE
 
-class EditItemSelector: public QWidget
-{
+class AddItemSelector: public QDialog{
      Q_OBJECT
+private:
+    QVBoxLayout* layout;
+    QButtonGroup *selectTypeGroup;
+    QDialogButtonBox *buttonBox;
+    QPushButton* confirmButton;
+    QPushButton* cancelButton;
 
 public:
 
-   EditItemSelector(QWidget *parent = nullptr);
-
+    AddItemSelector();
+    int getTypeGroup();
 
 };
 
