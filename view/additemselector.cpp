@@ -8,8 +8,8 @@ AddItemSelector::AddItemSelector(){
     QRadioButton* bookButton = new QRadioButton("Libro singolo");
     QRadioButton* bookSerieButton = new QRadioButton("Libro di una serie");
     QRadioButton* filmButton = new QRadioButton("Film");
-    QRadioButton* videogameButton = new QRadioButton("Videogame");
     QRadioButton* boardGameButton = new QRadioButton("Gioco da tavolo");
+    QRadioButton* videogameButton = new QRadioButton("Videogame");
 
     bookButton->setChecked(true);
 
@@ -18,15 +18,17 @@ AddItemSelector::AddItemSelector(){
     selectTypeGroup->addButton(bookButton, 0);
     selectTypeGroup->addButton(bookSerieButton, 1);
     selectTypeGroup->addButton(filmButton, 2);
-    selectTypeGroup->addButton(videogameButton, 3);
-    selectTypeGroup->addButton(boardGameButton, 4);
+    selectTypeGroup->addButton(boardGameButton, 3);
+    selectTypeGroup->addButton(videogameButton, 4);
+
 
     QVBoxLayout* selectTypeLayout = new QVBoxLayout();
     selectTypeLayout->addWidget(bookButton);
     selectTypeLayout->addWidget(bookSerieButton);
     selectTypeLayout->addWidget(filmButton);
-    selectTypeLayout->addWidget(videogameButton);
     selectTypeLayout->addWidget(boardGameButton);
+    selectTypeLayout->addWidget(videogameButton);
+
 
     QGroupBox* selectTypeBox = new QGroupBox("Tipo di oggetto:");
     selectTypeBox->setLayout(selectTypeLayout);
