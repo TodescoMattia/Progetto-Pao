@@ -17,7 +17,7 @@ void BookSerie::setVolumeNumber(unsigned int newVolumeNumber) {
   volumeNumber = newVolumeNumber;
 }
 
-void BookSerie::accept(Visitor &visitor) { visitor.visit(*this); }
+void BookSerie::accept(Visitor &visitor) { visitor.visit(this); }
 
 // Cancellami
 

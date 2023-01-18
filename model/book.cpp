@@ -20,7 +20,7 @@ void Book::setPageNumber(unsigned int newPageNumber) {
 }
 void Book::setBookGenre(Genre newGenre) { bookGenre = newGenre; }
 
-void Book::accept(Visitor &visitor) { visitor.visit(*this); }
+void Book::accept(Visitor &visitor) { visitor.visit(this); }
 
 // Cancellami
 

@@ -17,7 +17,7 @@ void BoardGame::setPlayerNumber(unsigned int newPlayerNumber) {
   playerNumber = newPlayerNumber;
 }
 
-void BoardGame::accept(Visitor &visitor) { visitor.visit(*this); }
+void BoardGame::accept(Visitor &visitor) { visitor.visit(this); }
 
 // Cancellami
 

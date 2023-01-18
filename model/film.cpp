@@ -18,7 +18,7 @@ void Film::setDirector(std::string newDirector) { director = newDirector; }
 void Film::setDuration(unsigned int newDuration) { duration = newDuration; }
 void Film::setFilmGenre(Genre newFilmGenre) { filmGenre = newFilmGenre; }
 
-void Film::accept(Visitor &visitor) { visitor.visit(*this); }
+void Film::accept(Visitor &visitor) { visitor.visit(this); }
 
 // Cancellami
 

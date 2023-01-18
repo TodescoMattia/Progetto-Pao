@@ -15,7 +15,7 @@ void Videogame::setVGameGenre(Genre newVGameGenre) {
   vgameGenre = newVGameGenre;
 }
 
-void Videogame::accept(Visitor &visitor) { visitor.visit(*this); }
+void Videogame::accept(Visitor &visitor) { visitor.visit(this); }
 
 // Cancellami
 
