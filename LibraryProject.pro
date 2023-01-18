@@ -20,6 +20,8 @@ SOURCES += \
     view/edituser.cpp \
     view/editvideogame.cpp \
     view/itemeditvisitor.cpp \
+    view/json.cpp \
+    view/jsonvisitor.cpp \
     view/mainwindow.cpp \
     view/info.cpp \
     view/itemtab.cpp \
@@ -55,6 +57,8 @@ HEADERS += \
     view/info.h \
     view/itemeditvisitor.h \
     view/itemtab.h \
+    view/json.h \
+    view/jsonvisitor.h \
     view/listwidget.h \
     model/user.h \
     view/listview.h \
