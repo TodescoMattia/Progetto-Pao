@@ -5,6 +5,7 @@
 #include "../model/genre.h"
 
 #include <QtWidgets>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
   MainLayout = new QVBoxLayout;
@@ -37,7 +38,20 @@ void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
     file->addAction(new QAction("Importa", file));
     file->addAction(new QAction("Salva con nome", file));
 
+    QPushButton* saveAsButton = new QPushButton("Salva con nome");
+    connect(saveAsButton, &QPushButton::clicked, this, &MainWindow::saveAs);
 
+    QPushButton* saveButton = new QPushButton("Salva");
+    connect(saveButton, &QPushButton::clicked, this, &MainWindow::save);
+
+    QPushButton* loadButton = new QPushButton("Carica");
+    connect(loadButton, &QPushButton::clicked, this, &MainWindow::load);
+
+    MainLayout->addWidget(saveAsButton);
+
+    MainLayout->addWidget(saveButton);
+
+    MainLayout->addWidget(loadButton);
 
     MainLayout->addWidget(Menu);
 }
@@ -62,9 +76,8 @@ void MainWindow::Schermo(QVBoxLayout *MainLayout) {
 }
 
 void MainWindow::TabDialogViewer(QVBoxLayout *MainLayout) {
-    QVBoxLayout *tabLayout = new QVBoxLayout;
 
-    //listItem.push_front(new Book("123AB6", "Fight Club", false, "NomeAutore", 582, Thriller));
+    QVBoxLayout *tabLayout = new QVBoxLayout;
 
     ItemTab *itemTab = new ItemTab(&listItem, this);
     UserTab *userTab = new UserTab();
@@ -95,4 +108,45 @@ void MainWindow::refreshData(){
    //return *this;
 }
 
+void MainWindow::save(){
+    if (path.isEmpty()){
+        saveAs();
+    }
+    json->save(path.toStdString(), &listItem, &listUser);
+}
 
+void MainWindow::saveAs(){
+
+    path = QFileDialog::getSaveFileName(
+        this,
+        "Creates new Dataset",
+        "./",
+        "JSON files *.json"
+    );
+
+    if (path.isEmpty()) {
+        return;
+    }
+
+    json->save(path.toStdString(), &listItem, &listUser);
+
+}
+
+void MainWindow::load(){
+
+    path = QFileDialog::getOpenFileName(
+        this,
+        "Creates new Dataset",
+        "./",
+        "JSON files *.json"
+    );
+    if (path.isEmpty()) {
+        return;
+    }
+
+    listItem.clear();
+
+    json->load(path.toStdString(), &listItem, &listUser);
+
+    this->refreshData();
+}
