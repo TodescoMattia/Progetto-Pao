@@ -18,6 +18,7 @@
 class MainWindow : public QWidget {
   Q_OBJECT
 private:
+  QVBoxLayout *MainLayout;
   List<Item *> listItem;
   QTabWidget *tabWidget;
   void Schermo(QVBoxLayout *MainLayout);
@@ -28,7 +29,7 @@ public:
   explicit MainWindow(QWidget *parent = nullptr);
 
 public slots:
-  MainWindow &refreshData();
+  void refreshData();
 signals:
 };
 
