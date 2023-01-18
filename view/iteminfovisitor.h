@@ -9,11 +9,11 @@ private:
     QWidget* widget;
 public:
     QWidget* getWidget();
-    virtual void visit(Book& book);
-    virtual void visit(BookSerie& bookSerie);
-    virtual void visit(Film& film);
-    virtual void visit(Videogame& videogame);
-    virtual void visit(BoardGame& boardGame);
+    virtual void visit(Book* book);
+    virtual void visit(BookSerie* bookSerie);
+    virtual void visit(Film* film);
+    virtual void visit(Videogame* videogame);
+    virtual void visit(BoardGame* boardGame);
 };
 
 #endif // ITEMINFOVISITOR_H
