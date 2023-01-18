@@ -4,8 +4,8 @@
 #include <QWidget>
 #include <QPushButton>
 
-class Info
-{
+class Info: public QWidget{
+    Q_OBJECT
 public:
     virtual QWidget* getWidget() const=0;
     virtual void edit()=0;
@@ -13,6 +13,10 @@ public:
     //virtual QPushButton* getViewButton() const;
     //virtual QPushButton* getEditButton() const;
     //virtual QPushButton* getDeleteButton() const;
+
+public slots:
+  virtual void confirm()=0;
+
 };
 
 #endif // INFO_H
