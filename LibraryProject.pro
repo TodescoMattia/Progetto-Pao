@@ -12,8 +12,14 @@ SOURCES += \
     view/additem.cpp \
     view/additemselector.cpp \
     view/adduser.cpp \
+    view/editboardgame.cpp \
+    view/editbook.cpp \
+    view/editbookserie.cpp \
+    view/editfilm.cpp \
     view/edititem.cpp \
     view/edituser.cpp \
+    view/editvideogame.cpp \
+    view/itemeditvisitor.cpp \
     view/mainwindow.cpp \
     view/info.cpp \
     view/itemtab.cpp \
@@ -39,9 +45,15 @@ HEADERS += \
     view/additem.h \
     view/additemselector.h \
     view/adduser.h \
+    view/editboardgame.h \
+    view/editbook.h \
+    view/editbookserie.h \
+    view/editfilm.h \
     view/edititem.h \
     view/edituser.h \
+    view/editvideogame.h \
     view/info.h \
+    view/itemeditvisitor.h \
     view/itemtab.h \
     view/listwidget.h \
     model/user.h \
