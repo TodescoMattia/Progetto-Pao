@@ -1,7 +1,11 @@
 #ifndef EDITITEM_H
 #define EDITITEM_H
 
-#include "qwidget.h"
+#include <QDialog>
+#include <QCheckBox>
+#include "../model/item.h"
+#include <QDialogButtonBox>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 class QPushButton;
@@ -10,13 +14,18 @@ class QLineEdit;
 class QTextEdit;
 QT_END_NAMESPACE
 
-class EditItem: public QWidget
-{
+class EditItem: public QDialog{
      Q_OBJECT
+private:
+    Item* item;
+
+    QLineEdit *idLine;
+    QLineEdit *titleLine;
+    QCheckBox *isLentCheck;
 
 public:
-
-   EditItem(QWidget *parent = nullptr);
+   EditItem(Item* item);
+   void set();
 
 };
 

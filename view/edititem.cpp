@@ -1,44 +1,40 @@
 #include "edititem.h"
-#include <QtWidgets>
+#include "itemeditvisitor.h"
 
-EditItem::EditItem(QWidget *parent)
-    : QWidget(parent)
+#include <QLineEdit>
+#include <QVBoxLayout>
+#include <QFormLayout>
+
+EditItem::EditItem(Item* item): item(item)
 {
+    idLine = new QLineEdit();
+    idLine->setText(QString::fromStdString(item->getId()));
+
+    titleLine = new QLineEdit();
+    titleLine->setText(QString::fromStdString(item->getTitle()));
+
+    isLentCheck = new QCheckBox();
+    if(item->getState()){
+        isLentCheck->setChecked(true);
+    }
+
+    QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->addWidget(idLine);
+    layout->addWidget(titleLine);
+    layout->addWidget(isLentCheck);
 
 
-    QLineEdit* ID = new QLineEdit;
-    QLineEdit* Title = new QLineEdit;
-    QCheckBox* IsLent = new QCheckBox;
-
-
-
-    QVBoxLayout* mainlayout = new QVBoxLayout;
-
-        QFormLayout* FormLayout = new QFormLayout;
-
-        FormLayout->addRow(tr("&ID:"), ID);
-        FormLayout->addRow(tr("&Title:"), Title);
-        FormLayout->addRow(tr("&IsLent:"), IsLent);
-
-
-
-
-    QHBoxLayout* ButtonLayout = new QHBoxLayout;
-
-    QPushButton* Salva = new QPushButton("Salva");
-    QPushButton* Annulla = new QPushButton("Annulla");
-
-    ButtonLayout->addWidget(Salva);
+    /*ButtonLayout->addWidget(Salva);
     ButtonLayout->addWidget(Annulla);
     ButtonLayout->setSpacing(5);
-    ButtonLayout->setContentsMargins(25, 0, 25, 0);
+    ButtonLayout->setContentsMargins(25, 0, 25, 0);*/
 
-
-    mainlayout->addLayout(FormLayout);
-    mainlayout->addLayout(ButtonLayout);
-
-
-    setLayout(mainlayout);
-    setWindowTitle(tr("ItemEdit"));
+    setWindowTitle("Modifica oggetto");
 }
 
+void EditItem::set(){
+    item->setId(idLine->text().toStdString());
+    item->setTitle(titleLine->text().toStdString());
+    item->setState(isLentCheck->isChecked());
+
+}
