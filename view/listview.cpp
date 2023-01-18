@@ -5,25 +5,26 @@
 #include <QPushButton>
 
 ListView::ListView(Info *infoAb) : info(infoAb) {
-  widget = new QWidget();
-  widget->setObjectName("list-item");
 
-  QHBoxLayout *layout = new QHBoxLayout(widget);
+    widget = new QWidget();
+    widget->setObjectName("list-item");
 
-  layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    QHBoxLayout *layout = new QHBoxLayout(widget);
 
-  layout->addWidget(info->getWidget());
+    layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-  layout->addStretch();
+    layout->addWidget(info->getWidget());
 
-  editButton = new QPushButton("Modifica");
-  layout->addWidget(editButton);
+    layout->addStretch();
 
-  deleteButton = new QPushButton("Elimina");
-  layout->addWidget(deleteButton);
+    editButton = new QPushButton("Modifica");
+    layout->addWidget(editButton);
 
-  connect(editButton, &QPushButton::clicked, this, &ListView::clickEdit);
-  connect(deleteButton, &QPushButton::clicked, this, &ListView::clickDelete);
+    deleteButton = new QPushButton("Elimina");
+    layout->addWidget(deleteButton);
+
+    connect(editButton, &QPushButton::clicked, this, &ListView::clickEdit);
+    connect(deleteButton, &QPushButton::clicked, this, &ListView::clickDelete);
 }
 
 QWidget *ListView::getWidget() { return widget; }

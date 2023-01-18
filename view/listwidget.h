@@ -11,7 +11,7 @@
 class ListWidget : public QWidget {
   Q_OBJECT
 private:
-  List<ListView> listView;
+  List<ListView*> listView;
   List<Info*> listInfo;
   QPushButton* editButton;
   QPushButton* deleteButton;
