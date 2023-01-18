@@ -3,7 +3,7 @@
 
 
 #include <QWidget>
-#include "..\model\visitor.h"
+#include "../model/visitor.h"
 #include "mainwindow.h"
 
 class ItemEditVisitor: public Visitor{
