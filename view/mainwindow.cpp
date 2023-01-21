@@ -98,9 +98,9 @@ void MainWindow::refreshData(){
 
     //momentaneo
 
-    List<Item*> listItem2= List<Item*>(listItem);
+    List<Item*> listItem2 = List<Item*>(listItem);
     listItem.clear();
-    listItem=listItem2;
+    listItem = listItem2;
 
 
     this->TabDialogViewer(MainLayout);
@@ -111,35 +111,37 @@ void MainWindow::refreshData(){
 void MainWindow::save(){
     if (path.isEmpty()){
         saveAs();
-    }
-    json->save(path.toStdString(), &listItem, &listUser);
-}
-
-void MainWindow::saveAs(){
-
-    path = QFileDialog::getSaveFileName(
-        this,
-        "Creates new Dataset",
-        "./",
-        "JSON files *.json"
-    );
-
-    if (path.isEmpty()) {
         return;
     }
 
     json->save(path.toStdString(), &listItem, &listUser);
+}
 
+void MainWindow::saveAs(){
+    QString pathTemp = QFileDialog::getSaveFileName(
+        this,
+        "Creates new Dataset",
+        "./" + path,
+        "JSON files *.json"
+    );
+
+    if(pathTemp.isEmpty()){
+        return;
+    }
+
+    path = pathTemp;
+
+    json->save(path.toStdString(), &listItem, &listUser);
 }
 
 void MainWindow::load(){
-
     path = QFileDialog::getOpenFileName(
         this,
         "Creates new Dataset",
         "./",
         "JSON files *.json"
     );
+
     if (path.isEmpty()) {
         return;
     }
