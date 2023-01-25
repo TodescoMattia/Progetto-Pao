@@ -36,6 +36,8 @@ EditItem::EditItem(Item* item): item(item)
     ButtonLayout->setContentsMargins(25, 0, 25, 0);*/
 
     setWindowTitle("Modifica oggetto");
+    layout->setContentsMargins(20,20,20,20);
+    this->setMaximumWidth(350);
 }
 
 void EditItem::set(){

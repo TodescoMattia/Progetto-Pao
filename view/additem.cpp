@@ -147,6 +147,9 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     layout->addWidget(buttonBox);
+    layout->addStretch();
+    this->setMaximumHeight(500);
+    this->setMaximumWidth(300);
 }
 
 

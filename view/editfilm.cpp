@@ -72,6 +72,8 @@ EditFilm::EditFilm(Film* film): EditItem(film), film(film)
     layout->addWidget(thrillerButton);
     layout->addWidget(buttonBox);
 
+    this->setMaximumWidth(300);
+
 }
 
 void EditFilm::setFilm(){

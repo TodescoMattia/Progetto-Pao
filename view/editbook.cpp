@@ -72,6 +72,8 @@ EditBook::EditBook(Book* book): EditItem(book), book(book)
     layout->addWidget(thrillerButton);
     layout->addWidget(buttonBox);
 
+    this->setMaximumWidth(300);
+
 }
 
 void EditBook::setBook(){

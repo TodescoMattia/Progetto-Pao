@@ -59,6 +59,8 @@ EditVideogame::EditVideogame(Videogame* videogame): EditItem(videogame), videoga
     layout->addWidget(thrillerButton);
     layout->addWidget(buttonBox);
 
+    this->setMaximumWidth(300);
+
 }
 
 void EditVideogame::setVideogame(){

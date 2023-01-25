@@ -78,6 +78,8 @@ EditBookSerie::EditBookSerie(BookSerie* bookSerie): EditItem(bookSerie), bookSer
     layout->addWidget(volumeLine);
     layout->addWidget(buttonBox);
 
+    this->setMaximumWidth(300);
+
 }
 
 void EditBookSerie::setBookSerie(){

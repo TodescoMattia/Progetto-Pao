@@ -65,6 +65,8 @@ EditBoardGame::EditBoardGame(BoardGame* boardGame): EditItem(boardGame), boardGa
     layout->addWidget(comedyButton);
     layout->addWidget(thrillerButton);
     layout->addWidget(buttonBox);
+
+    this->setMaximumWidth(300);
 }
 
 void EditBoardGame::setBoardGame(){

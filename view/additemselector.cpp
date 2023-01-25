@@ -49,6 +49,8 @@ AddItemSelector::AddItemSelector(){
     layout->addWidget(selectTypeBox);
     layout->addWidget(buttonBox);
 
+    this->setFixedSize(250,250);
+
 
     /*ButtonLayout->addWidget(Salva);
     ButtonLayout->addWidget(Annulla);
