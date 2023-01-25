@@ -12,13 +12,13 @@
 
 #cancelButton{
 
-    background-color: #FF0000;
+    background-color: #A1002D;
     color:white;
 }
 
 #confirmButton{
 
-    background-color: #0000FF;
+    background-color: #00469B;
     color:white;
 }
 
