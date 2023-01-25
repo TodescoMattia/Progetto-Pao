@@ -1,5 +1,6 @@
 #include "editvideogame.h"
 
+#include <QLabel>
 #include <QVBoxLayout>
 #include <QRadioButton>
 
@@ -7,6 +8,7 @@ EditVideogame::EditVideogame(Videogame* videogame): EditItem(videogame), videoga
 {
     QLayout* layout = this->layout();
 
+    QLabel* genreLabel = new QLabel("Genere:");
     QRadioButton* fantasyButton = new QRadioButton("Fantasy");
     QRadioButton* horrorButton = new QRadioButton("Horror");
     QRadioButton* romanceButton = new QRadioButton("Romance");
@@ -49,6 +51,7 @@ EditVideogame::EditVideogame(Videogame* videogame): EditItem(videogame), videoga
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(setVideogame()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
+    layout->addWidget(genreLabel);
     layout->addWidget(fantasyButton);
     layout->addWidget(horrorButton);
     layout->addWidget(romanceButton);

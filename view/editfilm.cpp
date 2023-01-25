@@ -1,4 +1,6 @@
 #include "editfilm.h"
+
+#include <QLabel>
 #include <QVBoxLayout>
 #include <QRadioButton>
 
@@ -6,12 +8,15 @@ EditFilm::EditFilm(Film* film): EditItem(film), film(film)
 {
     QLayout* layout = this->layout();
 
+    QLabel* directorLabel = new QLabel("Regista:");
     directorLine= new QLineEdit();
     directorLine->setText(QString::fromStdString(film->getDirector()));
 
+    QLabel* durationLabel = new QLabel("Durata:");
     durationLine = new QSpinBox();
     durationLine->setValue(film->getDuration());
 
+    QLabel* genreLabel = new QLabel("Genere:");
     QRadioButton* fantasyButton = new QRadioButton("Fantasy");
     QRadioButton* horrorButton = new QRadioButton("Horror");
     QRadioButton* romanceButton = new QRadioButton("Romance");
@@ -55,8 +60,11 @@ EditFilm::EditFilm(Film* film): EditItem(film), film(film)
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
 
+    layout->addWidget(directorLabel);
     layout->addWidget(directorLine);
+    layout->addWidget(durationLabel);
     layout->addWidget(durationLine);
+    layout->addWidget(genreLabel);
     layout->addWidget(fantasyButton);
     layout->addWidget(horrorButton);
     layout->addWidget(romanceButton);
