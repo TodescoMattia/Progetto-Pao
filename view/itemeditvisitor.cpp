@@ -1,4 +1,3 @@
-
 #include "itemeditvisitor.h"
 #include "../model/boardgame.h"
 #include "../model/book.h"

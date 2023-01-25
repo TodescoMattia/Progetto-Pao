@@ -1,5 +1,4 @@
 #include "iteminfo.h"
-#include "edititem.h"
 #include "iteminfovisitor.h"
 #include "itemeditvisitor.h"
 #include <QString>

@@ -39,7 +39,10 @@ AddItemSelector::AddItemSelector(){
     cancelButton = new QPushButton("Annulla");
 
     buttonBox->addButton(confirmButton, QDialogButtonBox::AcceptRole);
+    confirmButton->setObjectName("confirmButton");
+
     buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
+    cancelButton->setObjectName("cancelButton");
 
     //connect(selectTypeGroup, SIGNAL(idPressed(int)), this, SLOT(AddItemSelector::enableConfirm(int)));
 

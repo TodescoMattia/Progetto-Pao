@@ -4,8 +4,22 @@
 }
 
 #list-item{
+
     background-color: #EEE;
     border: 1px solid #CCC;
     border-radius: 10%;
 }
+
+#cancelButton{
+
+    background-color: #FF0000;
+    color:white;
+}
+
+#confirmButton{
+
+    background-color: #0000FF;
+    color:white;
+}
+
 

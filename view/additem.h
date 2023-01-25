@@ -8,7 +8,6 @@
 #include <QFormLayout>
 #include <QComboBox>
 #include <QSpinBox>
-#include "itemtab.h"
 #include "additemselector.h"
 
 class AddItem: public QDialog{

@@ -1,6 +1,4 @@
 #include "additem.h"
-#include "../model/item.h"
-#include "iteminfo.h"
 
 #include <QFormLayout>
 #include <QHBoxLayout>
@@ -138,7 +136,10 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
     buttonBox = new QDialogButtonBox();
 
     confirmButton = new QPushButton("Conferma");
+    confirmButton->setObjectName("confirmButton");
+
     cancelButton = new QPushButton("Annulla");
+    cancelButton->setObjectName("cancelButton");
 
     buttonBox->addButton(confirmButton, QDialogButtonBox::AcceptRole);
     buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
