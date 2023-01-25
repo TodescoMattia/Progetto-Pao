@@ -1,43 +1,43 @@
 #include "edituser.h"
 #include <QtWidgets>
 
-EditUser::EditUser(QWidget *parent)
-    : QWidget(parent)
-{
+EditUser::EditUser(User *user): user(user){
+
+    nameLine = new QLineEdit();
+    nameLine->setText(QString::fromStdString(user->getName()));
+
+    surnameLine = new QLineEdit();
+    surnameLine->setText(QString::fromStdString(user->getSurname()));
+
+    numberLine = new QLineEdit();
+    numberLine->setText(QString::fromStdString(user->getNumber()));
+
+    buttonBox = new QDialogButtonBox();
+
+    confirmButton = new QPushButton("Conferma");
+    cancelButton = new QPushButton("Annulla");
+
+    buttonBox->addButton(confirmButton, QDialogButtonBox::AcceptRole);
+    buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
+
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(setUser()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
 
-    QLineEdit* Nameline = new QLineEdit;
-    QLineEdit* SurnameLine = new QLineEdit;
-    QLineEdit* NumberLine = new QLineEdit;
+    QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->addWidget(nameLine);
+    layout->addWidget(surnameLine);
+    layout->addWidget(numberLine);
+    layout->addWidget(buttonBox);
 
+    setWindowTitle("Modifica utente");
 
-
-    QVBoxLayout* mainlayout = new QVBoxLayout;
-
-        QFormLayout* FormLayout = new QFormLayout;
-
-        FormLayout->addRow(tr("&Name:"), Nameline);
-        FormLayout->addRow(tr("&Surname:"), SurnameLine);
-        FormLayout->addRow(tr("&Number:"), NumberLine);
-
-
-
-
-    QHBoxLayout* ButtonLayout = new QHBoxLayout;
-
-    QPushButton* Salva = new QPushButton("Salva");
-    QPushButton* Annulla = new QPushButton("Annulla");
-
-    ButtonLayout->addWidget(Salva);
-    ButtonLayout->addWidget(Annulla);
-    ButtonLayout->setSpacing(5);
-    ButtonLayout->setContentsMargins(25, 0, 25, 0);
-
-
-    mainlayout->addLayout(FormLayout);
-    mainlayout->addLayout(ButtonLayout);
-
-
-    setLayout(mainlayout);
-    setWindowTitle(tr("UserEdit"));
 }
+
+void EditUser::setUser(){
+    user->setName(nameLine->text().toStdString());
+    user->setSurname(surnameLine->text().toStdString());
+    user->setNumber(numberLine->text().toStdString());
+    accept();
+}
+

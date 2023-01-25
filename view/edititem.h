@@ -26,7 +26,6 @@ private:
 public:
    EditItem(Item* item);
    void set();
-
 };
 
 #endif // EDITITEM_H

@@ -1,23 +1,32 @@
 #ifndef EDITUSER_H
 #define EDITUSER_H
 
-#include "qwidget.h"
+#include "../model/user.h"
 
-QT_BEGIN_NAMESPACE
-class QPushButton;
-class QLabel;
-class QLineEdit;
-class QTextEdit;
-QT_END_NAMESPACE
+#include <QDialog>
+#include <QLineEdit>
+#include <QDialogButtonBox>
+#include <QPushButton>
 
-class EditUser: public QWidget
-{
+class EditUser: public QDialog{
      Q_OBJECT
 
+private:
+    User* user;
+
+    QLineEdit* nameLine;
+    QLineEdit* surnameLine;
+    QLineEdit* numberLine;
+
+    QDialogButtonBox *buttonBox;
+    QPushButton* confirmButton;
+    QPushButton* cancelButton;
+
 public:
+   EditUser(User* user);
 
-   EditUser(QWidget *parent = nullptr);
-
+public slots:
+    void setUser();
 };
 
 #endif // EDITUSER_H

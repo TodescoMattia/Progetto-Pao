@@ -21,37 +21,7 @@ Json::Json()
 
 }
 
-QString Json::selectJsonDialog(){
-    QFileDialog dialog;
-    dialog.setFileMode(QFileDialog::ExistingFile);
-    dialog.setNameFilter("JSON File (*.json)");
-    QString fileName;
 
-    if (dialog.exec())
-        fileName = dialog.selectedFiles().at(0);
-    return fileName;
-}
-
-QJsonDocument* Json::getData(const QString& path){
-    if(path.isNull()) return new QJsonDocument();
-
-    QString fileData;
-    QFile file;
-
-    file.setFileName(path);
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
-    fileData = file.readAll();
-    file.close();
-
-    //Controllo validità documento
-    QJsonDocument* doc = new QJsonDocument(QJsonDocument::fromJson(fileData.toLocal8Bit()));
-    QJsonObject dataObj = doc->object();
-    if(!dataObj.contains("user") || !dataObj.contains("item")){
-        delete doc;
-        return new QJsonDocument();
-    }
-    return doc;
-}
 
 void Json::load(std::string path, List<Item*>* items, List<User*>* users){
 
@@ -66,16 +36,16 @@ void Json::load(std::string path, List<Item*>* items, List<User*>* users){
     QJsonDocument* doc = new QJsonDocument(QJsonDocument::fromJson(fileData.toLocal8Bit()));
 
     loadItem(doc, items);
-
-    //loadUser(doc, users);
+    loadUser(doc, users);
 
 }
 void Json::save(std::string path, List<Item*>* items, List<User*>* users){
 
+    QJsonObject fileObj;
+
     if (items) {
 
         QJsonArray itemArray;
-
         List<Item*>::Iterator start= items->begin();
 
         for(start = items->begin(); start!=items->end();start++){
@@ -83,28 +53,43 @@ void Json::save(std::string path, List<Item*>* items, List<User*>* users){
             (*start)->accept(visitor);
             itemArray.push_back(visitor.getObject());
         }
-        QJsonObject itemsObj;
-        itemsObj ["Item"] = itemArray;
 
-        QJsonDocument saveDoc(itemsObj);
+        fileObj ["Item"] = itemArray;
 
-        QFile saveFile(path.c_str());
-        if (saveFile.open(QIODevice::WriteOnly)) {
-            saveFile.write(saveDoc.toJson());
-        }
     }
 
+    if (users) {
+
+        QJsonArray userArray;
+        List<User*>::Iterator start= users->begin();
+
+        for(start = users->begin(); start!=users->end();start++){
+            QJsonObject userObject;
+            userObject["name"] = QString::fromStdString((*start)->getName());
+            userObject["surname"] = QString::fromStdString((*start)->getSurname());
+            userObject["number"] = QString::fromStdString((*start)->getNumber());
+            userArray.push_back(userObject);
+        }
+
+        fileObj ["User"] = userArray;
+
+    }
+
+    QJsonDocument saveDoc(fileObj);
+
+    QFile saveFile(path.c_str());
+    if (saveFile.open(QIODevice::WriteOnly)) {
+        saveFile.write(saveDoc.toJson());
+    }
 
 }
 
 void Json::loadItem(QJsonDocument* data, List<Item*>* items){
-    //List<Item*> items;
-    QJsonObject dataObj = data->object();
 
+    QJsonObject dataObj = data->object();
     QJsonArray itemObj =dataObj["Item"].toArray();
 
     QJsonArray::Iterator start = itemObj.begin();
-
     for(start=itemObj.begin(); start!=itemObj.end();start++){
 
         QJsonObject obj= start->toObject();
@@ -129,12 +114,13 @@ void Json::loadItem(QJsonDocument* data, List<Item*>* items){
 
 void Json::loadUser(QJsonDocument* data, List<User*>* users){
 
-    //List<User*> users;
     QJsonObject dataObj = data->object();
-    QJsonObject userObj = dataObj["User"].toObject();
+    QJsonArray userArray = dataObj["User"].toArray();
 
-    QJsonObject::Iterator start = userObj.begin();
-    for(start=userObj.begin(); start!=userObj.end();start++){
+    QJsonArray::Iterator start = userArray.begin();
+    for(start=userArray.begin(); start!=userArray.end();start++){
+
+        QJsonObject userObj= start->toObject();
 
         User* user= new User(
             userObj.value("name").toString().toStdString(),

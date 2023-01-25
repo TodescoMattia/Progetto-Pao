@@ -37,19 +37,8 @@ AddUser::AddUser()
 
 }
 
-QString AddUser::getName() const{
-    QString name = nameLine->text();
-    return name;
-}
-
-QString AddUser::getSurname() const{
-    QString surname = surnameLine->text();
-    return surname;
-}
-
-QString AddUser::getNumber() const{
-    QString number = numberLine->text();
-    return number;
-}
+QString AddUser::getName() const{ return nameLine->text(); }
+QString AddUser::getSurname() const{ return surnameLine->text(); }
+QString AddUser::getNumber() const{ return numberLine->text(); }
 
 

@@ -26,14 +26,13 @@ ItemTab::ItemTab(List<Item *>* lista, MainWindow * mainWindow) : listItem(lista)
     vbox->addWidget(titleLabel);
 
     //Creo Info
-
     List<Item*>::Iterator start = listItem->begin();
     List<Item*>::Iterator end = listItem->end();
 
     List<Info*> listInfo = *(new List<Info *>);
 
     for (start = listItem->begin(), end = listItem->end(); start != end; start++) {
-        Info* info= new ItemInfo(*start, mainWindow);
+        Info* info= new ItemInfo(*start, mainWindow, start, listItem);
         listInfo.push_front(info);
     }
 
@@ -61,8 +60,7 @@ void ItemTab::selectItem() {
 
     connect(itemSelector, SIGNAL(accepted()), this, SLOT(createItem()));
 
-    // connect(dialog, &AddItem::refreshItemTab, this, &ItemTab::refreshItemTab);
-    }
+}
 
 void ItemTab::createItem() {
     AddItem *dialog = new AddItem(itemSelector);
@@ -130,17 +128,3 @@ void ItemTab::confirm() {
     emit reload();
 
 }
-
-/*void ItemTab::refreshItemTab(){
-    this->reloadData();
-}*/
-
-/*ItemTab& ItemTab::reloadData(){
-
-
-    List<Item*> listItem2=*(new List<Item*>(listItem));
-    listItem.clear();
-    listItem=listItem2;
-
-    return *this;
-}*/

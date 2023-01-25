@@ -30,5 +30,4 @@ ListView::ListView(Info *infoAb) : info(infoAb) {
 QWidget *ListView::getWidget() { return widget; }
 
 void ListView::clickEdit() { info->edit(); }
-
 void ListView::clickDelete() { info->remove(); }

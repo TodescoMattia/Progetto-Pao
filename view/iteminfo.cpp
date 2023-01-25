@@ -5,7 +5,7 @@
 #include <QString>
 #include <QVBoxLayout>
 
-ItemInfo::ItemInfo(Item *item, MainWindow * mainWindow) : item(item), mainWindow(mainWindow) {
+ItemInfo::ItemInfo(Item *item, MainWindow * mainWindow, List<Item*>::Iterator it, List<Item*>* listItem) : item(item), mainWindow(mainWindow), it(it), listItem(listItem) {
     widget = new QWidget();
 
     QVBoxLayout *itemInfo = new QVBoxLayout(widget);
@@ -29,17 +29,14 @@ ItemInfo::ItemInfo(Item *item, MainWindow * mainWindow) : item(item), mainWindow
 QWidget *ItemInfo::getWidget() const { return widget; }
 
 void ItemInfo::edit() {
-
     ItemEditVisitor visitor(mainWindow);
     item->accept(visitor);
-
-
 }
+
 void ItemInfo::remove() {
-    //mainWindow->removeItem();
-
+    listItem->erase(it);
+    mainWindow->refreshData();
 }
-
 
 void ItemInfo::confirm(){
 

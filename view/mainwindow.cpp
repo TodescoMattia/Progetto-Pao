@@ -80,7 +80,7 @@ void MainWindow::TabDialogViewer(QVBoxLayout *MainLayout) {
     QVBoxLayout *tabLayout = new QVBoxLayout;
 
     ItemTab *itemTab = new ItemTab(&listItem, this);
-    UserTab *userTab = new UserTab();
+    UserTab *userTab = new UserTab(&listUser, this);
 
 
     tabWidget->insertTab(0, itemTab, "&Oggetti");
@@ -101,6 +101,10 @@ void MainWindow::refreshData(){
     List<Item*> listItem2 = List<Item*>(listItem);
     listItem.clear();
     listItem = listItem2;
+
+    List<User*> listUser2 = List<User*>(listUser);
+    listUser.clear();
+    listUser = listUser2;
 
 
     this->TabDialogViewer(MainLayout);
@@ -147,6 +151,7 @@ void MainWindow::load(){
     }
 
     listItem.clear();
+    listUser.clear();
 
     json->load(path.toStdString(), &listItem, &listUser);
 
