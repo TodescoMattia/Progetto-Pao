@@ -1,5 +1,6 @@
 #include "additem.h"
 
+#include <QLabel>
 #include <QFormLayout>
 #include <QHBoxLayout>
 #include <QRadioButton>
@@ -14,9 +15,11 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
     setWindowTitle("Selezione tipo oggetto");
     int type = itemSelector->getTypeGroup();
 
+    QLabel* idLabel = new QLabel("ID:");
     idLine= new QLineEdit();
     idLine->setPlaceholderText("Inserisci ID");
 
+    QLabel* titleLabel = new QLabel("Titolo:");
     titleLine= new QLineEdit();
     titleLine->setPlaceholderText("Inserisci titolo");
 
@@ -38,17 +41,27 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
     isLentBox->setAlignment(Qt::AlignLeft);
 
     layout = new QVBoxLayout(this);
+    layout->addWidget(idLabel);
     layout->addWidget(idLine);
+    layout->addWidget(titleLabel);
     layout->addWidget(titleLine);
     layout->addWidget(isLentBox);
 
+
     switch(type) {
     case 0: //book
+    {
+        QLabel* authorLabel = new QLabel("Autore:");
+        QLabel* pageNumberLabel = new QLabel("Numero Pagine:");
+        QLabel* genreLabel = new QLabel("Genere:");
+
         authorLine = new QLineEdit();
         authorLine->setPlaceholderText("Inserisci autore");
+        layout->addWidget(authorLabel);
         layout->addWidget(authorLine);
 
         pageNumberLine = new QSpinBox();
+        layout->addWidget(pageNumberLabel);
         layout->addWidget(pageNumberLine);
 
         genreBox = new QComboBox;
@@ -57,20 +70,30 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
             genreBox->insertItem(2, "Romance");
             genreBox->insertItem(3, "Comedy");
             genreBox->insertItem(4, "Thriller");
+        layout->addWidget(genreLabel);
         layout->addWidget(genreBox);
 
         break;
+}
 
     case 1: //bookserie
+    {
+        QLabel* authorBookSerieLabel = new QLabel("Autore:");
+        QLabel* pageNumberLabel = new QLabel("Numero Pagine:");
+        QLabel* volumeNumberLabel = new QLabel("Numero Volumi:");
+        QLabel* genreLabel = new QLabel("Genere:");
+
         authorLine = new QLineEdit();
         authorLine->setPlaceholderText("Inserisci autore");
+        layout->addWidget(authorBookSerieLabel);
         layout->addWidget(authorLine);
 
         pageNumberLine = new QSpinBox();
+        layout->addWidget(pageNumberLabel);
         layout->addWidget(pageNumberLine);
 
         volumeNumberLine = new QSpinBox();
-
+        layout->addWidget(volumeNumberLabel);
         layout->addWidget(volumeNumberLine);
 
         genreBox = new QComboBox;
@@ -79,17 +102,27 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
             genreBox->insertItem(2, "Romance");
             genreBox->insertItem(3, "Comedy");
             genreBox->insertItem(4, "Thriller");
+        layout->addWidget(genreLabel);
         layout->addWidget(genreBox);
 
         break;
+}
 
     case 2: //film
+    {
+
+        QLabel* directorLabel = new QLabel("Regista:");
+        QLabel* durationLabel = new QLabel("Durata:");
+        QLabel* genreLabel = new QLabel("Genere:");
+
         directorLine = new QLineEdit();
         directorLine->setPlaceholderText("Inserisci autore");
+        layout->addWidget(directorLabel);
         layout->addWidget(directorLine);
 
         durationLine = new QSpinBox();
         durationLine->setSpecialValueText(tr("Inserisci durata"));
+        layout->addWidget(durationLabel);
         layout->addWidget(durationLine);
 
         genreBox = new QComboBox;
@@ -98,13 +131,18 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
             genreBox->insertItem(2, "Romance");
             genreBox->insertItem(3, "Comedy");
             genreBox->insertItem(4, "Thriller");
+        layout->addWidget(genreLabel);
         layout->addWidget(genreBox);
 
         break;
-
+}
     case 3: //board game
+    {
+        QLabel* playerNumberLabel = new QLabel("Numero Giocatori:");
+        QLabel* genreLabel = new QLabel("Genere:");
 
         playerNumberLine = new QSpinBox();
+        layout->addWidget(playerNumberLabel);
         layout->addWidget(playerNumberLine);
 
         genreBox = new QComboBox;
@@ -113,21 +151,26 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
             genreBox->insertItem(2, "Romance");
             genreBox->insertItem(3, "Comedy");
             genreBox->insertItem(4, "Thriller");
+        layout->addWidget(genreLabel);
         layout->addWidget(genreBox);
 
         break;
+}
 
     case 4: //videogame
-
+    {
+        QLabel* genreLabel = new QLabel("Genere:");
         genreBox = new QComboBox;
             genreBox->insertItem(0, "Fantasy");
             genreBox->insertItem(1, "Horror");
             genreBox->insertItem(2, "Romance");
             genreBox->insertItem(3, "Comedy");
             genreBox->insertItem(4, "Thriller");
+        layout->addWidget(genreLabel);
         layout->addWidget(genreBox);
 
         break;
+    }
 
     default:
         return;

@@ -9,6 +9,7 @@
 #include <QComboBox>
 #include <QSpinBox>
 #include "additemselector.h"
+#include "qlabel.h"
 
 class AddItem: public QDialog{
     Q_OBJECT
@@ -25,6 +26,17 @@ private:
     QLineEdit *directorLine;
     QSpinBox *durationLine;
     QSpinBox *playerNumberLine;
+
+
+    QLabel* authorLabel;
+    QLabel* pageNumberLabel;
+    QLabel* genreLabel;
+    QLabel* authorBookSerieLabel;
+    QLabel* volumeNumberLabel;
+    QLabel* directorLabel;
+    QLabel* durationLabel;
+    QLabel* playerNumberLabel;
+
 
     QDialogButtonBox *buttonBox;
     QPushButton* confirmButton;
