@@ -1,19 +1,15 @@
 #include "mainwindow.h"
 #include "itemtab.h"
 #include "usertab.h"
-#include "../model/book.h"
-#include "../model/genre.h"
 
 #include <QtWidgets>
 #include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
+
   MainLayout = new QVBoxLayout;
 
   BarraDeiMenu(MainLayout);
-
-  // Schermo(MainLayout);
-  // A cosa serviva questa? cancellami
 
   listItem = *(new List<Item*>());
 
@@ -29,14 +25,8 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
 }
 
 void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
-    QMenuBar *Menu = new QMenuBar(this);
 
-    QMenu *file = new QMenu("File", Menu);
-    Menu->addMenu(file);
-
-    file->addAction(new QAction("Nuovo", file));
-    file->addAction(new QAction("Importa", file));
-    file->addAction(new QAction("Salva con nome", file));
+    QGroupBox* buttonGroupBox = new QGroupBox;
 
     QPushButton* saveAsButton = new QPushButton("Salva con nome");
     connect(saveAsButton, &QPushButton::clicked, this, &MainWindow::saveAs);
@@ -47,13 +37,15 @@ void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
     QPushButton* loadButton = new QPushButton("Carica");
     connect(loadButton, &QPushButton::clicked, this, &MainWindow::load);
 
-    MainLayout->addWidget(saveAsButton);
+        QHBoxLayout *layout = new QHBoxLayout;
 
-    MainLayout->addWidget(saveButton);
+            layout->addWidget(saveAsButton);
+            layout->addWidget(saveButton);
+            layout->addWidget(loadButton);
 
-    MainLayout->addWidget(loadButton);
+    buttonGroupBox->setLayout(layout);
 
-    MainLayout->addWidget(Menu);
+    MainLayout->addWidget(buttonGroupBox);
 }
 
 void MainWindow::Schermo(QVBoxLayout *MainLayout) {

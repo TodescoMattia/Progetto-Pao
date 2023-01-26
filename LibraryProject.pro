@@ -38,7 +38,6 @@ SOURCES += \
     model/film.cpp \
     model/videogame.cpp \
     model/boardgame.cpp \
-    view/homeviewer.cpp \
     view/iteminfovisitor.cpp \
     view/main.cpp \
 
@@ -75,7 +74,6 @@ HEADERS += \
     model/videogame.h \
     model/boardgame.h \
     view/mainwindow.h \
-    view/homeviewer.h \
     view/iteminfovisitor.h\
 
 

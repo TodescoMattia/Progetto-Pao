@@ -1,4 +1,3 @@
-#include "homeviewer.h"
 #include "mainwindow.h"
 
 #include "itemtab.h"
@@ -20,7 +19,6 @@
 
 int main(int argc, char *argv[]) {
   QApplication app(argc, argv);
-  // HomeViewer w;
 
   QFile stylesheet(":/assets/stylesheet.qss");
   stylesheet.open(QFile::ReadOnly);
