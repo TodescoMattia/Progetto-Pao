@@ -29,12 +29,6 @@ EditItem::EditItem(Item* item): item(item)
     layout->addWidget(isLentLabel);
     layout->addWidget(isLentCheck);
 
-
-    /*ButtonLayout->addWidget(Salva);
-    ButtonLayout->addWidget(Annulla);
-    ButtonLayout->setSpacing(5);
-    ButtonLayout->setContentsMargins(25, 0, 25, 0);*/
-
     setWindowTitle("Modifica oggetto");
     layout->setContentsMargins(20,20,20,20);
     this->setMaximumWidth(350);

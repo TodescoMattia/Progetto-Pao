@@ -12,9 +12,6 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
 
   BarraDeiMenu(MainLayout);
 
-  // Schermo(MainLayout);
-  // A cosa serviva questa? cancellami
-
   listItem = *(new List<Item*>());
 
   tabWidget = new QTabWidget();

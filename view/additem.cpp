@@ -9,7 +9,6 @@
 #include <QLayoutItem>
 
 
-
 AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
 
     setWindowTitle("Selezione tipo oggetto");
