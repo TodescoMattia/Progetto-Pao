@@ -4,7 +4,7 @@
 #include <QString>
 #include <QVBoxLayout>
 
-UserInfo::UserInfo(User *user, MainWindow *mainWindow) : user(user), mainWindow(mainWindow) {
+UserInfo::UserInfo(User *user, List<User*>* listUser, MainWindow *mainWindow) : user(user), listUser(listUser), mainWindow(mainWindow) {
   widget = new QWidget();
 
   QVBoxLayout *userInfo = new QVBoxLayout(widget);
@@ -32,6 +32,9 @@ void UserInfo::edit(){
 }
 
 void UserInfo::remove(){
+    List<User*>::Iterator it = listUser->find_iterator(user);
+    listUser->erase(it);
+    mainWindow->refreshData();
 
 }
 
