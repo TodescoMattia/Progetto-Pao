@@ -16,7 +16,6 @@
 
 ItemTab::ItemTab(List<Item *>* lista, MainWindow * mainWindow) : listItem(lista), mainWindow(mainWindow) {
 
-    // Creates widgets
     QVBoxLayout *vbox = new QVBoxLayout(this);
     vbox->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
 
@@ -26,13 +25,14 @@ ItemTab::ItemTab(List<Item *>* lista, MainWindow * mainWindow) : listItem(lista)
     vbox->addWidget(titleLabel);
 
     //Creo Info
+
     List<Item*>::Iterator start = listItem->begin();
     List<Item*>::Iterator end = listItem->end();
 
     List<Info*> listInfo = *(new List<Info *>);
 
     for (start = listItem->begin(), end = listItem->end(); start != end; start++) {
-        Info* info= new ItemInfo(*start, mainWindow, start, listItem);
+        Info* info= new ItemInfo(*start, listItem, mainWindow);
         listInfo.push_front(info);
     }
 
@@ -125,6 +125,6 @@ void ItemTab::confirm() {
     }
     }
 
-    emit reload();
+    mainWindow->refreshData();
 
 }

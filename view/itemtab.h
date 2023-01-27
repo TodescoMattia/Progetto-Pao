@@ -8,6 +8,7 @@
 
 class ItemTab:public QWidget{
     Q_OBJECT
+
 private:
     List<Item*>* listItem;
     AddItemSelector *itemSelector;
@@ -15,10 +16,6 @@ private:
 
 public:
     ItemTab(List<Item*>* lista, MainWindow * mainWindow);
-   // ItemTab& reloadData();
-
-signals:
-    void reload();
 
 public slots:
     void selectItem();
