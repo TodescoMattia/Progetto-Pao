@@ -23,7 +23,6 @@ SOURCES += \
     view/json.cpp \
     view/jsonvisitor.cpp \
     view/mainwindow.cpp \
-    view/info.cpp \
     view/itemtab.cpp \
     view/listview.cpp \
     view/listwidget.cpp \
