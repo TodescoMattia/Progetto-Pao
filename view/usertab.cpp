@@ -43,7 +43,7 @@ UserTab::UserTab(List<User*>* lista, MainWindow * mainWindow) : listUser(lista),
 
   vbox->addWidget(scrollArea);
 
-  QPushButton *addUserButton = new QPushButton("Aggiungi utente");
+  QPushButton *addUserButton = new QPushButton(QIcon(QPixmap(":/assets/icons/add.svg")), "Aggiungi utente");
   vbox->addWidget(addUserButton);
 
   connect(addUserButton, &QPushButton::clicked, this, &UserTab::createUser);
