@@ -11,16 +11,16 @@
 class ItemInfo : public Info {
 private:
   Item *item;
-  MainWindow* mainWindow;
-  List<Item*>::Iterator it;
   List<Item*>* listItem;
+  MainWindow* mainWindow;
+
   QWidget *widget;
   QLabel *idLabel;
   QLabel *titleLabel;
   QLabel *isLentLabel;
 
 public:
-  ItemInfo(Item *item, MainWindow * mainWindow, List<Item*>::Iterator it, List<Item*>* listItem);
+  ItemInfo(Item *item, List<Item*>* listItem, MainWindow * mainWindow);
   QWidget *getWidget() const;
   void edit();
   void remove();
