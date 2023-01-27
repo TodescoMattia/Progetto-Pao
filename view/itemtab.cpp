@@ -46,7 +46,7 @@ ItemTab::ItemTab(List<Item *>* lista, MainWindow * mainWindow) : listItem(lista)
 
     vbox->addWidget(scrollArea);
 
-    QPushButton *addItemButton = new QPushButton("Aggiungi oggetto");
+    QPushButton *addItemButton = new QPushButton(QIcon(QPixmap(":/assets/icons/add.svg")), "Aggiungi oggetto");
     vbox->addWidget(addItemButton);
 
     connect(addItemButton, &QPushButton::clicked, this, &ItemTab::selectItem);

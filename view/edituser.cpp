@@ -18,7 +18,10 @@ EditUser::EditUser(User *user): user(user){
     buttonBox = new QDialogButtonBox();
 
     confirmButton = new QPushButton("Conferma");
+    confirmButton->setObjectName("confirmButton");
+
     cancelButton = new QPushButton("Annulla");
+    cancelButton->setObjectName("cancelButton");
 
     buttonBox->addButton(confirmButton, QDialogButtonBox::AcceptRole);
     buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
