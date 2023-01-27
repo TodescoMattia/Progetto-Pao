@@ -248,14 +248,103 @@ public:
     bool operator==(const Iterator &x) const { return ptr == x.ptr; }
   };
 
-  Iterator begin() const { return Iterator(first); }
+  class CIterator {
+    friend class List<T>;
 
-  Iterator end() const {
+  private:
+    const Node *ptr;
+    bool pastTheEnd;
+
+    CIterator(Node *p, bool pte = false) : ptr(p), pastTheEnd(pte) {}
+
+  public:
+    // Costruttore
+
+    CIterator() : ptr(nullptr), pastTheEnd(false) {}
+
+    CIterator &operator++() {
+      if (ptr != nullptr) {
+        if (!pastTheEnd) {
+          if (ptr->next == nullptr) {
+            ptr++;
+            pastTheEnd = true;
+          } else {
+            ptr = ptr->next;
+          }
+        }
+      }
+      return *this;
+    }
+
+    CIterator &operator--() {
+      if (ptr != nullptr) {
+        if (ptr->prev == nullptr)
+          ptr = nullptr;
+        else if (!pastTheEnd)
+          ptr = ptr->prev;
+        else {
+          ptr = ptr - 1;
+          pastTheEnd = false;
+        }
+      }
+      return *this;
+    }
+
+    CIterator operator++(int) {
+      CIterator aux(*this);
+      if (ptr != nullptr) {
+        if (!pastTheEnd) {
+          if (ptr->next != nullptr)
+            ptr = ptr->next;
+          else { // ultimo elemento
+            ptr = ptr + 1;
+            pastTheEnd = true;
+          }
+        }
+      }
+      return aux;
+    }
+
+    CIterator operator--(int) {
+      CIterator aux(*this);
+      if (ptr != nullptr) {
+        if (ptr->prev == nullptr)
+          ptr = nullptr;
+        else if (!pastTheEnd)
+          ptr = ptr->prev;
+        else {
+          ptr = ptr - 1;
+          pastTheEnd = false;
+        }
+      }
+      return aux;
+    }
+
+    const T &operator*() const { return ptr->info; }
+    const T *operator->() const { return &(ptr->info); }
+    bool operator!=(const CIterator &x) const { return ptr != x.ptr; }
+    bool operator==(const CIterator &x) const { return ptr == x.ptr; }
+  };
+
+  Iterator begin() { return Iterator(first); }
+
+  Iterator end() {
     if (last == nullptr)
       return Iterator();
 
     return Iterator(last + 1, true);
   }
+
+  CIterator begin() const { return CIterator(first); }
+
+  CIterator end() const {
+    if (last == nullptr)
+      return CIterator();
+
+    return CIterator(last + 1, true);
+  }
+
+  // metodo cancellazione
 
   void erase(Iterator &it) {
     if (it.ptr) {
@@ -284,6 +373,85 @@ public:
           }
         }
       }
+    }
+  }
+
+  // metodi ricerca
+
+  bool find_match(const T &t) const {
+    for (auto it = this->begin(); it != this->end(); it++) {
+      if (*it == t) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  int find_position(const T &t) const {
+    int pos = 0;
+    for (auto it = this->begin(); it != this->end(); it++) {
+      pos++;
+      if (*it == t) {
+        return pos;
+      }
+    }
+    return -1;
+  }
+
+  Iterator find_iterator(const T &t) {
+    for (auto it = this->begin(); it != this->end(); it++) {
+      if (*it == t) {
+        return it;
+      }
+    }
+    return this->end();
+  }
+
+  CIterator find_iterator(const T &t) const {
+    for (auto it = this->begin(); it != this->end(); it++) {
+      if (*it == t) {
+        return it;
+      }
+    }
+    return this->end();
+  }
+
+  // metodi lettura
+
+  T *get_element(int position) {
+    T *ptr = nullptr;
+    if (position) {
+      bool find = false;
+      for (auto it = this->begin(); it != this->end() && find == false; it++) {
+        if (position == 1) {
+          find = true;
+          ptr = &(*it);
+        }
+        position--;
+      }
+    }
+    return ptr;
+  }
+
+  const T *get_element(int position) const {
+    const T *ptr = nullptr;
+    if (position) {
+      bool find = false;
+      for (auto it = this->begin(); it != this->end() && find == false; it++) {
+        if (position == 1) {
+          find = true;
+          ptr = &(*it);
+        }
+        position--;
+      }
+    }
+    return ptr;
+  }
+
+  // PRE: il tipo T deve disporre dell'operator <<
+  void print() const {
+    for (Iterator it = this->begin(); it != this->end(); it++) {
+      std::cout << *it;
     }
   }
 };
