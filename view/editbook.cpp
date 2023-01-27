@@ -1,4 +1,6 @@
 #include "editbook.h"
+
+#include <QLabel>
 #include <QVBoxLayout>
 #include <QRadioButton>
 
@@ -6,12 +8,15 @@ EditBook::EditBook(Book* book): EditItem(book), book(book)
 {
     QLayout* layout = this->layout();
 
+    QLabel* authorLabel = new QLabel("Autore:");
     authorLine= new QLineEdit();
     authorLine->setText(QString::fromStdString(book->getAuthor()));
 
+    QLabel* pageNumberLabel = new QLabel("Numero Pagine:");
     pageNumberLine = new QSpinBox();
     pageNumberLine->setValue(book->getPageNumber());
 
+    QLabel* genreLabel = new QLabel("Genere:");
     QRadioButton* fantasyButton = new QRadioButton("Fantasy");
     QRadioButton* horrorButton = new QRadioButton("Horror");
     QRadioButton* romanceButton = new QRadioButton("Romance");
@@ -46,7 +51,10 @@ EditBook::EditBook(Book* book): EditItem(book), book(book)
     buttonBox = new QDialogButtonBox();
 
     confirmButton = new QPushButton("Conferma");
+    confirmButton->setObjectName("confirmButton");
+
     cancelButton = new QPushButton("Annulla");
+    cancelButton->setObjectName("cancelButton");
 
     buttonBox->addButton(confirmButton, QDialogButtonBox::AcceptRole);
     buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
@@ -55,14 +63,19 @@ EditBook::EditBook(Book* book): EditItem(book), book(book)
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
 
+    layout->addWidget(authorLabel);
     layout->addWidget(authorLine);
+    layout->addWidget(pageNumberLabel);
     layout->addWidget(pageNumberLine);
+    layout->addWidget(genreLabel);
     layout->addWidget(fantasyButton);
     layout->addWidget(horrorButton);
     layout->addWidget(romanceButton);
     layout->addWidget(comedyButton);
     layout->addWidget(thrillerButton);
     layout->addWidget(buttonBox);
+
+    this->setMaximumWidth(300);
 
 }
 

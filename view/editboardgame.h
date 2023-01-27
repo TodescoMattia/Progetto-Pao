@@ -1,13 +1,14 @@
 #ifndef EDITBOARDGAME_H
 #define EDITBOARDGAME_H
 
-
 #include "../model/boardgame.h"
+#include "edititem.h"
+
 #include <QLineEdit>
 #include <QSpinBox>
 #include <QButtonGroup>
 
-#include "edititem.h"
+
 
 class EditBoardGame: public EditItem{
     Q_OBJECT

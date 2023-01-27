@@ -1,6 +1,8 @@
 #ifndef ADDITEM_H
 #define ADDITEM_H
 
+#include "additemselector.h"
+
 #include <QLineEdit>
 #include <QDialog>
 #include <QDialogButtonBox>
@@ -8,8 +10,7 @@
 #include <QFormLayout>
 #include <QComboBox>
 #include <QSpinBox>
-#include "itemtab.h"
-#include "additemselector.h"
+#include <QLabel>
 
 class AddItem: public QDialog{
     Q_OBJECT
@@ -26,6 +27,15 @@ private:
     QLineEdit *directorLine;
     QSpinBox *durationLine;
     QSpinBox *playerNumberLine;
+
+    QLabel* authorLabel;
+    QLabel* pageNumberLabel;
+    QLabel* genreLabel;
+    QLabel* authorBookSerieLabel;
+    QLabel* volumeNumberLabel;
+    QLabel* directorLabel;
+    QLabel* durationLabel;
+    QLabel* playerNumberLabel;
 
     QDialogButtonBox *buttonBox;
     QPushButton* confirmButton;

@@ -2,11 +2,13 @@
 #define EDITBOOK_H
 
 #include "../model/book.h"
+#include "edititem.h"
+
 #include <QLineEdit>
 #include <QSpinBox>
 #include <QButtonGroup>
 
-#include "edititem.h"
+
 
 class EditBook: public EditItem{
     Q_OBJECT

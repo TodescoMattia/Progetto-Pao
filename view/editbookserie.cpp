@@ -1,4 +1,6 @@
 #include "editbookserie.h"
+
+#include <QLabel>
 #include <QVBoxLayout>
 #include <QRadioButton>
 
@@ -6,12 +8,15 @@ EditBookSerie::EditBookSerie(BookSerie* bookSerie): EditItem(bookSerie), bookSer
 {
     QLayout* layout = this->layout();
 
+    QLabel* authorLabel = new QLabel("Autore:");
     authorLine= new QLineEdit();
     authorLine->setText(QString::fromStdString(bookSerie->getAuthor()));
 
+    QLabel* pageNumberLabel = new QLabel("Numero Pagine:");
     pageNumberLine = new QSpinBox();
     pageNumberLine->setValue(bookSerie->getPageNumber());
 
+    QLabel* genreLabel = new QLabel("Genere:");
     QRadioButton* fantasyButton = new QRadioButton("Fantasy");
     QRadioButton* horrorButton = new QRadioButton("Horror");
     QRadioButton* romanceButton = new QRadioButton("Romance");
@@ -43,13 +48,17 @@ EditBookSerie::EditBookSerie(BookSerie* bookSerie): EditItem(bookSerie), bookSer
         break;
     }
 
+    QLabel* volumeLabel = new QLabel("Numero Volumi:");
     volumeLine = new QSpinBox();
     volumeLine->setValue(bookSerie->getVolumeNumber());
 
     buttonBox = new QDialogButtonBox();
 
     confirmButton = new QPushButton("Conferma");
+    confirmButton->setObjectName("confirmButton");
+
     cancelButton = new QPushButton("Annulla");
+    cancelButton->setObjectName("cancelButton");
 
     buttonBox->addButton(confirmButton, QDialogButtonBox::AcceptRole);
     buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
@@ -58,15 +67,21 @@ EditBookSerie::EditBookSerie(BookSerie* bookSerie): EditItem(bookSerie), bookSer
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
 
+    layout->addWidget(authorLabel);
     layout->addWidget(authorLine);
+    layout->addWidget(pageNumberLabel);
     layout->addWidget(pageNumberLine);
+    layout->addWidget(genreLabel);
     layout->addWidget(fantasyButton);
     layout->addWidget(horrorButton);
     layout->addWidget(romanceButton);
     layout->addWidget(comedyButton);
     layout->addWidget(thrillerButton);
+    layout->addWidget(volumeLabel);
     layout->addWidget(volumeLine);
     layout->addWidget(buttonBox);
+
+    this->setMaximumWidth(300);
 
 }
 

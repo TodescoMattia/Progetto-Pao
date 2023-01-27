@@ -1,5 +1,6 @@
 #include "editboardgame.h"
 
+#include <QLabel>
 #include <QVBoxLayout>
 #include <QRadioButton>
 
@@ -7,9 +8,11 @@ EditBoardGame::EditBoardGame(BoardGame* boardGame): EditItem(boardGame), boardGa
 {
     QLayout* layout = this->layout();
 
+    QLabel* playerNumberLabel = new QLabel("Numero Giocatori:");
     playerNumberLine = new QSpinBox();
     playerNumberLine->setValue(boardGame->getPlayerNumber());
 
+    QLabel* genreLabel = new QLabel("Genere:");
     QRadioButton* fantasyButton = new QRadioButton("Fantasy");
     QRadioButton* horrorButton = new QRadioButton("Horror");
     QRadioButton* romanceButton = new QRadioButton("Romance");
@@ -44,7 +47,10 @@ EditBoardGame::EditBoardGame(BoardGame* boardGame): EditItem(boardGame), boardGa
     buttonBox = new QDialogButtonBox();
 
     confirmButton = new QPushButton("Conferma");
+    confirmButton->setObjectName("confirmButton");
+
     cancelButton = new QPushButton("Annulla");
+    cancelButton->setObjectName("cancelButton");
 
     buttonBox->addButton(confirmButton, QDialogButtonBox::AcceptRole);
     buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
@@ -53,13 +59,17 @@ EditBoardGame::EditBoardGame(BoardGame* boardGame): EditItem(boardGame), boardGa
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
 
+    layout->addWidget(playerNumberLabel);
     layout->addWidget(playerNumberLine);
+    layout->addWidget(genreLabel);
     layout->addWidget(fantasyButton);
     layout->addWidget(horrorButton);
     layout->addWidget(romanceButton);
     layout->addWidget(comedyButton);
     layout->addWidget(thrillerButton);
     layout->addWidget(buttonBox);
+
+    this->setMaximumWidth(300);
 }
 
 void EditBoardGame::setBoardGame(){

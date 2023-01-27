@@ -1,5 +1,6 @@
 #include "editvideogame.h"
 
+#include <QLabel>
 #include <QVBoxLayout>
 #include <QRadioButton>
 
@@ -7,6 +8,7 @@ EditVideogame::EditVideogame(Videogame* videogame): EditItem(videogame), videoga
 {
     QLayout* layout = this->layout();
 
+    QLabel* genreLabel = new QLabel("Genere:");
     QRadioButton* fantasyButton = new QRadioButton("Fantasy");
     QRadioButton* horrorButton = new QRadioButton("Horror");
     QRadioButton* romanceButton = new QRadioButton("Romance");
@@ -41,7 +43,10 @@ EditVideogame::EditVideogame(Videogame* videogame): EditItem(videogame), videoga
     buttonBox = new QDialogButtonBox();
 
     confirmButton = new QPushButton("Conferma");
+    confirmButton->setObjectName("confirmButton");
+
     cancelButton = new QPushButton("Annulla");
+    cancelButton->setObjectName("cancelButton");
 
     buttonBox->addButton(confirmButton, QDialogButtonBox::AcceptRole);
     buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
@@ -49,12 +54,15 @@ EditVideogame::EditVideogame(Videogame* videogame): EditItem(videogame), videoga
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(setVideogame()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
+    layout->addWidget(genreLabel);
     layout->addWidget(fantasyButton);
     layout->addWidget(horrorButton);
     layout->addWidget(romanceButton);
     layout->addWidget(comedyButton);
     layout->addWidget(thrillerButton);
     layout->addWidget(buttonBox);
+
+    this->setMaximumWidth(300);
 
 }
 

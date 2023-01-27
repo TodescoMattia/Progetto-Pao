@@ -1,7 +1,6 @@
 #ifndef ADDITEMSELECTOR_H
 #define ADDITEMSELECTOR_H
 
-#include "qwidget.h"
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
