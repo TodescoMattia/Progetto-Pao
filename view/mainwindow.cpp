@@ -40,22 +40,23 @@ void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
     QAction* save = new QAction(
         QIcon(QPixmap(":/assets/icons/save.svg")), "Salva");
 
-    QAction* save_as = new QAction(
+    QAction* saveAs = new QAction(
         QIcon(QPixmap(":/assets/icons/save_as.svg")), "Salva con nome");
 
     file->addAction(load);
     file->addAction(save);
-    file->addAction(save_as);
+    file->addAction(saveAs);
 
     load->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_C));
     save->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
-    save_as->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_S));
+    saveAs->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_S));
 
     connect(load, &QAction::triggered, this, &MainWindow::load);
     connect(save, &QAction::triggered, this, &MainWindow::save);
-    connect(save_as, &QAction::triggered, this, &MainWindow::saveAs);
+    connect(saveAs, &QAction::triggered, this, &MainWindow::saveAs);
 
     MainLayout->addWidget(Menu);
+
 }
 
 void MainWindow::Schermo(QVBoxLayout *MainLayout) {
