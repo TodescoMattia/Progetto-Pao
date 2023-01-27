@@ -11,18 +11,6 @@
 #include <QVBoxLayout>
 
 ListWidget::ListWidget(List<Info *> &lista) : listInfo(lista) {
-  // lista esempio, cancellami
-
-  /*listView.push_front(*(new ListView(new ItemInfo(*(
-      new Book("123AB6", "Fight Club", false, "NomeAutore", 582, Thriller))))));
-  listView.push_front(*(new ListView(new ItemInfo(*(new BookSerie(
-      "111AB6", "Harry Potter", true, "NomeAutore2", 352, Fantasy, 2))))));
-  listView.push_front(*(new ListView(new ItemInfo(*(new Film(
-      "563AB6", "Interstellar", false, "NomeDirettore", 160, Thriller))))));
-  listView.push_front(
-      *(new ListView(new UserInfo(*(new User("Mario", "Bianchi",
-  "3458746715"))))));*/
-
 
     List<Info*>::Iterator start = listInfo.begin();
     List<Info*>::Iterator end = listInfo.end();
