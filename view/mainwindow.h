@@ -23,19 +23,20 @@ class MainWindow : public QWidget {
 private:
     QString path;
     Json * json;
-    QVBoxLayout *MainLayout;
+    QVBoxLayout *mainLayout;
     List<Item *> listItem;
     List<User *> listUser;
     QTabWidget *tabWidget;
 
-    void TabDialogViewer(QVBoxLayout *MainLayout);
-    void BarraDeiMenu(QVBoxLayout *MainLayout);
+    void tabViewer(QVBoxLayout *MainLayout, int index=0);
+    void menuBar(QVBoxLayout *MainLayout);
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 
 public slots:
-    void refreshData();
+    void refreshItem();
+    void refreshUser();
     void save();
     void saveAs();
     void load();

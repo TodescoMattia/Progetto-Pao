@@ -28,13 +28,13 @@ void UserInfo::edit(){
     EditUser * edit= new EditUser(user);
     edit->setModal(true);
     edit->show();
-    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshData()));
+    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshUser()));
 }
 
 void UserInfo::remove(){
     List<User*>::Iterator it = listUser->find_iterator(user);
     listUser->erase(it);
-    mainWindow->refreshData();
+    mainWindow->refreshUser();
 
 }
 

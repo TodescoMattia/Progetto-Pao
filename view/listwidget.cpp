@@ -10,12 +10,10 @@
 
 #include <QVBoxLayout>
 
-ListWidget::ListWidget(List<Info *> &lista) : listInfo(lista) {
+ListWidget::ListWidget(const List<Info*> & lista) : listInfo(lista) {
 
     List<Info*>::Iterator start = listInfo.begin();
     List<Info*>::Iterator end = listInfo.end();
-
-    listView = *(new List<ListView*>());
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);

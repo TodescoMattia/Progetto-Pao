@@ -9,24 +9,22 @@
 #include <QIcon>
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
-  MainLayout = new QVBoxLayout;
 
-  BarraDeiMenu(MainLayout);
+    mainLayout = new QVBoxLayout;
 
-  listItem = *(new List<Item*>());
+    menuBar(mainLayout);
 
-  tabWidget = new QTabWidget();
+    tabWidget = new QTabWidget();
 
-  TabDialogViewer(MainLayout);
+    tabViewer(mainLayout);
 
-  MainLayout->setSpacing(0);
+    mainLayout->setSpacing(0);
+    resize(QSize(1024, 720));
 
-  resize(QSize(1024, 720));
-
-  setLayout(MainLayout);
+    setLayout(mainLayout);
 }
 
-void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
+void MainWindow::menuBar(QVBoxLayout *MainLayout) {
 
     QMenuBar *Menu = new QMenuBar(this);
 
@@ -57,7 +55,7 @@ void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
 
     MainLayout->addWidget(Menu);
 
-    QGroupBox *horizontalGroupBox = new QGroupBox;
+    QGroupBox *horizontalGroupBox = new QGroupBox();
 
     QPushButton* loadButton = new QPushButton(
                 QIcon(QPixmap(":/assets/icons/open.svg")), "Carica");
@@ -86,7 +84,7 @@ void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
 
 }
 
-void MainWindow::TabDialogViewer(QVBoxLayout *MainLayout) {
+void MainWindow::tabViewer(QVBoxLayout *MainLayout, int index) {
 
     QVBoxLayout *tabLayout = new QVBoxLayout;
 
@@ -96,25 +94,22 @@ void MainWindow::TabDialogViewer(QVBoxLayout *MainLayout) {
 
     tabWidget->insertTab(0, itemTab, "&Oggetti");
     tabWidget->insertTab(1, userTab, "&Utenti");
+    tabWidget->setCurrentIndex(index);
 
     tabLayout->addWidget(tabWidget);
 
     MainLayout->addLayout(tabLayout);
 }
 
-void MainWindow::refreshData(){
+
+void MainWindow::refreshItem(){
     tabWidget->clear();
+    this->tabViewer(mainLayout,0);
+}
 
-    List<Item*> listItem2 = List<Item*>(listItem);
-    listItem.clear();
-    listItem = listItem2;
-
-    List<User*> listUser2 = List<User*>(listUser);
-    listUser.clear();
-    listUser = listUser2;
-
-    this->TabDialogViewer(MainLayout);
-
+void MainWindow::refreshUser(){
+    tabWidget->clear();
+    this->tabViewer(mainLayout,1);
 }
 
 void MainWindow::save(){
@@ -160,5 +155,5 @@ void MainWindow::load(){
 
     json->load(path.toStdString(), &listItem, &listUser);
 
-    this->refreshData();
+    this->refreshItem();
 }

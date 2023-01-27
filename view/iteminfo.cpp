@@ -35,6 +35,6 @@ void ItemInfo::edit() {
 void ItemInfo::remove() {
     List<Item*>::Iterator it = listItem->find_iterator(item);
     listItem->erase(it);
-    mainWindow->refreshData();
+    mainWindow->refreshItem();
 }
 

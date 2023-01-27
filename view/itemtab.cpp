@@ -29,7 +29,7 @@ ItemTab::ItemTab(List<Item *>* lista, MainWindow * mainWindow) : listItem(lista)
     List<Item*>::Iterator start = listItem->begin();
     List<Item*>::Iterator end = listItem->end();
 
-    List<Info*> listInfo = *(new List<Info *>);
+    List<Info*> listInfo;
 
     for (start = listItem->begin(), end = listItem->end(); start != end; start++) {
         Info* info= new ItemInfo(*start, listItem, mainWindow);
@@ -125,6 +125,6 @@ void ItemTab::confirm() {
     }
     }
 
-    mainWindow->refreshData();
+    mainWindow->refreshItem();
 
 }

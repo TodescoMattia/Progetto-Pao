@@ -22,35 +22,35 @@ void ItemEditVisitor::visit(Book *book) {
     EditBook * edit= new EditBook(book);
     edit->setModal(true);
     edit->show();
-    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshData()));
+    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshItem()));
 }
 
 void ItemEditVisitor::visit(BookSerie *bookSerie) {
     EditBookSerie * edit= new EditBookSerie(bookSerie);
     edit->setModal(true);
     edit->show();
-    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshData()));
+    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshItem()));
 }
 
 void ItemEditVisitor::visit(Film *film) {
     EditFilm * edit= new EditFilm(film);
     edit->setModal(true);
     edit->show();
-    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshData()));
+    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshItem()));
 }
 
 void ItemEditVisitor::visit(Videogame *videogame) {
     EditVideogame * edit= new EditVideogame(videogame);
     edit->setModal(true);
     edit->show();
-    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshData()));
+    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshItem()));
 }
 
 void ItemEditVisitor::visit(BoardGame *boardGame) {
     EditBoardGame * edit= new EditBoardGame(boardGame);
     edit->setModal(true);
     edit->show();
-    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshData()));
+    QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshItem()));
 }
 
 QWidget *ItemEditVisitor::getWidget() { return widget; }

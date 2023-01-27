@@ -8,7 +8,7 @@
  * - Iterator    //ok
  *      - operator*() con ritorno T&    //ok
  *
- * - const_Iterator     //TODO
+ * - const_Iterator     //ok
  *
  * - size_type (rappresenta la distanza tra due Iteratori)    //TODO
  *
@@ -214,36 +214,18 @@ public:
 
     Iterator operator++(int) {
       Iterator aux(*this);
-      if (ptr != nullptr) {
-        if (!pastTheEnd) {
-          if (ptr->next != nullptr)
-            ptr = ptr->next;
-          else { // ultimo elemento
-            ptr = ptr + 1;
-            pastTheEnd = true;
-          }
-        }
-      }
+      ++(*this);
       return aux;
     }
 
     Iterator operator--(int) {
       Iterator aux(*this);
-      if (ptr != nullptr) {
-        if (ptr->prev == nullptr)
-          ptr = nullptr;
-        else if (!pastTheEnd)
-          ptr = ptr->prev;
-        else {
-          ptr = ptr - 1;
-          pastTheEnd = false;
-        }
-      }
+      --(*this);
       return aux;
     }
 
-    T &operator*() const { return ptr->info; }
-    T *operator->() const { return &(ptr->info); }
+    T &operator*() { return ptr->info; }
+    T *operator->() { return &(ptr->info); }
     bool operator!=(const Iterator &x) const { return ptr != x.ptr; }
     bool operator==(const Iterator &x) const { return ptr == x.ptr; }
   };
@@ -255,7 +237,7 @@ public:
     const Node *ptr;
     bool pastTheEnd;
 
-    CIterator(Node *p, bool pte = false) : ptr(p), pastTheEnd(pte) {}
+    CIterator(const Node *p, bool pte = false) : ptr(p), pastTheEnd(pte) {}
 
   public:
     // Costruttore
@@ -292,31 +274,13 @@ public:
 
     CIterator operator++(int) {
       CIterator aux(*this);
-      if (ptr != nullptr) {
-        if (!pastTheEnd) {
-          if (ptr->next != nullptr)
-            ptr = ptr->next;
-          else { // ultimo elemento
-            ptr = ptr + 1;
-            pastTheEnd = true;
-          }
-        }
-      }
+      ++(*this);
       return aux;
     }
 
     CIterator operator--(int) {
       CIterator aux(*this);
-      if (ptr != nullptr) {
-        if (ptr->prev == nullptr)
-          ptr = nullptr;
-        else if (!pastTheEnd)
-          ptr = ptr->prev;
-        else {
-          ptr = ptr - 1;
-          pastTheEnd = false;
-        }
-      }
+      --(*this);
       return aux;
     }
 
@@ -378,7 +342,7 @@ public:
 
   // metodi ricerca
 
-  bool find_match(const T &t) const {
+  bool contains(const T &t) const {
     for (auto it = this->begin(); it != this->end(); it++) {
       if (*it == t) {
         return true;
@@ -389,8 +353,7 @@ public:
 
   int find_position(const T &t) const {
     int pos = 0;
-    for (auto it = this->begin(); it != this->end(); it++) {
-      pos++;
+    for (auto it = this->begin(); it != this->end(); it++, pos++) {
       if (*it == t) {
         return pos;
       }
@@ -419,41 +382,31 @@ public:
   // metodi lettura
 
   T *get_element(int position) {
-    T *ptr = nullptr;
-    if (position) {
-      bool find = false;
-      for (auto it = this->begin(); it != this->end() && find == false; it++) {
-        if (position == 1) {
-          find = true;
-          ptr = &(*it);
-        }
-        position--;
+    for (auto it = this->begin(); it != this->end(); it++, position--) {
+      if (position == 0) {
+        return &(*it);
       }
     }
-    return ptr;
+    return nullptr;
   }
 
   const T *get_element(int position) const {
-    const T *ptr = nullptr;
-    if (position) {
-      bool find = false;
-      for (auto it = this->begin(); it != this->end() && find == false; it++) {
-        if (position == 1) {
-          find = true;
-          ptr = &(*it);
-        }
-        position--;
+    for (auto it = this->begin(); it != this->end(); it++, position--) {
+      if (position == 0) {
+        return &(*it);
       }
     }
-    return ptr;
-  }
-
-  // PRE: il tipo T deve disporre dell'operator <<
-  void print() const {
-    for (Iterator it = this->begin(); it != this->end(); it++) {
-      std::cout << *it;
-    }
+    return nullptr;
   }
 };
+
+template <class T>
+// PRE: il tipo T deve disporre dell'operator <<
+std::ostream &operator<<(std::ostream &os, const List<T> &list) {
+  for (auto it = list.begin(); it != list.end(); it++) {
+    os << *it;
+  }
+  return os;
+}
 
 #endif

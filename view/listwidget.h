@@ -15,7 +15,7 @@ private:
   List<Info*> listInfo;
 
 public:
-  ListWidget(List<Info*>& lista);
+  ListWidget(const List<Info*> &lista);
 
 };
 #endif // LISTWIDGET_H

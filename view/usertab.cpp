@@ -26,7 +26,7 @@ UserTab::UserTab(List<User *> *lista, MainWindow *mainWindow)
   List<User *>::Iterator start = listUser->begin();
   List<User *>::Iterator end = listUser->end();
 
-  List<Info *> listInfo = *(new List<Info *>);
+  List<Info *> listInfo;
 
   for (start = listUser->begin(), end = listUser->end(); start != end;
        start++) {
@@ -70,5 +70,5 @@ void UserTab::confirm() {
 
   listUser->push_front(new User(name, surname, number));
 
-  mainWindow->refreshData();
+  mainWindow->refreshUser();
 }
