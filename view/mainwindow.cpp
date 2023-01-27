@@ -57,6 +57,33 @@ void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
 
     MainLayout->addWidget(Menu);
 
+    QGroupBox *horizontalGroupBox = new QGroupBox;
+
+    QPushButton* loadButton = new QPushButton(
+                QIcon(QPixmap(":/assets/icons/open.svg")), "Carica");
+
+    connect(loadButton, &QPushButton::clicked, this, &MainWindow::load);
+
+    QPushButton* saveAsButton = new QPushButton(
+                QIcon(QPixmap(":/assets/icons/save.svg")), "Salva");
+
+    connect(saveAsButton, &QPushButton::clicked, this, &MainWindow::saveAs);
+
+    QPushButton* saveButton = new QPushButton(
+                QIcon(QPixmap(":/assets/icons/save_as.svg")), "Salva con nome");
+
+    connect(saveButton, &QPushButton::clicked, this, &MainWindow::save);
+
+    QHBoxLayout *layout = new QHBoxLayout;
+
+    layout->addWidget(loadButton);
+    layout->addWidget(saveAsButton);
+    layout->addWidget(saveButton);
+
+    horizontalGroupBox->setLayout(layout);
+
+    MainLayout->addWidget(horizontalGroupBox);
+
 }
 
 void MainWindow::Schermo(QVBoxLayout *MainLayout) {
