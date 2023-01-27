@@ -1,5 +1,8 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
     <file>assets/stylesheet.qss</file>
+	<file>assets/icons/open.svg</file>
+	<file>assets/icons/save.svg</file>
+	<file>assets/icons/save_as.svg</file>
 </qresource>
 </RCC>
