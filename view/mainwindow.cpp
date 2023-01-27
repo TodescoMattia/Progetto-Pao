@@ -89,8 +89,6 @@ void MainWindow::TabDialogViewer(QVBoxLayout *MainLayout) {
     tabLayout->addWidget(tabWidget);
 
     MainLayout->addLayout(tabLayout);
-
-    connect(itemTab, SIGNAL(reload()), this, SLOT(refreshData()));
 }
 
 void MainWindow::refreshData(){
