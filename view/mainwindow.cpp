@@ -86,25 +86,6 @@ void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
 
 }
 
-void MainWindow::Schermo(QVBoxLayout *MainLayout) {
-    QVBoxLayout *ScreenLayout = new QVBoxLayout;
-
-    QFrame *ItemList = new QFrame;
-
-    QHBoxLayout *ImageLayout = new QHBoxLayout;
-    ImageLayout->addWidget(new QLabel(this));
-
-    ItemList->setStyleSheet("background-color: rgb(50,50,50)");
-    ItemList->setLayout(ImageLayout);
-    ItemList->layout()->setSpacing(0);
-    ItemList->layout()->setAlignment(Qt::AlignCenter);
-    ItemList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    ScreenLayout->addWidget(ItemList);
-    ScreenLayout->setSpacing(0);
-    MainLayout->addLayout(ScreenLayout);
-}
-
 void MainWindow::TabDialogViewer(QVBoxLayout *MainLayout) {
 
     QVBoxLayout *tabLayout = new QVBoxLayout;
@@ -124,8 +105,6 @@ void MainWindow::TabDialogViewer(QVBoxLayout *MainLayout) {
 void MainWindow::refreshData(){
     tabWidget->clear();
 
-    //momentaneo
-
     List<Item*> listItem2 = List<Item*>(listItem);
     listItem.clear();
     listItem = listItem2;
@@ -134,10 +113,8 @@ void MainWindow::refreshData(){
     listUser.clear();
     listUser = listUser2;
 
-
     this->TabDialogViewer(MainLayout);
 
-   //return *this;
 }
 
 void MainWindow::save(){

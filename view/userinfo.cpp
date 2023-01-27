@@ -38,7 +38,3 @@ void UserInfo::remove(){
 
 }
 
-void UserInfo::confirm(){
-
-}
-

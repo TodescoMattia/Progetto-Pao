@@ -38,8 +38,3 @@ void ItemInfo::remove() {
     mainWindow->refreshData();
 }
 
-void ItemInfo::confirm(){
-
-
-
-}

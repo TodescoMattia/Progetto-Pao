@@ -9,6 +9,7 @@
 #include <QWidget>
 
 class UserInfo : public Info {
+
 private:
   User *user;
   List<User*>* listUser;
@@ -25,8 +26,6 @@ public:
   void edit();
   void remove();
 
-public slots:
-  void confirm();
 };
 
 #endif // USERINFO_H

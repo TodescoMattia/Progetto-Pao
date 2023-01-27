@@ -8,8 +8,8 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
-class Json
-{
+class Json{
+
 public:
     Json();
 

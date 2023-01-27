@@ -5,16 +5,14 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QButtonGroup>
-
-QT_BEGIN_NAMESPACE
-class QPushButton;
-class QLabel;
-class QLineEdit;
-class QTextEdit;
-QT_END_NAMESPACE
+#include <QPushButton>
+#include <QLabel>
+#include <QLineEdit>
+#include <QTextEdit>
 
 class AddItemSelector: public QDialog{
-     Q_OBJECT
+    Q_OBJECT
+
 private:
     QVBoxLayout* layout;
     QButtonGroup *selectTypeGroup;
@@ -23,10 +21,8 @@ private:
     QPushButton* cancelButton;
 
 public:
-
     AddItemSelector();
     int getTypeGroup();
-
 };
 
 #endif // ADDITEMSELECTOR_H

@@ -14,6 +14,7 @@
 
 class AddItem: public QDialog{
     Q_OBJECT
+
 private:
     QVBoxLayout *layout;
     AddItemSelector* itemSelector;
@@ -28,18 +29,10 @@ private:
     QSpinBox *durationLine;
     QSpinBox *playerNumberLine;
 
-    QLabel* authorLabel;
-    QLabel* pageNumberLabel;
-    QLabel* genreLabel;
-    QLabel* authorBookSerieLabel;
-    QLabel* volumeNumberLabel;
-    QLabel* directorLabel;
-    QLabel* durationLabel;
-    QLabel* playerNumberLabel;
-
     QDialogButtonBox *buttonBox;
     QPushButton* confirmButton;
     QPushButton* cancelButton;
+
 public:
     AddItem(AddItemSelector* itemSelector);
     QString getId() const;
@@ -53,9 +46,6 @@ public:
     int getDuration() const;
     int getPlayerNumber() const;
     int getSelectedType() const;
-
-signals:
-    void refreshItemTab();
 };
 
 #endif // ADDITEM_H

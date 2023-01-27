@@ -9,7 +9,6 @@
 #include <QButtonGroup>
 
 
-
 class EditBookSerie: public EditItem{
     Q_OBJECT
 private:

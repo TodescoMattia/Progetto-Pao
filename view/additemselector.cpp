@@ -44,8 +44,6 @@ AddItemSelector::AddItemSelector(){
     buttonBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
     cancelButton->setObjectName("cancelButton");
 
-    //connect(selectTypeGroup, SIGNAL(idPressed(int)), this, SLOT(AddItemSelector::enableConfirm(int)));
-
     connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
@@ -54,19 +52,7 @@ AddItemSelector::AddItemSelector(){
 
     this->setFixedSize(250,250);
 
-
-    /*ButtonLayout->addWidget(Salva);
-    ButtonLayout->addWidget(Annulla);
-    ButtonLayout->setSpacing(5);
-    ButtonLayout->setContentsMargins(25, 0, 25, 0);
-
-    mainlayout->addLayout(DropDownMenuLayout);
-    mainlayout->addLayout(ButtonLayout);
-
-
-    setLayout(mainlayout);
-    setMinimumWidth(300);
-    setWindowTitle(tr("Choose your Item"));*/
+    setWindowTitle("Selezione tipo oggetto");
 }
 
 int AddItemSelector::getTypeGroup(){

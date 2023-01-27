@@ -12,6 +12,7 @@
 
 class EditBook: public EditItem{
     Q_OBJECT
+
 private:
     Book* book;
 

@@ -10,6 +10,7 @@
 
 class EditVideogame: public EditItem{
     Q_OBJECT
+
 private:
     Videogame* videogame;
 

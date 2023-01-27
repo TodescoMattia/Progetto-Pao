@@ -9,9 +9,9 @@
 #include <QButtonGroup>
 
 
-
 class EditBoardGame: public EditItem{
     Q_OBJECT
+
 private:
     BoardGame* boardGame;
 

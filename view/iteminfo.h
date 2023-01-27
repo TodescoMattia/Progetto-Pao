@@ -25,8 +25,6 @@ public:
   void edit();
   void remove();
 
-public slots:
-  void confirm();
 };
 
 #endif // ITEMINFO_H

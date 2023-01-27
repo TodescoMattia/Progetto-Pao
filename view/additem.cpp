@@ -11,7 +11,7 @@
 
 AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
 
-    setWindowTitle("Selezione tipo oggetto");
+    setWindowTitle("Nuovo oggetto");
     int type = itemSelector->getTypeGroup();
 
     QLabel* idLabel = new QLabel("ID:");
@@ -109,7 +109,6 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
 
     case 2: //film
     {
-
         QLabel* directorLabel = new QLabel("Regista:");
         QLabel* durationLabel = new QLabel("Durata:");
         QLabel* genreLabel = new QLabel("Genere:");

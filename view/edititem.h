@@ -6,16 +6,14 @@
 #include "../model/item.h"
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QLabel>
+#include <QLineEdit>
+#include <QTextEdit>
 
-QT_BEGIN_NAMESPACE
-class QPushButton;
-class QLabel;
-class QLineEdit;
-class QTextEdit;
-QT_END_NAMESPACE
 
 class EditItem: public QDialog{
      Q_OBJECT
+
 private:
     Item* item;
 

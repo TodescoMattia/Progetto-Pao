@@ -17,6 +17,9 @@ void ItemInfoVisitor::visit(Book *book) {
   QHBoxLayout *infoBook = new QHBoxLayout(widget);
   infoBook->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
+  QLabel *typeLabel = new QLabel ("Tipo: Libro");
+  infoBook->addWidget(typeLabel);
+
   QLabel *authorLabel =
       new QLabel("Autore: " + QString::fromStdString(book->getAuthor()));
   infoBook->addWidget(authorLabel);
@@ -36,6 +39,9 @@ void ItemInfoVisitor::visit(BookSerie *bookSerie) {
 
   QHBoxLayout *infoBookSerie = new QHBoxLayout(widget);
   infoBookSerie->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+  QLabel *typeLabel = new QLabel ("Tipo: Libro di una saga");
+  infoBookSerie->addWidget(typeLabel);
 
   QLabel *authorLabel =
       new QLabel("Autore: " + QString::fromStdString(bookSerie->getAuthor()));
@@ -60,6 +66,9 @@ void ItemInfoVisitor::visit(Film *film) {
   QHBoxLayout *infoFilm = new QHBoxLayout(widget);
   infoFilm->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
+  QLabel *typeLabel = new QLabel ("Tipo: Film");
+  infoFilm->addWidget(typeLabel);
+
   QLabel *directorLabel =
       new QLabel("Regista: " + QString::fromStdString(film->getDirector()));
   infoFilm->addWidget(directorLabel);
@@ -80,6 +89,9 @@ void ItemInfoVisitor::visit(Videogame *videogame) {
   QHBoxLayout *infoVideogame = new QHBoxLayout(widget);
   infoVideogame->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
+  QLabel *typeLabel = new QLabel ("Tipo: Videogame");
+  infoVideogame->addWidget(typeLabel);
+
   QLabel *genreLabel = new QLabel(
       "Genere: " + QString::fromStdString(toString(videogame->getVGameGenre())));
   infoVideogame->addWidget(genreLabel);
@@ -91,6 +103,9 @@ void ItemInfoVisitor::visit(BoardGame *boardGame) {
 
   QHBoxLayout *infoBoardGame = new QHBoxLayout(widget);
   infoBoardGame->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+  QLabel *typeLabel = new QLabel ("Tipo: Gioco da tavolo");
+  infoBoardGame->addWidget(typeLabel);
 
   QLabel *playerLabel = new QLabel(
       "Numero giocatori: " + QString::number(boardGame->getPlayerNumber()));

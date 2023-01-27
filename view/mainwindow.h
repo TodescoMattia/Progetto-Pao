@@ -19,6 +19,7 @@
 
 class MainWindow : public QWidget {
   Q_OBJECT
+
 private:
     QString path;
     Json * json;
@@ -26,7 +27,7 @@ private:
     List<Item *> listItem;
     List<User *> listUser;
     QTabWidget *tabWidget;
-    void Schermo(QVBoxLayout *MainLayout);
+
     void TabDialogViewer(QVBoxLayout *MainLayout);
     void BarraDeiMenu(QVBoxLayout *MainLayout);
 
@@ -38,7 +39,7 @@ public slots:
     void save();
     void saveAs();
     void load();
-signals:
+
 };
 
 #endif // MAINWINDOW_H

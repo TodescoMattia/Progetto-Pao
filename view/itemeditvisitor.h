@@ -7,14 +7,14 @@
 #include "mainwindow.h"
 
 class ItemEditVisitor: public Visitor{
+
 private:
     QWidget* widget;
     MainWindow* mainWindow;
-    //Edit* edit;
+
 public:
     ItemEditVisitor(MainWindow* mainWindow);
     QWidget* getWidget();
-    //Edit* getEdit();
     virtual void visit(Book* book);
     virtual void visit(BookSerie* bookSerie);
     virtual void visit(Film* film);

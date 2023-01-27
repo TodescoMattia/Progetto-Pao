@@ -21,8 +21,6 @@ Json::Json()
 
 }
 
-
-
 void Json::load(std::string path, List<Item*>* items, List<User*>* users){
 
     QString fileData;
