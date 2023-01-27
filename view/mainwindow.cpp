@@ -65,12 +65,12 @@ void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
     connect(loadButton, &QPushButton::clicked, this, &MainWindow::load);
 
     QPushButton* saveAsButton = new QPushButton(
-                QIcon(QPixmap(":/assets/icons/save.svg")), "Salva");
+                QIcon(QPixmap(":/assets/icons/save_as.svg")), "Salva con nome");
 
     connect(saveAsButton, &QPushButton::clicked, this, &MainWindow::saveAs);
 
     QPushButton* saveButton = new QPushButton(
-                QIcon(QPixmap(":/assets/icons/save_as.svg")), "Salva con nome");
+                QIcon(QPixmap(":/assets/icons/save.svg")), "Salva");
 
     connect(saveButton, &QPushButton::clicked, this, &MainWindow::save);
 
