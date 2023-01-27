@@ -1,11 +1,12 @@
 #include "mainwindow.h"
 #include "itemtab.h"
 #include "usertab.h"
-#include "../model/book.h"
-#include "../model/genre.h"
 
 #include <QtWidgets>
+#include <QApplication>
+#include <QAction>
 #include <QFileDialog>
+#include <QIcon>
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
   MainLayout = new QVBoxLayout;
@@ -26,31 +27,63 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
 }
 
 void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
+
     QMenuBar *Menu = new QMenuBar(this);
 
     QMenu *file = new QMenu("File", Menu);
+
     Menu->addMenu(file);
 
-    file->addAction(new QAction("Nuovo", file));
-    file->addAction(new QAction("Importa", file));
-    file->addAction(new QAction("Salva con nome", file));
+    QAction* load = new QAction(
+        QIcon(QPixmap(":/assets/icons/open.svg")), "Carica");
 
-    QPushButton* saveAsButton = new QPushButton("Salva con nome");
-    connect(saveAsButton, &QPushButton::clicked, this, &MainWindow::saveAs);
+    QAction* save = new QAction(
+        QIcon(QPixmap(":/assets/icons/save.svg")), "Salva");
 
-    QPushButton* saveButton = new QPushButton("Salva");
-    connect(saveButton, &QPushButton::clicked, this, &MainWindow::save);
+    QAction* saveAs = new QAction(
+        QIcon(QPixmap(":/assets/icons/save_as.svg")), "Salva con nome");
 
-    QPushButton* loadButton = new QPushButton("Carica");
-    connect(loadButton, &QPushButton::clicked, this, &MainWindow::load);
+    file->addAction(load);
+    file->addAction(save);
+    file->addAction(saveAs);
 
-    MainLayout->addWidget(saveAsButton);
+    load->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_C));
+    save->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
+    saveAs->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_S));
 
-    MainLayout->addWidget(saveButton);
-
-    MainLayout->addWidget(loadButton);
+    connect(load, &QAction::triggered, this, &MainWindow::load);
+    connect(save, &QAction::triggered, this, &MainWindow::save);
+    connect(saveAs, &QAction::triggered, this, &MainWindow::saveAs);
 
     MainLayout->addWidget(Menu);
+
+    QGroupBox *horizontalGroupBox = new QGroupBox;
+
+    QPushButton* loadButton = new QPushButton(
+                QIcon(QPixmap(":/assets/icons/open.svg")), "Carica");
+
+    connect(loadButton, &QPushButton::clicked, this, &MainWindow::load);
+
+    QPushButton* saveAsButton = new QPushButton(
+                QIcon(QPixmap(":/assets/icons/save.svg")), "Salva");
+
+    connect(saveAsButton, &QPushButton::clicked, this, &MainWindow::saveAs);
+
+    QPushButton* saveButton = new QPushButton(
+                QIcon(QPixmap(":/assets/icons/save_as.svg")), "Salva con nome");
+
+    connect(saveButton, &QPushButton::clicked, this, &MainWindow::save);
+
+    QHBoxLayout *layout = new QHBoxLayout;
+
+    layout->addWidget(loadButton);
+    layout->addWidget(saveAsButton);
+    layout->addWidget(saveButton);
+
+    horizontalGroupBox->setLayout(layout);
+
+    MainLayout->addWidget(horizontalGroupBox);
+
 }
 
 void MainWindow::Schermo(QVBoxLayout *MainLayout) {

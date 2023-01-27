@@ -3,12 +3,15 @@
 
 EditUser::EditUser(User *user): user(user){
 
+    QLabel* nameLabel= new QLabel("Nome:");
     nameLine = new QLineEdit();
     nameLine->setText(QString::fromStdString(user->getName()));
 
+    QLabel* surnameLabel= new QLabel("Cognome:");
     surnameLine = new QLineEdit();
     surnameLine->setText(QString::fromStdString(user->getSurname()));
 
+    QLabel* numberLabel= new QLabel("Numero Telefonico:");
     numberLine = new QLineEdit();
     numberLine->setText(QString::fromStdString(user->getNumber()));
 
@@ -25,8 +28,11 @@ EditUser::EditUser(User *user): user(user){
 
 
     QVBoxLayout* layout = new QVBoxLayout(this);
+    layout->addWidget(nameLabel);
     layout->addWidget(nameLine);
+    layout->addWidget(surnameLabel);
     layout->addWidget(surnameLine);
+    layout->addWidget(numberLabel);
     layout->addWidget(numberLine);
     layout->addWidget(buttonBox);
 

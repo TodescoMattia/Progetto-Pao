@@ -9,12 +9,15 @@ AddUser::AddUser()
 {
     setWindowTitle("Nuovo utente");
 
+    QLabel* nameLabel= new QLabel("Nome:");
     nameLine= new QLineEdit();
     nameLine->setPlaceholderText("Inserisci nome");
 
+    QLabel* surnameLabel= new QLabel("Cognome:");
     surnameLine= new QLineEdit();
     surnameLine->setPlaceholderText("Inserisci cognome");
 
+    QLabel* numberLabel= new QLabel("Numero Telefonico:");
     numberLine= new QLineEdit();
     numberLine->setPlaceholderText("Inserisci numero");
 
@@ -30,8 +33,11 @@ AddUser::AddUser()
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
     QFormLayout* form = new QFormLayout(this);
+    form->addRow(nameLabel);
     form->addRow(nameLine);
+    form->addRow(surnameLabel);
     form->addRow(surnameLine);
+    form->addRow(numberLabel);
     form->addRow(numberLine);
     form->addRow(buttonBox);
 
