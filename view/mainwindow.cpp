@@ -3,10 +3,12 @@
 #include "usertab.h"
 
 #include <QtWidgets>
+#include <QApplication>
+#include <QAction>
 #include <QFileDialog>
+#include <QIcon>
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
-
   MainLayout = new QVBoxLayout;
 
   BarraDeiMenu(MainLayout);
@@ -26,26 +28,34 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
 
 void MainWindow::BarraDeiMenu(QVBoxLayout *MainLayout) {
 
-    QGroupBox* buttonGroupBox = new QGroupBox;
+    QMenuBar *Menu = new QMenuBar(this);
 
-    QPushButton* saveAsButton = new QPushButton("Salva con nome");
-    connect(saveAsButton, &QPushButton::clicked, this, &MainWindow::saveAs);
+    QMenu *file = new QMenu("File", Menu);
 
-    QPushButton* saveButton = new QPushButton("Salva");
-    connect(saveButton, &QPushButton::clicked, this, &MainWindow::save);
+    Menu->addMenu(file);
 
-    QPushButton* loadButton = new QPushButton("Carica");
-    connect(loadButton, &QPushButton::clicked, this, &MainWindow::load);
+    QAction* load = new QAction(
+        QIcon(QPixmap(":/assets/icons/open.svg")), "Carica");
 
-        QHBoxLayout *layout = new QHBoxLayout;
+    QAction* save = new QAction(
+        QIcon(QPixmap(":/assets/icons/save.svg")), "Salva");
 
-            layout->addWidget(saveAsButton);
-            layout->addWidget(saveButton);
-            layout->addWidget(loadButton);
+    QAction* save_as = new QAction(
+        QIcon(QPixmap(":/assets/icons/save_as.svg")), "Salva con nome");
 
-    buttonGroupBox->setLayout(layout);
+    file->addAction(load);
+    file->addAction(save);
+    file->addAction(save_as);
 
-    MainLayout->addWidget(buttonGroupBox);
+    load->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_C));
+    save->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
+    save_as->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_S));
+
+    connect(load, &QAction::triggered, this, &MainWindow::load);
+    connect(save, &QAction::triggered, this, &MainWindow::save);
+    connect(save_as, &QAction::triggered, this, &MainWindow::saveAs);
+
+    MainLayout->addWidget(Menu);
 }
 
 void MainWindow::Schermo(QVBoxLayout *MainLayout) {
