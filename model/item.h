@@ -35,7 +35,7 @@ public:
 
   virtual void accept(Visitor &visitor) = 0;
 
-  Item* clone() const override=0;
+  Item* clone() const override = 0;
 
   // Cancellami
 

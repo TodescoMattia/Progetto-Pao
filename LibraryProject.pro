@@ -43,7 +43,6 @@ SOURCES += \
 
 
 HEADERS += \
-    utils/yo.h \
     view/additem.h \
     view/additemselector.h \
     view/adduser.h \
