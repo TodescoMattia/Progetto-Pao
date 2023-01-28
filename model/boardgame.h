@@ -26,6 +26,8 @@ public:
 
   virtual void accept(Visitor &visitor);
 
+  BoardGame * clone() const override;
+
   // Cancellami
 
   void print() const;

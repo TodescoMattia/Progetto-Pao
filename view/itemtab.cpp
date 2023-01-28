@@ -14,7 +14,7 @@
 #include <QScrollArea>
 #include <QVBoxLayout>
 
-ItemTab::ItemTab(List<Item *>* lista, MainWindow * mainWindow) : listItem(lista), mainWindow(mainWindow) {
+ItemTab::ItemTab(List<DeepPtr<Item>>* lista, MainWindow * mainWindow) : listItem(lista), mainWindow(mainWindow) {
 
     QVBoxLayout *vbox = new QVBoxLayout(this);
     vbox->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
@@ -26,13 +26,13 @@ ItemTab::ItemTab(List<Item *>* lista, MainWindow * mainWindow) : listItem(lista)
 
     //Creo Info
 
-    List<Item*>::Iterator start = listItem->begin();
-    List<Item*>::Iterator end = listItem->end();
+    List<DeepPtr<Item>>::Iterator start = listItem->begin();
+    List<DeepPtr<Item>>::Iterator end = listItem->end();
 
-    List<Info*> listInfo;
+    List<DeepPtr<Info>> listInfo;
 
     for (start = listItem->begin(), end = listItem->end(); start != end; start++) {
-        Info* info= new ItemInfo(*start, listItem, mainWindow);
+        ItemInfo info= ItemInfo(*start, listItem, mainWindow);
         listInfo.push_front(info);
     }
 
@@ -85,7 +85,7 @@ void ItemTab::confirm() {
         std::string authorBook = dialog->getAuthor().toStdString();
         int pageNumberBook = dialog->getPageNumber();
         Genre genreBook = toGenre(dialog->getGenre());
-        listItem->push_front(new Book(id, title, isLent, authorBook, pageNumberBook, genreBook));
+        listItem->push_front(Book(id, title, isLent, authorBook, pageNumberBook, genreBook));
 
         break;
     }
@@ -95,7 +95,8 @@ void ItemTab::confirm() {
         int pageNumber = dialog->getPageNumber();
         Genre genreBookSerie = toGenre(dialog->getGenre());
         int volume = dialog->getVolumeNumber();
-        listItem->push_front(new BookSerie(id, title, isLent, authorBookSerie, pageNumber, genreBookSerie, volume));
+       // BookSerie bookSerie
+        listItem->push_front(BookSerie(id, title, isLent, authorBookSerie, pageNumber, genreBookSerie, volume));
 
         break;
     }
@@ -104,7 +105,7 @@ void ItemTab::confirm() {
         std::string director = dialog->getDirector().toStdString();
         int duration = dialog->getDuration();
         Genre genreFilm = toGenre(dialog->getGenre());
-        listItem->push_front(new Film(id, title, isLent, director, duration, genreFilm));
+        listItem->push_front(Film(id, title, isLent, director, duration, genreFilm));
 
         break;
     }
@@ -112,14 +113,14 @@ void ItemTab::confirm() {
 
         Genre genreBoardGame = toGenre(dialog->getGenre());
         int playerNumber = dialog->getPlayerNumber();
-        listItem->push_front(new BoardGame(id, title, isLent, genreBoardGame, playerNumber));
+        listItem->push_front(BoardGame(id, title, isLent, genreBoardGame, playerNumber));
 
         break;
     }
     case 4: {
 
         Genre genreVideogame = toGenre(dialog->getGenre());
-        listItem->push_front(new Videogame(id, title, isLent, genreVideogame));
+        listItem->push_front(Videogame(id, title, isLent, genreVideogame));
 
         break;
     }

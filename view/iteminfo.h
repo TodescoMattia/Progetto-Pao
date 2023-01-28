@@ -3,15 +3,17 @@
 
 #include "../model/item.h"
 #include "info.h"
-#include "../model/list.h"
+#include "../utils/list.h"
 #include "mainwindow.h"
 #include <QLabel>
 #include <QWidget>
+#include "../utils/deepptr.h"
+
 
 class ItemInfo : public Info {
 private:
-  Item *item;
-  List<Item*>* listItem;
+  DeepPtr<Item>& item;
+  List<DeepPtr<Item>>* listItem;
   MainWindow* mainWindow;
 
   QWidget *widget;
@@ -20,10 +22,11 @@ private:
   QLabel *isLentLabel;
 
 public:
-  ItemInfo(Item *item, List<Item*>* listItem, MainWindow * mainWindow);
+  ItemInfo(DeepPtr<Item>& item, List<DeepPtr<Item>>* listItem, MainWindow * mainWindow);
   QWidget *getWidget() const;
   void edit();
   void remove();
+  ItemInfo* clone() const override;
 
 };
 

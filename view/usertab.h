@@ -2,19 +2,20 @@
 #define USERTAB_H
 #include <QWidget>
 #include "listwidget.h"
-#include "../model/list.h"
+#include "../utils/list.h"
 #include "../model/user.h"
 #include "mainwindow.h"
+#include "../utils/deepptr.h"
 
 class UserTab: public QWidget{
     Q_OBJECT
 
 private:
-    List<User*>* listUser;
+    List<DeepPtr<User>>* listUser;
     MainWindow * mainWindow;
 
 public:
-    UserTab(List<User*>* lista, MainWindow * mainWindow);
+    UserTab(List<DeepPtr<User>>* lista, MainWindow * mainWindow);
 
 public slots:
     void createUser();

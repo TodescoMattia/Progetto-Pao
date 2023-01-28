@@ -2,8 +2,9 @@
 #define USER_H
 #include <iostream>
 #include <string>
+#include "../utils/clonable.h"
 
-class User {
+class User: public Clonable {
 private:
   std::string name;
   std::string surname;
@@ -25,6 +26,8 @@ public:
   void setName(std::string newName);
   void setSurname(std::string newSurname);
   void setNumber(std::string newNumber);
+
+  User* clone() const override;
 
   // Cancellami
 

@@ -22,6 +22,11 @@ void Book::setBookGenre(Genre newGenre) { bookGenre = newGenre; }
 
 void Book::accept(Visitor &visitor) { visitor.visit(this); }
 
+Book* Book::clone() const {
+    return new Book(*this);
+}
+
+
 // Cancellami
 
 void Book::print() const { // overriding di Item::print()

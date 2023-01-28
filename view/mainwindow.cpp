@@ -91,7 +91,6 @@ void MainWindow::tabViewer(QVBoxLayout *MainLayout, int index) {
     ItemTab *itemTab = new ItemTab(&listItem, this);
     UserTab *userTab = new UserTab(&listUser, this);
 
-
     tabWidget->insertTab(0, itemTab, "&Oggetti");
     tabWidget->insertTab(1, userTab, "&Utenti");
     tabWidget->setCurrentIndex(index);
@@ -134,7 +133,6 @@ void MainWindow::saveAs(){
     }
 
     path = pathTemp;
-
     json->save(path.toStdString(), &listItem, &listUser);
 }
 
@@ -154,6 +152,5 @@ void MainWindow::load(){
     listUser.clear();
 
     json->load(path.toStdString(), &listItem, &listUser);
-
     this->refreshItem();
 }

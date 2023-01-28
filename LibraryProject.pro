@@ -12,6 +12,7 @@ SOURCES += \
     view/additem.cpp \
     view/additemselector.cpp \
     view/adduser.cpp \
+    utils/clonable.cpp \
     view/editboardgame.cpp \
     view/editbook.cpp \
     view/editbookserie.cpp \
@@ -42,9 +43,12 @@ SOURCES += \
 
 
 HEADERS += \
+    utils/yo.h \
     view/additem.h \
     view/additemselector.h \
     view/adduser.h \
+    utils/clonable.h \
+    utils/deepptr.h \
     view/editboardgame.h \
     view/editbook.h \
     view/editbookserie.h \
@@ -69,7 +73,7 @@ HEADERS += \
     model/book.h \
     model/bookserie.h \
     model/film.h \
-    model/list.h \
+    utils/list.h \
     model/videogame.h \
     model/boardgame.h \
     view/mainwindow.h \

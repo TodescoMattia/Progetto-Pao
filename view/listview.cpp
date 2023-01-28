@@ -1,5 +1,4 @@
 #include "listview.h"
-#include "deleteview.h"
 
 #include <QHBoxLayout>
 #include <QPushButton>

@@ -3,14 +3,15 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include "../utils/clonable.h"
 
-class Info: public QWidget{
-    Q_OBJECT
+class Info: public Clonable{
 
 public:
     virtual QWidget* getWidget() const=0;
     virtual void edit()=0;
     virtual void remove()=0;
+    Info* clone() const override = 0;
 
 };
 

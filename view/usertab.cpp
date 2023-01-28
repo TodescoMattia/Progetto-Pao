@@ -10,7 +10,7 @@
 #include <QScrollArea>
 #include <QVBoxLayout>
 
-UserTab::UserTab(List<User *> *lista, MainWindow *mainWindow)
+UserTab::UserTab(List<DeepPtr<User>> *lista, MainWindow *mainWindow)
     : listUser(lista), mainWindow(mainWindow) {
 
   QVBoxLayout *vbox = new QVBoxLayout(this);
@@ -23,14 +23,14 @@ UserTab::UserTab(List<User *> *lista, MainWindow *mainWindow)
 
   // Creo Info
 
-  List<User *>::Iterator start = listUser->begin();
-  List<User *>::Iterator end = listUser->end();
+  List<DeepPtr<User>>::Iterator start = listUser->begin();
+  List<DeepPtr<User>>::Iterator end = listUser->end();
 
-  List<Info *> listInfo;
+  List<DeepPtr<Info >> listInfo;
 
   for (start = listUser->begin(), end = listUser->end(); start != end;
        start++) {
-    Info *info = new UserInfo(*start, listUser, mainWindow);
+    UserInfo info = UserInfo(*start, listUser, mainWindow);
     listInfo.push_front(info);
   }
 
@@ -68,7 +68,7 @@ void UserTab::confirm() {
   std::string surname = dialog->getSurname().toStdString();
   std::string number = dialog->getNumber().toStdString();
 
-  listUser->push_front(new User(name, surname, number));
+  listUser->push_front(User(name, surname, number));
 
   mainWindow->refreshUser();
 }
