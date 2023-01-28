@@ -23,6 +23,8 @@ public:
 
   virtual void accept(Visitor &visitor);
 
+  BookSerie * clone() const override;
+
   // Cancellami
 
   void print() const;

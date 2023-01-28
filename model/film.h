@@ -29,6 +29,8 @@ public:
 
   virtual void accept(Visitor &visitor);
 
+  Film * clone() const override;
+
   // Cancellami
 
   void print() const;

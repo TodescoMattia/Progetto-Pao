@@ -21,7 +21,7 @@ Json::Json()
 
 }
 
-void Json::load(std::string path, List<Item*>* items, List<User*>* users){
+void Json::load(std::string path, List<DeepPtr<Item>>* items, List<DeepPtr<User>>* users){
 
     QString fileData;
     QFile file;
@@ -37,14 +37,14 @@ void Json::load(std::string path, List<Item*>* items, List<User*>* users){
     loadUser(doc, users);
 
 }
-void Json::save(std::string path, List<Item*>* items, List<User*>* users){
+void Json::save(std::string path, List<DeepPtr<Item>>* items, List<DeepPtr<User>>* users){
 
     QJsonObject fileObj;
 
     if (items) {
 
         QJsonArray itemArray;
-        List<Item*>::Iterator start= items->begin();
+        List<DeepPtr<Item>>::Iterator start= items->begin();
 
         for(start = items->begin(); start!=items->end();start++){
             JsonVisitor visitor;
@@ -59,7 +59,7 @@ void Json::save(std::string path, List<Item*>* items, List<User*>* users){
     if (users) {
 
         QJsonArray userArray;
-        List<User*>::Iterator start= users->begin();
+        List<DeepPtr<User>>::Iterator start= users->begin();
 
         for(start = users->begin(); start!=users->end();start++){
             QJsonObject userObject;
@@ -82,7 +82,7 @@ void Json::save(std::string path, List<Item*>* items, List<User*>* users){
 
 }
 
-void Json::loadItem(QJsonDocument* data, List<Item*>* items){
+void Json::loadItem(QJsonDocument* data, List<DeepPtr<Item>>* items){
 
     QJsonObject dataObj = data->object();
     QJsonArray itemObj =dataObj["Item"].toArray();
@@ -110,7 +110,7 @@ void Json::loadItem(QJsonDocument* data, List<Item*>* items){
     }
 }
 
-void Json::loadUser(QJsonDocument* data, List<User*>* users){
+void Json::loadUser(QJsonDocument* data, List<DeepPtr<User>>* users){
 
     QJsonObject dataObj = data->object();
     QJsonArray userArray = dataObj["User"].toArray();
@@ -120,7 +120,7 @@ void Json::loadUser(QJsonDocument* data, List<User*>* users){
 
         QJsonObject userObj= start->toObject();
 
-        User* user= new User(
+        DeepPtr<User> user= User(
             userObj.value("name").toString().toStdString(),
             userObj.value("surname").toString().toStdString(),
             userObj.value("number").toString().toStdString()
@@ -131,9 +131,9 @@ void Json::loadUser(QJsonDocument* data, List<User*>* users){
 }
 
 
-Item* Json::loadBook(QJsonObject bookObj){
+DeepPtr<Item> Json::loadBook(QJsonObject bookObj){
 
-    Book* book= new Book(
+    DeepPtr<Item> book= Book(
         bookObj.value("id").toString().toStdString(),
         bookObj.value("title").toString().toStdString(),
         bookObj.value("isLent").toBool(),
@@ -144,9 +144,9 @@ Item* Json::loadBook(QJsonObject bookObj){
     return book;
 }
 
-Item* Json::loadBookSerie(QJsonObject bookSerieObj){
+DeepPtr<Item> Json::loadBookSerie(QJsonObject bookSerieObj){
 
-    BookSerie* bookseries= new BookSerie(
+    DeepPtr<Item> bookseries= BookSerie(
         bookSerieObj.value("id").toString().toStdString(),
         bookSerieObj.value("title").toString().toStdString(),
         bookSerieObj.value("isLent").toBool(),
@@ -158,8 +158,8 @@ Item* Json::loadBookSerie(QJsonObject bookSerieObj){
     return bookseries;
 }
 
-Item* Json::loadFilm(QJsonObject filmObj){
-    Film* film= new Film(
+DeepPtr<Item> Json::loadFilm(QJsonObject filmObj){
+    DeepPtr<Item> film= Film(
         filmObj.value("id").toString().toStdString(),
         filmObj.value("title").toString().toStdString(),
         filmObj.value("isLent").toBool(),
@@ -170,8 +170,8 @@ Item* Json::loadFilm(QJsonObject filmObj){
     return film;
 }
 
-Item* Json::loadVideogame(QJsonObject videogameObj){
-    Videogame* videoGame= new Videogame(
+DeepPtr<Item> Json::loadVideogame(QJsonObject videogameObj){
+    DeepPtr<Item> videoGame= Videogame(
         videogameObj.value("id").toString().toStdString(),
         videogameObj.value("title").toString().toStdString(),
         videogameObj.value("isLent").toBool(),
@@ -180,8 +180,8 @@ Item* Json::loadVideogame(QJsonObject videogameObj){
     return videoGame;
 }
 
-Item* Json::loadBoardGame(QJsonObject boardGameObj){
-    BoardGame* boardGame= new BoardGame(
+DeepPtr<Item> Json::loadBoardGame(QJsonObject boardGameObj){
+    DeepPtr<Item> boardGame= BoardGame(
         boardGameObj.value("id").toString().toStdString(),
         boardGameObj.value("title").toString().toStdString(),
         boardGameObj.value("isLent").toBool(),

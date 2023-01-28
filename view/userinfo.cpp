@@ -4,7 +4,7 @@
 #include <QString>
 #include <QVBoxLayout>
 
-UserInfo::UserInfo(User *user, List<User*>* listUser, MainWindow *mainWindow) : user(user), listUser(listUser), mainWindow(mainWindow) {
+UserInfo::UserInfo(DeepPtr<User>& user, List<DeepPtr<User>>* listUser, MainWindow *mainWindow) : user(user), listUser(listUser), mainWindow(mainWindow) {
   widget = new QWidget();
 
   QVBoxLayout *userInfo = new QVBoxLayout(widget);
@@ -25,16 +25,20 @@ UserInfo::UserInfo(User *user, List<User*>* listUser, MainWindow *mainWindow) : 
 QWidget *UserInfo::getWidget() const { return widget; }
 
 void UserInfo::edit(){
-    EditUser * edit= new EditUser(user);
+    EditUser * edit= new EditUser(&*user);
     edit->setModal(true);
     edit->show();
     QObject::connect(edit, SIGNAL(accepted()), mainWindow, SLOT(refreshUser()));
 }
 
 void UserInfo::remove(){
-    List<User*>::Iterator it = listUser->find_iterator(user);
+    List<DeepPtr<User>>::Iterator it = listUser->find_iterator(user);
     listUser->erase(it);
     mainWindow->refreshUser();
 
+}
+
+UserInfo* UserInfo::clone() const {
+    return new UserInfo(*this);
 }
 

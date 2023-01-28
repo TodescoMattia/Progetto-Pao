@@ -3,16 +3,17 @@
 
 #include "../model/user.h"
 #include "info.h"
-#include "../model/list.h"
+#include "../utils/list.h"
 #include "mainwindow.h"
 #include <QLabel>
 #include <QWidget>
+#include "../utils/deepptr.h"
 
 class UserInfo : public Info {
 
 private:
-  User *user;
-  List<User*>* listUser;
+  DeepPtr<User>& user;
+  List<DeepPtr<User>>* listUser;
   MainWindow* mainWindow;
 
   QWidget *widget;
@@ -21,10 +22,11 @@ private:
   QLabel *numberLabel;
 
 public:
-  UserInfo(User *user, List<User*>* listUser, MainWindow *mainWindow);
+  UserInfo(DeepPtr<User>& user, List<DeepPtr<User>>* listUser, MainWindow *mainWindow);
   QWidget *getWidget() const;
   void edit();
   void remove();
+  UserInfo* clone() const override;
 
 };
 

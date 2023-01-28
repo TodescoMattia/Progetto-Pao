@@ -4,7 +4,7 @@
 #include <QString>
 #include <QVBoxLayout>
 
-ItemInfo::ItemInfo(Item *item, List<Item*>* listItem, MainWindow * mainWindow) : item(item), listItem(listItem), mainWindow(mainWindow) {
+ItemInfo::ItemInfo(DeepPtr<Item>& item, List<DeepPtr<Item>>* listItem, MainWindow * mainWindow) : item(item), listItem(listItem), mainWindow(mainWindow) {
     widget = new QWidget();
 
     QVBoxLayout *itemInfo = new QVBoxLayout(widget);
@@ -33,8 +33,12 @@ void ItemInfo::edit() {
 }
 
 void ItemInfo::remove() {
-    List<Item*>::Iterator it = listItem->find_iterator(item);
+    List<DeepPtr<Item>>::Iterator it = listItem->find_iterator(item);
     listItem->erase(it);
     mainWindow->refreshItem();
+}
+
+ItemInfo* ItemInfo::clone() const {
+    return new ItemInfo(*this);
 }
 

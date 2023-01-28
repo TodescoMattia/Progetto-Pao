@@ -29,6 +29,8 @@ int toInt(const Genre &g) {
     return 3;
   case Thriller:
     return 4;
+  default:
+    return 0;
   }
 }
 
@@ -61,5 +63,7 @@ Genre toGenre(int num) {
     return Comedy;
   case 4:
     return Thriller;
+  default:
+    return Fantasy;
   }
 }

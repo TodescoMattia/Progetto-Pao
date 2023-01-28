@@ -4,8 +4,9 @@
 #include <string>
 
 #include "visitor.h"
+#include "../utils/clonable.h"
 
-class Item {
+class Item: public Clonable{
 private:
   std::string id;
   std::string title;
@@ -33,6 +34,8 @@ public:
   void setState(bool newState);
 
   virtual void accept(Visitor &visitor) = 0;
+
+  Item* clone() const override = 0;
 
   // Cancellami
 

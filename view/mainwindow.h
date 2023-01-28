@@ -3,7 +3,7 @@
 
 #include "../model/item.h"
 #include "../model/user.h"
-#include "../model/list.h"
+#include "../utils/list.h"
 #include <QAction>
 #include <QFrame>
 #include <QHBoxLayout>
@@ -16,6 +16,7 @@
 #include <QVBoxLayout>
 #include <QWidget>
 #include "json.h"
+#include "../utils/deepptr.h"
 
 class MainWindow : public QWidget {
   Q_OBJECT
@@ -24,8 +25,8 @@ private:
     QString path;
     Json * json;
     QVBoxLayout *mainLayout;
-    List<Item *> listItem;
-    List<User *> listUser;
+    List<DeepPtr<Item>> listItem;
+    List<DeepPtr<User>> listUser;
     QTabWidget *tabWidget;
 
     void tabViewer(QVBoxLayout *MainLayout, int index=0);
