@@ -3,7 +3,6 @@
 #include <QLineEdit>
 #include <QDialog>
 #include <QDialogButtonBox>
-#include "usertab.h"
 
 class AddUser: public QDialog{
     Q_OBJECT

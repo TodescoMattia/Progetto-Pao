@@ -7,7 +7,6 @@
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QButtonGroup>
-#include <QFormLayout>
 #include <QComboBox>
 #include <QSpinBox>
 #include <QLabel>

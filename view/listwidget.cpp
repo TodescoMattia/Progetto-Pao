@@ -1,12 +1,5 @@
 #include "listwidget.h"
-#include "../model/book.h"
-#include "../model/bookserie.h"
-#include "../model/film.h"
 #include "../utils/list.h"
-#include "../model/user.h"
-#include "adduser.h"
-#include "iteminfo.h"
-#include "userinfo.h"
 
 #include <QVBoxLayout>
 

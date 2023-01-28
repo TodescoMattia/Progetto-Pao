@@ -1,7 +1,6 @@
 #ifndef USERTAB_H
 #define USERTAB_H
 #include <QWidget>
-#include "listwidget.h"
 #include "../utils/list.h"
 #include "../model/user.h"
 #include "mainwindow.h"

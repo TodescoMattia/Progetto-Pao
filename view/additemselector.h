@@ -7,8 +7,7 @@
 #include <QButtonGroup>
 #include <QPushButton>
 #include <QLabel>
-#include <QLineEdit>
-#include <QTextEdit>
+
 
 class AddItemSelector: public QDialog{
     Q_OBJECT

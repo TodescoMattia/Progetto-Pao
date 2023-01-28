@@ -3,7 +3,6 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QVBoxLayout>
-#include <QFormLayout>
 
 EditItem::EditItem(Item* item): item(item)
 {

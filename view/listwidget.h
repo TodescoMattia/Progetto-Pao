@@ -4,7 +4,6 @@
 #include <QDialogButtonBox>
 
 #include "../utils/list.h"
-#include "../model/item.h"
 #include "listview.h"
 #include "../utils/deepptr.h"
 

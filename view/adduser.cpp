@@ -1,6 +1,5 @@
 #include "adduser.h"
-#include "../model/user.h"
-#include "userinfo.h"
+#include <QLabel>
 #include <QFormLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
