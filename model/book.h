@@ -27,7 +27,7 @@ public:
   void setPageNumber(unsigned int newPageNumber);
   void setBookGenre(Genre newGenre);
 
-  virtual void accept(Visitor &visitor);
+  virtual void accept(Visitor &visitor) override;
 
   Book *clone() const override;
 };

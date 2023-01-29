@@ -24,8 +24,8 @@ private:
 public:
   UserInfo(DeepPtr<User>& user, List<DeepPtr<User>>* listUser, MainWindow *mainWindow);
   QWidget *getWidget() const;
-  void edit();
-  void remove();
+  void edit() override;
+  void remove() override;
   UserInfo* clone() const override;
 
 };

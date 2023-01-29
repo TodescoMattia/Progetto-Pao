@@ -24,8 +24,8 @@ private:
 public:
   ItemInfo(DeepPtr<Item>& item, List<DeepPtr<Item>>* listItem, MainWindow * mainWindow);
   QWidget *getWidget() const;
-  void edit();
-  void remove();
+  void edit() override;
+  void remove() override;
   ItemInfo* clone() const override;
 
 };

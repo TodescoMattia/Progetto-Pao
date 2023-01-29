@@ -10,11 +10,11 @@ private:
 
 public:
     QJsonObject getObject() const;
-    void visit(Book* book);
-    void visit(BookSerie* bookserie);
-    void visit(Film* film);
-    void visit(BoardGame* boardgame);
-    void visit(Videogame* videogame);
+    void visit(Book* book) override;
+    void visit(BookSerie* bookserie) override;
+    void visit(Film* film) override;
+    void visit(BoardGame* boardgame) override;
+    void visit(Videogame* videogame) override;
 };
 
 #endif // JSONVISITOR_H

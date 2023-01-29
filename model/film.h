@@ -27,7 +27,7 @@ public:
   void setDuration(unsigned int newDuration);
   void setFilmGenre(Genre newFilmGenre);
 
-  virtual void accept(Visitor &visitor);
+  virtual void accept(Visitor &visitor) override;
 
   Film *clone() const override;
 };

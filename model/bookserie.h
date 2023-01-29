@@ -21,7 +21,7 @@ public:
 
   void setVolumeNumber(unsigned int newVolumeNumber);
 
-  virtual void accept(Visitor &visitor);
+  virtual void accept(Visitor &visitor) override;
 
   BookSerie *clone() const override;
 };

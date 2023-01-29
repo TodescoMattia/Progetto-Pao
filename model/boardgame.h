@@ -24,7 +24,7 @@ public:
   void setBGameGenre(Genre newGameGenre);
   void setPlayerNumber(unsigned int newPlayerNumber);
 
-  virtual void accept(Visitor &visitor);
+  virtual void accept(Visitor &visitor) override;
 
   BoardGame *clone() const override;
 };

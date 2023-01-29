@@ -89,7 +89,7 @@ void ItemInfoVisitor::visit(Videogame *videogame) {
   QHBoxLayout *infoVideogame = new QHBoxLayout(widget);
   infoVideogame->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-  QLabel *typeLabel = new QLabel ("Tipo: Videogame");
+  QLabel *typeLabel = new QLabel ("Tipo: Videogioco");
   infoVideogame->addWidget(typeLabel);
 
   QLabel *genreLabel = new QLabel(

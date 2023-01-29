@@ -21,7 +21,7 @@ public:
 
   void setVGameGenre(Genre newVGameGenre);
 
-  virtual void accept(Visitor &visitor);
+  virtual void accept(Visitor &visitor) override;
 
   Videogame *clone() const override;
 };
