@@ -1,0 +1,107 @@
+{
+    "Item": [
+        {
+            "genre": 1,
+            "id": "56IO74",
+            "isLent": 0,
+            "title": "Alien",
+            "type": "Videogame"
+        },
+        {
+            "genre": 0,
+            "id": "HG56TY",
+            "isLent": 1,
+            "title": "Final Fantasy",
+            "type": "Videogame"
+        },
+        {
+            "genre": 4,
+            "id": "56QSA8",
+            "isLent": 0,
+            "playerNumber": 2,
+            "title": "Cluedo",
+            "type": "BoardGame"
+        },
+        {
+            "genre": 0,
+            "id": "KJ345B",
+            "isLent": 0,
+            "playerNumber": 4,
+            "title": "Dixit",
+            "type": "BoardGame"
+        },
+        {
+            "director": "Adam Shankman",
+            "duration": 94,
+            "genre": 2,
+            "id": "JH34F9",
+            "isLent": 1,
+            "title": "Prima o poi mi sposo",
+            "type": "Film"
+        },
+        {
+            "director": "Sharon Maguire",
+            "duration": 97,
+            "genre": 3,
+            "id": "KJ85PQ",
+            "isLent": 0,
+            "title": "Il diario di Bridget Jones",
+            "type": "Film"
+        },
+        {
+            "author": "J. K. Rowling",
+            "genre": 0,
+            "id": "KJW451",
+            "isLent": 0,
+            "pageNumber": 320,
+            "title": "Harry Potter e la pietra filosofale",
+            "type": "BookSerie",
+            "volumeNumber": 1
+        },
+        {
+            "author": "J. K. Rowling",
+            "genre": 0,
+            "id": "56THW8",
+            "isLent": 0,
+            "pageNumber": 336,
+            "title": "Harry Potter e la camera dei segreti",
+            "type": "BookSerie",
+            "volumeNumber": 2
+        },
+        {
+            "author": "Kristina Ohlsson",
+            "genre": 4,
+            "id": "GW675P",
+            "isLent": true,
+            "pageNumber": 560,
+            "title": "Rischio tempesta",
+            "type": "Book"
+        },
+        {
+            "author": "Erin Doom",
+            "genre": 0,
+            "id": "DGEY85",
+            "isLent": false,
+            "pageNumber": 672,
+            "title": "Fabbricante di lacrime",
+            "type": "Book"
+        }
+    ],
+    "User": [
+        {
+            "name": "Michele",
+            "number": "3451289657",
+            "surname": "Verdi"
+        },
+        {
+            "name": "Mario",
+            "number": "3458261758",
+            "surname": "Rossi"
+        },
+        {
+            "name": "Luigi",
+            "number": "3458596314",
+            "surname": "Bianchi"
+        }
+    ]
+}
