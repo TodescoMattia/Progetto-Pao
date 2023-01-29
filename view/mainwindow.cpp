@@ -137,16 +137,18 @@ void MainWindow::saveAs(){
 }
 
 void MainWindow::load(){
-    path = QFileDialog::getOpenFileName(
+    QString pathTemp = QFileDialog::getOpenFileName(
         this,
         "Creates new Dataset",
         "./",
         "JSON files *.json"
     );
 
-    if (path.isEmpty()) {
+    if (pathTemp.isEmpty()) {
         return;
     }
+
+    path = pathTemp;
 
     listItem.clear();
     listUser.clear();
