@@ -60,6 +60,7 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
         layout->addWidget(authorLine);
 
         pageNumberLine = new QSpinBox();
+        pageNumberLine->setRange(0,99999);
         layout->addWidget(pageNumberLabel);
         layout->addWidget(pageNumberLine);
 
@@ -79,7 +80,7 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
     {
         QLabel* authorBookSerieLabel = new QLabel("Autore:");
         QLabel* pageNumberLabel = new QLabel("Numero Pagine:");
-        QLabel* volumeNumberLabel = new QLabel("Numero Volumi:");
+        QLabel* volumeNumberLabel = new QLabel("Numero Volume:");
         QLabel* genreLabel = new QLabel("Genere:");
 
         authorLine = new QLineEdit();
@@ -88,6 +89,7 @@ AddItem::AddItem(AddItemSelector* itemSelector): itemSelector(itemSelector){
         layout->addWidget(authorLine);
 
         pageNumberLine = new QSpinBox();
+        pageNumberLine->setRange(0,99999);
         layout->addWidget(pageNumberLabel);
         layout->addWidget(pageNumberLine);
 

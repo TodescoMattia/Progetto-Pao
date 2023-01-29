@@ -14,6 +14,7 @@ EditFilm::EditFilm(Film* film): EditItem(film), film(film)
 
     QLabel* durationLabel = new QLabel("Durata:");
     durationLine = new QSpinBox();
+    durationLine->setRange(0,99999);
     durationLine->setValue(film->getDuration());
 
     QLabel* genreLabel = new QLabel("Genere:");

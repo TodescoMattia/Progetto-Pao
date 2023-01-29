@@ -14,6 +14,7 @@ EditBookSerie::EditBookSerie(BookSerie* bookSerie): EditItem(bookSerie), bookSer
 
     QLabel* pageNumberLabel = new QLabel("Numero Pagine:");
     pageNumberLine = new QSpinBox();
+    pageNumberLine->setRange(0,99999);
     pageNumberLine->setValue(bookSerie->getPageNumber());
 
     QLabel* genreLabel = new QLabel("Genere:");
@@ -48,8 +49,9 @@ EditBookSerie::EditBookSerie(BookSerie* bookSerie): EditItem(bookSerie), bookSer
         break;
     }
 
-    QLabel* volumeLabel = new QLabel("Numero Volumi:");
+    QLabel* volumeLabel = new QLabel("Numero Volume:");
     volumeLine = new QSpinBox();
+    volumeLine->setRange(0,99999);
     volumeLine->setValue(bookSerie->getVolumeNumber());
 
     buttonBox = new QDialogButtonBox();

@@ -10,6 +10,7 @@ EditBoardGame::EditBoardGame(BoardGame* boardGame): EditItem(boardGame), boardGa
 
     QLabel* playerNumberLabel = new QLabel("Numero Giocatori:");
     playerNumberLine = new QSpinBox();
+    playerNumberLine->setRange(0,99999);
     playerNumberLine->setValue(boardGame->getPlayerNumber());
 
     QLabel* genreLabel = new QLabel("Genere:");

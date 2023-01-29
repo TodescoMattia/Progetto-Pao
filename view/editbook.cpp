@@ -14,6 +14,7 @@ EditBook::EditBook(Book* book): EditItem(book), book(book)
 
     QLabel* pageNumberLabel = new QLabel("Numero Pagine:");
     pageNumberLine = new QSpinBox();
+    pageNumberLine->setRange(0,99999);
     pageNumberLine->setValue(book->getPageNumber());
 
     QLabel* genreLabel = new QLabel("Genere:");
