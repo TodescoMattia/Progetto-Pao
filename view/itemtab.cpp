@@ -95,7 +95,6 @@ void ItemTab::confirm() {
         int pageNumber = dialog->getPageNumber();
         Genre genreBookSerie = toGenre(dialog->getGenre());
         int volume = dialog->getVolumeNumber();
-       // BookSerie bookSerie
         listItem->push_front(BookSerie(id, title, isLent, authorBookSerie, pageNumber, genreBookSerie, volume));
 
         break;
