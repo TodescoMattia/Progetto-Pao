@@ -19,14 +19,4 @@ void BookSerie::setVolumeNumber(unsigned int newVolumeNumber) {
 
 void BookSerie::accept(Visitor &visitor) { visitor.visit(this); }
 
-BookSerie* BookSerie::clone() const {
-    return new BookSerie(*this);
-}
-
-
-// Cancellami
-
-void BookSerie::print() const {
-  Book::print();
-  std::cout << volumeNumber;
-}
+BookSerie *BookSerie::clone() const { return new BookSerie(*this); }

@@ -21,10 +21,6 @@ void Item::setId(std::string newId) { id = newId; }
 void Item::setTitle(std::string newTitle) { title = newTitle; }
 void Item::setState(bool newState) { isLent = newState; }
 
-// Cancellami
-
-void Item::print() const { std::cout << id << title << isLent; }
-
 std::string toString(const bool &state) {
   if (state)
     return "In prestito";

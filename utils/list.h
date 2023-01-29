@@ -2,61 +2,6 @@
 #define LIST_H
 #include <iostream>
 
-/* DA CANCELLARE ALLA FINE
- * - costruttore    //ok
- *
- * - Iterator    //ok
- *      - operator*() con ritorno T&    //ok
- *
- * - const_Iterator     //ok
- *
- * - size_type (rappresenta la distanza tra due Iteratori)    //TODO
- *
- * - List(const T &t) {} costruttore di copia    //ok
- *
- * - T& operator=(const T&) ridefinizione assegnazione    //ok
- *
- * - ~List    //ok
- *
- * - bool empty     //ok
- *
- * - size_type size() ritorna la dimensione del contenitore    //TODO
- * - size_type max size() ritorna la massima dimensione del contenitore //TODO
- *
- * - operator==    //ok
- * - operator<    //TODO
- *
- * - Iterator begin()    //ok
- * - Iterator end()    //ok
- *
- * - Iterator& operator++()    //ok
- * - Iterator& operator++(int)    //ok
- *
- * - Iterator& operator--()    //ok
- * - Iterator& operator--(int)    //ok
- *
- * - List(n,t) contenitore con n copie di t    //TODO
- * - List(n) contenitore con n elementi di default    //TODO
- *
- * - insert(x,t) inserisce t nel posto x,
- * ritorna l'Iteratore all'elemento inserito    //TODO
- * - insert(it, n, t) inserisce n copie di t nelle posizioni prima di it //TODO
- *
- * - erase(it)  rimuove l'elemento puntato da it    //ok
- * - erase(it, it) distrugge l'intervallo tra i due it e
- * ritorna l'it successivo      //TODO
- *
- * - clear() rimuove tutti gli elementi    //ok
- *
- * - push_back(t) inserisce in coda    //ok
- * - push_front(t) inserisce in testa    //ok
- *
- * - pop_back() rimuove in coda    //ok
- * - pop_front() rimuove in testa    //ok
- *
-
-*/
-
 template <class T> class List {
 private:
   class Node {

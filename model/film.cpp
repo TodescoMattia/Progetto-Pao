@@ -20,14 +20,4 @@ void Film::setFilmGenre(Genre newFilmGenre) { filmGenre = newFilmGenre; }
 
 void Film::accept(Visitor &visitor) { visitor.visit(this); }
 
-
-Film* Film::clone() const {
-    return new Film(*this);
-}
-
-// Cancellami
-
-void Film::print() const {
-  Item::print();
-  std::cout << director << duration << filmGenre;
-}
+Film *Film::clone() const { return new Film(*this); }

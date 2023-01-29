@@ -19,14 +19,4 @@ void BoardGame::setPlayerNumber(unsigned int newPlayerNumber) {
 
 void BoardGame::accept(Visitor &visitor) { visitor.visit(this); }
 
-BoardGame* BoardGame::clone() const {
-    return new BoardGame(*this);
-}
-
-
-// Cancellami
-
-void BoardGame::print() const {
-  Item::print();
-  std::cout << bgameGenre << playerNumber;
-}
+BoardGame *BoardGame::clone() const { return new BoardGame(*this); }

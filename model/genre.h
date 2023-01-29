@@ -12,5 +12,3 @@ std::ostream &operator<<(std::ostream &os, const Genre &g);
 
 Genre toGenre(int num = 0);
 #endif
-
-// overloading operatore di =?

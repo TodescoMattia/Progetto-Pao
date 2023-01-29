@@ -22,14 +22,4 @@ void Book::setBookGenre(Genre newGenre) { bookGenre = newGenre; }
 
 void Book::accept(Visitor &visitor) { visitor.visit(this); }
 
-Book* Book::clone() const {
-    return new Book(*this);
-}
-
-
-// Cancellami
-
-void Book::print() const { // overriding di Item::print()
-  Item::print();           // invocazione statica di Item::print()
-  std::cout << author << pageNumber << bookGenre;
-}
+Book *Book::clone() const { return new Book(*this); }

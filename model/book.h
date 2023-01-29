@@ -29,11 +29,7 @@ public:
 
   virtual void accept(Visitor &visitor);
 
-  Book* clone() const override;
-
-  // Cancellami
-
-  virtual void print() const; // overriding di Item::print()
+  Book *clone() const override;
 };
 
 #endif

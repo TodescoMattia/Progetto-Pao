@@ -3,10 +3,10 @@
 #include <iostream>
 #include <string>
 
-#include "visitor.h"
 #include "../utils/clonable.h"
+#include "visitor.h"
 
-class Item: public Clonable{
+class Item : public Clonable {
 private:
   std::string id;
   std::string title;
@@ -35,11 +35,7 @@ public:
 
   virtual void accept(Visitor &visitor) = 0;
 
-  Item* clone() const override = 0;
-
-  // Cancellami
-
-  virtual void print() const; // metodo virtuale
+  Item *clone() const override = 0;
 };
 
 std::string toString(const bool &state);

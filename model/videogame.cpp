@@ -17,14 +17,4 @@ void Videogame::setVGameGenre(Genre newVGameGenre) {
 
 void Videogame::accept(Visitor &visitor) { visitor.visit(this); }
 
-Videogame* Videogame::clone() const {
-    return new Videogame(*this);
-}
-
-
-// Cancellami
-
-void Videogame::print() const {
-  Item::print();
-  std::cout << vgameGenre;
-}
+Videogame *Videogame::clone() const { return new Videogame(*this); }

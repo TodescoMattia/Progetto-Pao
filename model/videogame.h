@@ -23,11 +23,7 @@ public:
 
   virtual void accept(Visitor &visitor);
 
-  Videogame * clone() const override;
-
-  // Cancellami
-
-  void print() const;
+  Videogame *clone() const override;
 };
 
 #endif

@@ -17,14 +17,4 @@ void User::setName(std::string newName) { name = newName; }
 void User::setSurname(std::string newSurname) { surname = newSurname; }
 void User::setNumber(std::string newNumber) { number = newNumber; }
 
-User* User::clone() const {
-    return new User(*this);
-}
-
-
-// Cancellami
-
-void User::print() const {
-  std::cout << name;
-  std::cout << surname;
-}
+User *User::clone() const { return new User(*this); }
